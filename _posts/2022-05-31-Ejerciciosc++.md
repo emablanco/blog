@@ -129,9 +129,9 @@ atletas extraerMejor(vector <atletas> &carrera){
         
     }
 
-    swap (carrera[index], carrera[carrera.size()-1]);
-
     eliminar = carrera[index];
+    
+    swap (carrera[index], carrera[carrera.size()-1]);
     
     carrera.pop_back();
 
@@ -239,6 +239,127 @@ void ganadorPais(vector <atletas> &c, atletas ganador){
             
         }
         
+    }
+}
+
+```
+
+
+## Ejercicio 2 
+
+a) Escriba una función frecuencias(…) que reciba dos vectores de enteros v1 y
+v2 de igual tamaño. La función debe calcular la frecuencia (cuántas veces se repite) de cada
+elemento de v1 en el mismo vector v1. Las frecuencias de los elementos de v1 conformarán el
+arreglo v2. Es decir, el i-ésimo elemento de v2 deberá decir cuántas veces se repite el i-ésimo
+elemento de v1.
+
+b) Escriba una función mayor_frecuencia(…) que utilizando el vector modificado por frecuencias()
+retorne el valor que más se repite en el mismo. Por ejemplo, si el primer arreglo es {1,5,1,9,8,9,9,12},
+la función frecuencias retornará {2,1,2,3,1,3,3,1} (el 1 está 2 veces, el 9 está 3 veces, los demás solo
+una vez), la función mayor_frecuencia deberá retornar 9.
+
+c) Escriba un programa cliente que utilice ambas funciones.
+
+```c++
+
+#include <iostream>
+
+#include <vector>
+
+using namespace std;
+
+void cargarDatos(vector <int> &, vector <int> &);
+
+
+void frecuencia(vector <int> &, vector <int> &);
+
+
+void mayorFrecuencia(vector <int> &, vector <int> &);
+
+
+int main(){
+    
+    vector <int> v1;
+    vector <int> v2;
+
+    cargarDatos(v1,v2);
+    frecuencia(v1,v2);
+
+    mayorFrecuencia(v1,v2);
+    
+    return 0;
+}
+
+void cargarDatos(vector <int> &v1, vector <int> &v2){
+
+    int n;
+    
+    cout <<"Cantidad de elementos para el vector: ";cin>>n;
+    
+    v1.resize(n);
+    v2.resize(n); 
+    
+    for (size_t i = 0 ; i < v1.size(); i++){
+    
+        v1[i] = rand() % (20 - 1) + 1;
+    }
+    
+    for (size_t i = 0; i < v2.size(); i++){
+        
+        v2[i] = 0;
+    }
+
+    
+}
+
+
+void frecuencia(vector <int> &v1, vector <int> &v2){
+
+    for (size_t i = 0; i < v1.size(); i++){
+
+        for (size_t e = 0; e < v1.size(); e++){
+
+            if (v1[e] == v1[i]){
+                
+                v2[i] += 1;
+
+            }
+        }
+    }
+
+    for (size_t i = 0 ; i < v1.size(); i++){
+
+        cout<<v1[i] << " = "<<v2[i]<<endl;
+    }
+}
+
+
+void mayorFrecuencia(vector <int> &v1, vector <int> &v2){
+    
+    
+    for (size_t i = 0; i < v2.size(); i++){
+        
+        for (size_t e = 0; e < v2.size(); ++e){
+
+            if (v2[i] > v2[e]){
+                
+                swap(v1[i],v1[e]);
+                swap(v2[i],v2[e]);
+            }
+        } 
+    }
+
+    cout<<endl;
+    cout <<v1[0] <<" = "<<v2[0];
+    
+    for (size_t i = 0; i < v2.size(); ++i){
+        
+        if (v2[i] == v2[0] and v1[i] != v1[0]){
+            
+            cout<<endl;
+
+            cout << v1[i]<<" = "<<v2[i];
+        }
     }
 }
 
