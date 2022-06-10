@@ -1,9 +1,9 @@
 ---
 layout: single
 
-title: python - opencv 
+title: Escanear Red Local python - bash 
 
-excerpt: "**Escanear RED LOCAL**
+excerpt: "**ScanHost**
 
 Herramientas echas en python y bash que permitiran detectar todos los host
 conectados a la misma red local. Estas herramientas no hacen mucho ruido en la red
