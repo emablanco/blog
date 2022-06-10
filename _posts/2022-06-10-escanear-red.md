@@ -1,7 +1,7 @@
 ---
 layout: single
 
-title: Escanear Red Local python - bash 
+title: Escanear Red Local  
 
 excerpt: "**ScanHost**
 
@@ -30,7 +30,7 @@ categories:
 
 tags:  
 
-- scanHost
+- ScanHost
 ---
 
 ![](/assets/images/scanHost/python.jpg)
