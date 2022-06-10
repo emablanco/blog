@@ -80,14 +80,13 @@ import sys
 #para ejecutar procesos desde python . 
 import subprocess
 
-#en caso del que el tamaño sea superior oinferior a dos
-#es porque puso menos argumentos o demaciados
+#solo se permiten dos argumentos, el nombre la herramienta y la IP
+
 if len(sys.argv) != 2:
 
     print("[Uso] python3 {} <ip-address>".format(sys.argv[0]))
 
-#Entra al if porque uso mal la erramienta y con sys.exit(1)
-#corto la ejecucion.
+#termino la ejecucion.
     sys.exit(1)
 
 def get_ttl(ip):
@@ -99,7 +98,7 @@ def get_ttl(ip):
     #ejecutor el proceso llamado ping y lo almaceno en una tupla dentro de ttl
     ttl = ping.communicate()
 
-    #busco dentro de la tupla el ttl y lo returno en formato entero
+    #busco dentro de la tupla el ttl y lo retorno como un numero entero
     ttl = int(re.findall(r'\d{1,3}',re.findall(r'ttl=\d{1,3}',\
             ttl[0].decode('utf-8'))[0])[0]) 
 
@@ -120,8 +119,7 @@ def get_os(ttl):
 
 if __name__ == '__main__':
 
-    #la primera posicion es el nombre de la herramienta el segundo es la ip
-    #tomo la ip y la almaceno en una variable
+    #la primera posicion es el nombre de la herramienta y el segundo es la ip
     ip = sys.argv[1]
 
     ttl = get_ttl(ip)
