@@ -7,7 +7,7 @@ excerpt: "**Escanear RED LOCAL**
 
 Herramientas echas en python y bash que permitiran detectar todos los host
 conectados a la misma red local. Estas herramientas no hacen mucho ruido en la red
-lo que nos evitaria que un IDS/IPS aplicara alguna politica sobre buestro host.
+lo que nos evitaria que un IDS/IPS aplicara alguna politica sobre buestro host."
 
 
 
