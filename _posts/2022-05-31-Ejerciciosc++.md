@@ -430,7 +430,7 @@ void cargarDatos(vector <as> &copia){
 
     for(int i = 0; i < copia.size() ; i++){
         
-        as datos , datos2;
+        as datos;
 
         cout <<"Nombre: ";cin>>datos.nombre;
         cout <<"Apellido: "; cin>>datos.apellido;
@@ -444,8 +444,7 @@ void cargarDatos(vector <as> &copia){
                 cout <<"Nota: ";cin>>datos.materias[e].nota;
             
             }
-    datos2 = datos;
-    copia.push_back(datos2);
+    copia.push_back(datos);
 
 
 
