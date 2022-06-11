@@ -49,11 +49,6 @@ segundo, 11 puntos al tercero, 8 puntos al cuarto y 5 puntos al quinto. Utilice 
 prueba y 0 si debió abandonar. En caso de empate entre dos o más países, solo debe informarlo con
 un mensaje alusivo."
 
-
-
-
-
-
 ```c++
 
 #include <iostream>
@@ -362,5 +357,174 @@ void mayorFrecuencia(vector <int> &v1, vector <int> &v2){
         }
     }
 }
+
+```
+## Ejercicio 3
+
+Se dispone de la siguiente información de cada alumno de la carrera “Analista de
+sistemas”: apellido, nombres, edad, DNI, los nombres de las materias rendidas y las correspondientes
+calificaciones (para simplificar el problema solo se considera la última calificación lograda por el alumno)
+La carrera tiene 30 materias. Escriba un programa C++ que permita cargar los datos de N estudiantes
+en un vector. El programa debe:
+a) Leer los datos de un conjunto de N alumnos y guardarlos en un vector.
+b) Definir la función alumnos_habilitados_pasantia() que retorne los datos de los candidatos titular y
+suplente a una pasantía que ofrece la universidad. El candidato titular es el estudiante de mejor
+promedio y el suplente, quien tiene 2do mejor promedio. Si los promedios del titular y del suplente son
+iguales, considerar titular al de mayor cantidad de materias aprobadas. Invocar la función desde el
+programa cliente e informar los datos de los 2 alumnos seleccionados.
+c) Generar un nuevo vector con los alumnos con más de 20 materias aprobadas y promedio superior a
+7.5. Mostrar del nuevo vector los apellidos, nombres y dni de cada alumno.
+
+
+```c++
+
+#include <iostream>
+#include <vector>
+#include <tuple>
+
+using namespace std;
+
+struct cursadas{
+    
+    string materia;
+    
+    int nota;
+
+};
+
+struct as{
+    string nombre, apellido;
+    int edad , dni;
+    vector <cursadas> materias;
+};
+
+void cargarDatos(vector <as> &);
+
+tuple <as,as> pasantia(vector <as>);
+
+void alumnosMaterias(vector <as>& n, vector <as> alumnos);
+
+int main(){
+
+    vector <as> alumnos(30);
+    
+    cargarDatos(alumnos);
+    
+    as primero, segundo;
+    
+    tie(primero,segundo) = pasantia(alumnos);
+    
+    cout <<"1° Pasantia: "<<primero.nombre<<endl;
+    cout <<"2° Pasantia: "<<segundo.nombre<<endl;
+    vector <as> mejores;
+    
+    alumnosMaterias(mejores,alumnos);
+    
+    return 0;
+}
+void cargarDatos(vector <as> &copia){
+    
+    int n;
+    cout <<"Cantidad de alumnos: ";cin>>n;
+    copia.resize(n);
+
+    for(int i = 0; i < copia.size() ; i++){
+        
+        as datos , datos2;
+
+        cout <<"Nombre: ";cin>>datos.nombre;
+        cout <<"Apellido: "; cin>>datos.apellido;
+        cout <<"Edad: ";cin>>datos.edad;
+        cout <<"Dni: ";cin>>datos.dni;
+        datos.materias.resize(30);
+        
+            for(int e = 0 ; e < 30; e++){
+            
+                cout <<"Materia: ";cin>>datos.materias[e].materia;
+                cout <<"Nota: ";cin>>datos.materias[e].nota;
+            
+            }
+    datos2 = datos;
+    copia.push_back(datos2);
+
+
+
+    }    
+
+       
+}
+
+tuple <as,as> pasantia(vector <as> n){
+    
+    vector <as> datos(2);
+    
+    for (int i = 0; i < 2; i++){
+        
+        int promedio1 = 0, promedio2 = 0;
+        
+        for (int pro = 0 ; pro < 30 ; pro++){
+            
+            promedio1 += n[i].materias[pro].nota;
+        
+        }
+        
+        datos[i] = n[i];
+
+        promedio1 /= 30;
+    
+        for (int e = i + 1; e < 30; e++){
+            
+            for (int pro2 = 0 ; pro2 < 30 ; pro2++){
+            
+                promedio2 += n[e].materias[pro2].nota;
+
+            }
+        
+            promedio2 /= 30;
+
+            if (promedio2 > promedio1){
+            
+                datos[i] = n[e];
+                
+                promedio1 = promedio2;
+            
+            }
+        
+        }
+    }
+
+    return make_tuple(datos[0],datos[1]);    
+ 
+}
+void alumnosMaterias(vector <as>& n, vector <as> alumnos){
+    
+    int index = 0;
+    
+    for (size_t i = 0; i < alumnos.size(); i++){
+        
+        int promedio = 0 , materias = 0;
+    
+        for (size_t e  =0 ; e < alumnos[i].materias.size();e++){
+            
+            promedio += alumnos[i].materias[e].nota;
+        
+            if (alumnos[i].materias[e].nota >= 6){
+            
+                materias++;
+            
+            }
+        }
+        promedio /= 30;
+
+        if (promedio >= 50 and materias >= 20){
+            
+            as dato;
+            dato = alumnos[i];
+            n.push_back(dato);
+        }
+
+    }
+
+} 
 
 ```
