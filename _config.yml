@@ -16,14 +16,13 @@ minimal_mistakes_skin    : "haxor" # "air", "aqua", "contrast", "dark", "dirt", 
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Ema"
+title                    : "H4akEm4 | Administracion GNU/Linux y Programacion"
 title_separator          : "-"
 name                     : "Ema"
 description              : "Linux y Programacion"
-url                      : "emablanco.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-#url                      : "https://snowscan.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://emablanco.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "slemire/slemire.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "emablanco/emablanco.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 logo                     : "/assets/images/logo10.png"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 breadcrumbs              : true # true, false (default)
@@ -79,7 +78,7 @@ naver_site_verification  :
 
 # Social Sharing
 twitter:
-  username               :  "EmaBianco1948"
+  username               :  
 facebook:
   username               :  
   app_id                 :
