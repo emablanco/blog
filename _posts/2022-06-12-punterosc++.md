@@ -1,35 +1,24 @@
 ---
 layout: single
 title: Punteros C++
-excerpt: "**¿Qué es Lorem Ipsum?**
-Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos 
-de texto. Lorem Ipsum ha sido el texto de relleno estándar de las 
-industrias desde el año 1500, cuando un impresor (N. del T. persona que se 
-dedica a la imprenta) desconocido usó una galería de textos y los mezcló de 
-tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 
-500 años, sino que tambien ingresó como texto de relleno en documentos 
-electrónicos, quedando esencialmente igual al original. Fue popularizado 
-en los 60s con la creación de las hojas "Letraset", las cuales contenian
-pasajes de Lorem Ipsum, y más recientemente con software de autoedición, 
-como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum."
+excerpt: "**Punteros**
 
-date: 2022-05-29
+Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum."
+
+date: 2022-06-12
 classes: wide
 header:
   teaser: /assets/images/EjerciciosC++/c++.png
   teaser_home_page: true
   icon: /assets/images/logofairy.png
 categories:
-  - Punteros C++ 
+  - Punteros C++
 tags:  
   - c++
 ---
 
-![](/assets/images/bomba/fork.jpg)                                          
+![](/assets/images/EjerciciosC++/Ejercicio1.png )
 
-
-
-## Lista Ordenada
 
 ```c++
 
