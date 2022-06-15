@@ -16,7 +16,7 @@ tags:
   - c++
 ---
 
-![](/assets/images/EjerciciosC++/c++.png )
+![](/assets/images/EjerciciosC++/ListasSimplementeEnlazadas.jpg)
 
 
 ##  Practica de lista Enlazadas 
