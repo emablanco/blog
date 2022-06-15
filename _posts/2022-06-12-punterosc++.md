@@ -13,7 +13,7 @@ listas circulares, los grafos, y los árboles.
 Mediante este ejemplo se puede entender como funciona la memoria a bajo nivel,
 qué son los nodos, cómo se crean y cómo se accede a los datos de un nodo, 
 cómo almacenar datos en una lista, cómo definir una lista , cómo recorrer una lista,
-cómo buscar un elemento en una lista.
+cómo buscar un elemento en una lista."
 
 date: 2022-06-12
 classes: wide
