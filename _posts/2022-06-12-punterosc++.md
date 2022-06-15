@@ -25,170 +25,240 @@ tags:
 Lorem ipsum dolor sit amet consecteyytur adipiscing elit, ligula non aenean vestibulum nunc praesent cras duis, eget sociosqu augue class magnis mattis. Semper magna nibh nisi sem posuere torquent senectus duis in, blandit nec et fusce magnis nisl cubilia mus massa lacinia, nam quisque velit eget euismod enim ultrices metus. Cras nam neque ultrices natoque eu integer egestas facilisi est, tempus sapien parturient ornare scelerisque molestie nec lacus condimentum iaculis, at torquent curae tortor nisl bibendum ad netus."
 
 ```c++
+
 #include <iostream>
 
 using namespace std;
 
-struct  datos{
+struct datos {
 
     int num;
 
     datos * siguiente;
+
 };
 
-datos * insertarOrden(datos * inicio , int elemento){
+datos * cargarDatos(datos * inicio, int numero);
+
+datos * cargarDatosAlFinal(datos * inicio, int numero);
+
+datos * cargarDatosOrdenados(datos * inicio , int numero);
+
+datos * ordenarDatosMayorMenor(datos * inicio);
+
+datos * eliminarElemento(datos * inicio , int elemento);
+
+void imprimirLista(datos * inicio);
+
+int main(){
+
+    datos * test1 = nullptr;
+    datos * test2 = nullptr;
+    datos * lista = nullptr;
+
+    int elementos;
+
+    cout <<"Cuntos Numeros vas a ingresar: ";cin>>elementos;
+    
+    for (int i = 0 ; i < elementos ; i++){
+        
+        int n;
+        
+        cout << "Ingresar Numero: ";cin>>n;
+
+        test1 = cargarDatos(test1 , n);
+    }
+    
+    cout <<"Datos cargados en orden inverso "<<endl;
+
+    imprimirLista(test1);
+ 
+    for (int i = 0 ; i < elementos ; i++){
+        
+        int n;
+        
+        cout << "Ingresar Numero: ";cin>>n;
+
+        test2 = cargarDatosAlFinal(test2 , n);
+    }
+    
+    cout <<"Datos cargados en orden de llegada "<<endl;
+
+    imprimirLista(test2);
+ 
+    cout <<"Ingresar numeros aleatorios: "<<endl; 
+    
+    for (int i = 0 ; i < elementos ; i++){
+        
+        int n;
+        
+        cout << "Ingresar Numero: ";cin>>n;
+
+        lista = cargarDatosOrdenados(lista , n);
+    }
+    
+    cout <<"Datos Ordenados de Menor a Mayor"<<endl;
+
+    imprimirLista(lista);
+
+    cout <<"Ordenados de Mayor a Menor"<<endl;
+
+    lista = ordenarDatosMayorMenor(lista);
+    
+    imprimirLista(lista);
+
+    int eliminar;
+
+    cout <<"Elemento a eliminarElemento: ";cin>>eliminar;
+
+    lista = eliminarElemento(lista, eliminar);
+
+    imprimirLista(lista);
+
+    return 0;
+}
+
+datos * cargarDatos(datos * inicio, int numero){
 
     datos * nuevo = new datos;
 
-    nuevo -> num = elemento;
+    nuevo -> num = numero;
+
+    nuevo -> siguiente = inicio;
+
+    return nuevo;
+}
+datos * cargarDatosAlFinal(datos * inicio, int numero){
+
+    datos * nuevo = new datos;
+
+    nuevo -> num = numero;
 
     nuevo -> siguiente = nullptr;
 
-    if (inicio == nullptr || elemento < inicio -> num){
+    if (inicio == nullptr){
+
+        inicio = nuevo;
+    }
+    else{
+
+        datos * aux = inicio;
+        
+        while(aux -> siguiente != nullptr){
+
+            aux = aux -> siguiente;
+        }
+
+        aux -> siguiente = nuevo;
+
+    }
+
+    return inicio;
+}
+
+datos * cargarDatosOrdenados(datos * inicio , int numero){
+
+    datos * nuevo = new datos;
+
+    nuevo -> num = numero;
+
+    nuevo -> siguiente = nullptr;
+    
+    if (inicio == nullptr or numero < inicio -> num){
 
         nuevo -> siguiente = inicio;
 
         inicio = nuevo;
     }
-    
+
+    else{
+        
+        datos * aux = inicio;
+
+        while(aux -> siguiente != nullptr and aux -> siguiente -> num < numero){
+            
+            aux = aux -> siguiente;
+            
+        }
+        
+        if (aux -> siguiente != nullptr){
+            
+            nuevo -> siguiente = aux -> siguiente;
+
+        }
+        
+        aux -> siguiente = nuevo;
+
+    }
+
+    return inicio;
+
+
+}
+
+datos * ordenarDatosMayorMenor(datos * inicio){
+
+    for(datos * i = inicio; i != nullptr; i = i -> siguiente){
+        
+        for(datos * e = i -> siguiente ; e != nullptr; e = e -> siguiente){
+            
+            if (i -> num < e -> num){
+                
+                int swap = i -> num;
+
+                i -> num = e -> num;
+
+                e -> num = swap;
+            }
+        }
+    }
+
+    return inicio;
+
+}
+
+datos * eliminarElemento(datos * inicio , int elemento){
+
+    if (elemento == inicio -> num){        
+        
+        datos * eliminar = inicio;
+
+        inicio = inicio -> siguiente;
+
+    }
+
     else{
 
         datos * aux = inicio;
 
-        while(aux -> siguiente != nullptr && aux -> siguiente -> num < elemento){
+        while(aux -> siguiente != nullptr and elemento != aux -> siguiente -> num){
 
             aux = aux -> siguiente;
-            
         }
 
         if (aux -> siguiente != nullptr){
-
-            nuevo -> siguiente = aux -> siguiente;
-        }
-
-        aux -> siguiente = nuevo;
-    }
-
-    return inicio;
-
-}
-
-int main(){
-
-    datos * ema = nullptr;
-
-    for (int i = 0; i < 10; i++){
         
-        int numero = rand()% (100 - 1) +1;
-        
-        ema = insertarOrden(ema, numero);
-    }
+            datos * eliminar = aux -> siguiente;
 
-    for (datos * i = ema; i -> siguiente != nullptr; i = i -> siguiente){
-        
-        cout << i -> num <<endl;
-    }
-        
-    return 0;
-}
-```
-## Eliminar Elemento de Una Lista
+            aux -> siguiente = aux -> siguiente -> siguiente;
 
-Lorem ipsum dolor sit amet consecteyytur adipiscing elit, ligula non aenean vestibulum nunc praesent cras duis, eget sociosqu augue class magnis mattis. Semper magna nibh nisi sem posuere torquent senectus duis in, blandit nec et fusce magnis nisl cubilia mus massa lacinia, nam quisque velit eget euismod enim ultrices metus. Cras nam neque ultrices natoque eu integer egestas facilisi est, tempus sapien parturient ornare scelerisque molestie nec lacus condimentum iaculis, at torquent curae tortor nisl bibendum ad netus."
+            delete eliminar;
 
-```c++
-
-#include <iostream>
-
-using namespace std;
-
-struct  datos{
-
-    int num;
-
-    datos * siguiente;
-};
-
-datos * cargarDatos(datos * inicio , int elemento){
-
-    datos * nuevo = new datos;
-
-    nuevo -> num = elemento;
-
-    nuevo -> siguiente = inicio;
-
-    return nuevo;
-
-}
-
-datos * eliminarElemento(datos * inicio , int numero){
-    
-    if (inicio != nullptr){
-        
-        datos * aux = inicio;
-                
-        if (inicio -> num == numero){
-
-            inicio = inicio -> siguiente;
-
-            delete aux;
-        }
-
-        else{
-
-            while (aux -> siguiente != nullptr and aux -> siguiente -> num != numero){
-
-                aux = aux -> siguiente;
-
-            }
-
-            if (aux -> siguiente != nullptr and aux -> siguiente -> num == numero){
-
-                datos * eliminar = aux -> siguiente;
-
-                aux -> siguiente = aux -> siguiente -> siguiente;
-
-                delete eliminar;
-            }
         }
     }
-
     return inicio;
 }
 
-void imprimirLista(datos * );
+void imprimirLista(datos * inicio){
 
-int main(){
+    int contador = 0;
 
-    datos * ema = nullptr;
-
-    for (int i = 0; i < 10; i++){
+    for (datos * i = inicio ; i != nullptr; i = i -> siguiente){
         
-        int numero = rand()% (100 - 1) +1;
-        
-        ema = cargarDatos(ema, numero);
+        cout <<"["<<contador<<"] "<<i -> num <<endl;
+
+        contador++;
     }
-
-    imprimirLista(ema);
-
-    int n;
-    
-    cout <<"Ingresar Valor a Eliminar: ";cin>>n;
-    
-    ema = eliminarElemento(ema , n);
-
-    imprimirLista(ema);
-
-    return 0;
-}
-
-void imprimirLista( datos * lista){
-
-    for (datos * i = lista; i -> siguiente != nullptr; i = i -> siguiente){
-        
-        cout << i -> num <<endl;
-    }
-    
 }
 
 ```
