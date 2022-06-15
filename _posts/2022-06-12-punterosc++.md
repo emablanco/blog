@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Punteros C++
-excerpt: "**Linsta Punteros**
+excerpt: "**Listas Enlazadas ->**
 
 Las listas enlazadas mediante punteros permiten un manejo de memoria a bajo nivel.
 Al trabajar con punteros, es fundamental conocer las diferencias entre memoria stack
