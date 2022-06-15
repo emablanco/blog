@@ -7,7 +7,7 @@ excerpt: "**ScanHost**
 
 Herramientas echas en python y bash que permitiran detectar todos los host
 conectados a la misma red local. Estas herramientas no hacen mucho ruido en la red
-lo que nos evitaria que un IDS/IPS aplicara alguna politica sobre buestro host."
+lo que evitaria que un IDS/IPS aplicara de restriccion sobre nuestro host."
 
 date: 2022-06-10
 
@@ -41,7 +41,7 @@ router los borre.
 
 ## Script en BASH
 
-Este script realizar un ping a toda la red, escluyendo la direccion de red y broadcast.
+Este script realiza un ping a toda la red, excluyendo la direccion de red y broadcast.
 
 ```bash
 
@@ -127,7 +127,10 @@ if __name__ == '__main__':
     print("ip => {}\nttl => {}\nos => {}".format(ip,ttl,os))
     
 ```
+## USO
 
+Para utilizarlo solo se debe clonar el repositorio y darle permiso de ejecucion
+al script en bash. 
 
 - [Repositorio](https://github.com/emablanco/detectar-host-en-la-red)
 
