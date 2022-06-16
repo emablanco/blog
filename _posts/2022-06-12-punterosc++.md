@@ -31,10 +31,10 @@ tags:
 
 
 
-#Memoria Stack
+## Memoria Stack
 
-Este sector se utiliza para crear variables de **Tipos primitivos:** (int, short, long, double, float, boolean, byte, char.),
-simples que no son punteros. Normalmente tienen un espacio limitado y fijo 
+Este sector se utiliza para crear variables simples de **Tipos primitivos:** (int, short, long, double, float, boolean, byte, char.),
+ que no son punteros. Normalmente tienen un espacio limitado y fijo 
 que se asigna al iniciar la ejecucion del programa. Este espacio no puede crecer.
 
 La alocacion se realiza de manera mas rapida que en la Heap, los datos almacenados pueden usarse sin punteros o con punteros 
@@ -46,8 +46,8 @@ y las variables se desalojan automaticamente.
 La memoria dinámica que se almacena en el heap es aquella que se utiliza 
 para almacenar datos que se crean en medio de la ejecución de un programa, este espacio 
 puede llegar a crecer a medida que se requiera mas espacio. 
-En la Heap la alocacion es mas lenta que en la stack, los datos solo se pueden acceder mediante
-punteros y se maneja manualmente (new / delete). El Almacenamiento es no continuo lo que puede llegar a producir fragmentacion.
+En la Heap la alocacion es mas lenta que en la stack, a los datos solo se pueden acceder mediante
+punteros y se manejan manualmente (new / delete). El Almacenamiento es no continuo lo que puede llegar a producir fragmentacion.
 
 ##  Practica de lista Enlazadas 
 
@@ -304,9 +304,9 @@ void imprimirLista(datos * inicio){
 
 ## Ejercicio Lista Enlazadas
 
-Desarrollar un programa que realice las siguientes operaciones enlistas de numeros enteros.
+Desarrollar un programa que realice las siguientes operaciones en una listas de numeros enteros.
 
-A) Cargar una lista insertando ordenado en forma ascendente. Finaliza con 0 (cero), que no se debe agregar.
+A) Cargar una lista insertando numeros ordenados en forma ascendente. Finalizar cuando se ingrese un 0 (cero), que no se debe tener en cuenta.
 
 B) Eliminar las ocurrencias de los numeros que son multimplos de 3. imprimir la lista antes y despues de la eliminacion.
 
