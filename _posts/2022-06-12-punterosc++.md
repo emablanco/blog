@@ -282,4 +282,157 @@ void imprimirLista(datos * inicio){
 }
 
 ```
-## Terminar post
+
+## Ejercicio Lista Enlazadas
+
+Desarrollar un programa que realice las siguientes operaciones enlistas de numeros enteros.
+
+A) Cargar una lista insertando ordenado en forma ascendente. Finaliza con 0 (cero), que no se debe agregar.
+
+B) Eliminar las ocurrencias de los numeros que son multimplos de 3. imprimir la lista antes y despues de la eliminacion.
+
+
+```c++
+
+#include <iostream>
+
+using namespace std;
+
+struct datos{
+    
+    int num;
+
+    datos * siguiente;
+    
+};
+
+datos * cargarDatos(datos * lista , int numero);
+
+datos * eliminarMultiplos(datos * lista , int numero);
+
+void imprimir(datos * lista);
+
+int main(){
+    
+    datos * lista = nullptr;
+
+    int elemento;
+   
+    cout <<"Ingresar Numero (0 para cortar): ";cin >> elemento;
+
+    while(elemento != 0){
+
+        lista = cargarDatos(lista , elemento);
+
+        cout <<"Ingresar Numero (0 para cortar): ";cin >> elemento;
+
+    }
+    
+    cout <<"Lista Ordenada de forma ascendente "<<endl;
+   
+    imprimir(lista);
+   
+    cout <<"Multiplos a eliminar: ";cin>> elemento;
+
+    lista = eliminarMultiplos(lista , elemento);
+   
+    imprimir(lista);
+   
+    return 0;
+}
+
+datos * cargarDatos(datos * lista , int numero){
+
+    datos * nuevo = new datos;
+
+    nuevo -> num = numero;
+
+    nuevo -> siguiente = nullptr;
+    
+    if (lista == nullptr or numero < lista -> num){
+
+        nuevo -> siguiente = lista;
+        
+        lista = nuevo;
+
+    }
+    else{
+        
+        datos * aux = lista;
+
+        while(aux -> siguiente != nullptr and aux -> siguiente -> num < numero){
+                
+            aux = aux -> siguiente;
+
+        }
+
+        if (aux -> siguiente != nullptr){
+
+            nuevo -> siguiente = aux -> siguiente;
+
+        }
+            
+        aux -> siguiente = nuevo;
+
+    }
+
+    return lista;
+
+}
+
+datos * eliminarMultiplos(datos * lista , int numero){
+
+    datos * eliminar;
+
+    datos * aux = lista;
+
+    while(aux != nullptr){
+        
+        if (lista -> num % numero == 0){
+            
+            eliminar = lista;
+
+            lista = lista -> siguiente;
+            
+            aux = aux -> siguiente;
+
+            delete eliminar;
+
+        }
+
+        else{
+            
+            if (aux -> siguiente != nullptr and aux -> siguiente -> num % numero == 0){
+    
+                eliminar = aux -> siguiente;
+
+                aux -> siguiente = aux -> siguiente -> siguiente;
+
+                delete eliminar;
+        
+            }
+
+            else{
+                
+                aux = aux -> siguiente;
+            }
+        }
+    }
+
+    return lista;
+}
+
+void imprimir(datos * lista){
+    
+    int contador = 0;
+
+    for (datos * i = lista; i != nullptr; i = i -> siguiente){
+
+        cout <<"["<<contador<<"]"<<i -> num <<endl;
+        
+        contador++;
+    }
+}
+
+```
+## Terminar POST
