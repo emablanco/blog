@@ -24,55 +24,112 @@ tags:
 Recorrer vectores, mapas o conjuntos, sin preocuparnos por los índices o los elementos que contengan, es mediante el uso de iteradores.
 
 ```c++
+
+
 #include <iostream>
-#include <string>
+#include <vector>
 #include <map>
 
 using namespace std;
 
-struct Persona{
+struct datos{
+    
+    int edad;
+
     string nombre;
-    int legajo;
+
 };
 
-map<string,Persona> cargarDatos(map<string,Persona> contenedor){
-   Persona persona;
-   persona.nombre="Marcela Lagos";
-   persona.legajo=189;
-   contenedor["Marketing"]=persona;
-   persona.nombre="Joaquin Huerta";
-   persona.legajo=426;
-   contenedor["RR.HH."]=persona;
-   persona.nombre="Ricardo Gimenez";
-   persona.legajo=165;
-   contenedor["Administracion"]=persona;
-   persona.nombre="Jessica Williams";
-   persona.legajo=329;
-   contenedor["Capacitaciones"]=persona;
-   persona.nombre="Jonathan Rojas";
-   persona.legajo=253;
-   contenedor["Proyectos"]=persona;
-   persona.nombre="Julia Dominguez";
-   persona.legajo=397;
-   contenedor["Reclutadores"]=persona;
-   return contenedor;
+map <string, datos> cargarDatos(map <string, datos> empresa);
+
+vector <datos> cargarDatos2(vector <datos> empresa2);
+
+int main(){
+
+    map <string , datos> empresa;
+    vector <datos> empresa2;
+
+    empresa = cargarDatos(empresa);
+    empresa2 = cargarDatos2(empresa2);
+    
+    cout <<"map\n"<<endl;
+    for(auto i = begin(empresa); i != end(empresa); i++){
+        
+        cout <<"**********"<< i -> first <<"**********"<<endl;
+        cout <<"Nombre: "<< i -> second.nombre<<endl;
+        cout<<"Edad: "<<i -> second.edad << endl;
+        cout<<endl;
+    }
+   
+    cout <<"Vector\n"<<endl; 
+    
+    for(auto i = begin(empresa2); i != end(empresa2); i++){
+        
+        cout << "Nonbre: " << (*i).nombre<<endl;
+        cout <<"Edad: " << (*i).edad << endl;
+
+    }
+
+    return 0;
 }
 
+vector <datos> cargarDatos2(vector <datos> empresa2){
+        
+    datos aux;
 
-void imprimir(map<string,Persona> contenedor){
-   for (auto par=begin(contenedor); par!=end(contenedor); par++){
-       cout << "Departamento: " << par->first << endl;
-       cout << "Jefe: " << par->second.nombre << " --- Legajo: " << par->second.legajo << endl << endl;
-   }
+    aux.edad = 21;
+    aux.nombre = "Emanuel Rech";
+    empresa2.push_back(aux);
+    
+    aux.edad = 21;
+    aux.nombre = "Alendro Varistock";
+    empresa2.push_back(aux);
+    
+    aux.edad = 41;
+    aux.nombre = "Matias Retamal";
+    empresa2.push_back(aux);
+    
+    aux.edad = 25;
+    aux.nombre = "Ariel otamendy";
+    empresa2.push_back(aux);
+    
+    aux.edad = 24;
+    aux.nombre = "Alexis Nuñes";
+    empresa2.push_back(aux);
+    
+    aux.edad = 28;
+    aux.nombre = "Emanuel ravistivich";
+    empresa2.push_back(aux);
+
+    return empresa2;
+
 }
 
+map <string, datos> cargarDatos(map <string, datos> empresa){
 
-int main()
-{
-   map<string,Persona> jefes;
-   jefes=cargarDatos(jefes);
-   imprimir(jefes);
-   return 0;
+    datos aux;
+
+    aux.edad = 21;
+    aux.nombre = "Emanuel Rech";
+    empresa["expedicion"] = aux;
+    aux.edad = 21;
+    aux.nombre = "Alendro Varistock";
+    empresa["Produccion"] = aux;
+    aux.edad = 41;
+    aux.nombre = "Matias Retamal";
+    empresa["supervisor"] = aux;
+    aux.edad = 25;
+    aux.nombre = "Ariel otamendy";
+    empresa["Ingeniero"] = aux;
+    aux.edad = 24;
+    aux.nombre = "Alexis Nuñes";
+    empresa["Mantenimiento"] = aux;
+    aux.edad = 28;
+    aux.nombre = "Emanuel ravistivich";
+    empresa["Encargado Produccion"] = aux;
+
+    return empresa;
 }
+
 
 ```
