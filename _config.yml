@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "haxor" # "air", "aqua", "contrast", "dark", "dirt", 
 
 # Site Settings
 locale                   : "en-US"
-title                    : "H4ackEm4 | Administracion GNU/Linux y Programacion"
+title                    : "H4ckEm4 | Administracion GNU/Linux y Programacion"
 title_separator          : "-"
 name                     : "Ema"
 description              : "Linux y Programacion"
