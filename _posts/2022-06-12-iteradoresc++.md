@@ -7,7 +7,7 @@ Recorrer vectores, mapas o conjuntos, sin preocuparnos por los índices o los el
 
 "
 
-date: 2022-06-12
+date: 2022-06-19
 classes: wide
 header:
   teaser: /assets/images/EjerciciosC++/c++.jpg
@@ -21,114 +21,228 @@ tags:
 
 ![](/assets/images/EjerciciosC++/iterador.png)
 
-Recorrer vectores, mapas o conjuntos, sin preocuparnos por los índices o los elementos que contengan, es mediante el uso de iteradores.
+Recorrer vectores y  mapas sin conocer la cantidad de elementos que contengan,
 
 ```c++
 
-
 #include <iostream>
-#include <vector>
+#include <string>
 #include <map>
+#include <vector>
 
 using namespace std;
 
-struct datos{
-    
-    int edad;
-
+struct Persona{
     string nombre;
-
+    int legajo;
 };
 
-map <string, datos> cargarDatos(map <string, datos> empresa);
 
-vector <datos> cargarDatos2(vector <datos> empresa2);
+map <string, vector <Persona>> cargarDatos(map <string, vector<Persona>> );
+
+void imprimir(map <string, vector <Persona>> );
+
+vector <Persona> obtenerPersonal(vector <Persona> );
+
+vector <Persona> ordenarLegajos(vector <Persona> , Persona );
+
+vector <Persona> eliminar(vector <Persona> , int );
+
+int contarLetras(map <string, vector <Persona>> ,char);
 
 int main(){
-
-    map <string , datos> empresa;
-    vector <datos> empresa2;
+    
+    map <string, vector <Persona>> empresa;
 
     empresa = cargarDatos(empresa);
-    empresa2 = cargarDatos2(empresa2);
     
-    cout <<"map\n"<<endl;
-    for(auto i = begin(empresa); i != end(empresa); i++){
-        
-        cout <<"**********"<< i -> first <<"**********"<<endl;
-        cout <<"Nombre: "<< i -> second.nombre<<endl;
-        cout<<"Edad: "<<i -> second.edad << endl;
-        cout<<endl;
-    }
+    imprimir(empresa);
    
-    cout <<"Vector\n"<<endl; 
-    
-    for(auto i = begin(empresa2); i != end(empresa2); i++){
-        
-        cout << "Nonbre: " << (*i).nombre<<endl;
-        cout <<"Edad: " << (*i).edad << endl;
+//--------------------------------------------------------------
+    char letra;
 
+    cout <<"Contar cantidad de nombres que comiencen por la Letra: ";cin>>letra;
+
+    int letras;
+
+    letras = contarLetras(empresa, letra);
+
+    cout <<"Cantidad de Nombres que comienzan por la Letra "<<letra<<": "<<letras;
+
+    cout<<endl;
+
+//--------------------------------------------------------------
+
+    cout <<"\nOrdenar Legajos: \n"<<endl;
+    
+    vector <Persona> area;
+    
+    string a;
+    
+    cout <<"Area a Filtrar: ";cin>>a;
+    
+    area = obtenerPersonal(empresa[a]);
+
+    cout<<endl;
+    
+    for (auto i = begin(area); i != end(area); i++){
+
+        cout <<"Nombre: "<<(*i).nombre<< " Legajo: "<<(*i).legajo<<endl;
+    }
+    
+    cout<<endl;
+
+//--------------------------------------------------------------
+    int num;
+
+    cout <<"Eliminar Legajos que finalicen con el digito: "; cin>> num;
+
+    area = eliminar(area , num);
+    
+    cout<<endl;
+   
+    for (auto i = begin(area); i != end(area); i++){
+
+        cout <<"Nombre: "<<(*i).nombre<< " Legajo: "<<(*i).legajo<<endl;
     }
 
     return 0;
 }
 
-vector <datos> cargarDatos2(vector <datos> empresa2){
-        
-    datos aux;
+int contarLetras(map <string, vector <Persona>> empresa,char letra){
+    
+    int contador = 0;
 
-    aux.edad = 21;
-    aux.nombre = "Emanuel Rech";
-    empresa2.push_back(aux);
-    
-    aux.edad = 21;
-    aux.nombre = "Alendro Varistock";
-    empresa2.push_back(aux);
-    
-    aux.edad = 41;
-    aux.nombre = "Matias Retamal";
-    empresa2.push_back(aux);
-    
-    aux.edad = 25;
-    aux.nombre = "Ariel otamendy";
-    empresa2.push_back(aux);
-    
-    aux.edad = 24;
-    aux.nombre = "Alexis Nuñes";
-    empresa2.push_back(aux);
-    
-    aux.edad = 28;
-    aux.nombre = "Emanuel ravistivich";
-    empresa2.push_back(aux);
+    for (auto vec: empresa){
 
-    return empresa2;
+        for( Persona persona  : vec.second){
 
+            if (persona.nombre[0] == letra ){
+
+                contador++;
+            }
+        }
+    }
+    return contador;
 }
 
-map <string, datos> cargarDatos(map <string, datos> empresa){
+vector <Persona> eliminar(vector <Persona> empresa, int num){
 
-    datos aux;
+    auto i = begin(empresa);
 
-    aux.edad = 21;
-    aux.nombre = "Emanuel Rech";
-    empresa["expedicion"] = aux;
-    aux.edad = 21;
-    aux.nombre = "Alendro Varistock";
-    empresa["Produccion"] = aux;
-    aux.edad = 41;
-    aux.nombre = "Matias Retamal";
-    empresa["supervisor"] = aux;
-    aux.edad = 25;
-    aux.nombre = "Ariel otamendy";
-    empresa["Ingeniero"] = aux;
-    aux.edad = 24;
-    aux.nombre = "Alexis Nuñes";
-    empresa["Mantenimiento"] = aux;
-    aux.edad = 28;
-    aux.nombre = "Emanuel ravistivich";
-    empresa["Encargado Produccion"] = aux;
+    while(i != end(empresa)){
+
+        if(i -> legajo % 10 == num){
+
+            i = empresa.erase(i);
+        }
+
+        else{
+        
+            i++;
+
+        }
+    }
 
     return empresa;
+}
+vector <Persona> ordenarLegajos(vector <Persona> nuevo , Persona p){
+
+    auto i = begin(nuevo);
+
+    while( i != end(nuevo) and i -> legajo <= p.legajo){
+
+        i++;
+    }
+
+    nuevo.insert(i, p);
+
+    return nuevo;
+}
+
+vector <Persona> obtenerPersonal(vector <Persona> empresa){
+
+    vector <Persona> nuevo;
+
+    for(auto i = begin(empresa); i != end(empresa); i++){
+        
+        nuevo = ordenarLegajos(nuevo, *i);
+
+    }
+
+    return nuevo;
+}
+
+void imprimir(map <string, vector <Persona>> empresa){
+
+    for(auto i = begin(empresa); i != end(empresa); i++){
+
+        cout << "***Area: " <<i -> first << "****\n" << endl;
+        
+        for(auto e = begin( i -> second); e != end(i -> second); e++){
+
+            cout << "Nombre: "<<e -> nombre<<" Legajo: "<< e -> legajo<<endl;
+
+        }
+
+        cout <<"\n"<<endl;
+    }
+}
+
+map <string, vector <Persona>> cargarDatos(map <string, vector<Persona>> contenedor){
+    
+    Persona persona;
+
+    persona.nombre="Emanuel Blanco ";
+    persona.legajo=19;
+    contenedor["Administracion"].push_back(persona);
+
+    persona.nombre="Claudia River";
+    persona.legajo=154;
+    contenedor["Administracion"].push_back(persona);
+
+    persona.nombre="Rey Lag";
+    persona.legajo=129;
+    contenedor["Administracion"].push_back(persona);
+
+    persona.nombre="Fernanda Stallaman";
+    persona.legajo=124;
+    contenedor["Administracion"].push_back(persona);
+
+    persona.nombre="El noba";
+    persona.legajo=69;
+    contenedor["Administracion"].push_back(persona);
+
+    persona.nombre="Alma Marcela goso";
+    persona.legajo=189;
+    contenedor["Administracion"].push_back(persona);
+
+    persona.nombre="Joaquin Ramos";
+    persona.legajo=426;
+    contenedor["Produccion"].push_back(persona);
+
+    persona.nombre="Ricardo Gimenez";
+    persona.legajo=165;
+    contenedor["Administracion"].push_back(persona);
+
+    persona.nombre="Jessica Williams";
+    persona.legajo=329;
+    contenedor["Capacitaciones"].push_back(persona);
+
+    persona.nombre="Jonathan Rojas";
+    persona.legajo=253;
+    contenedor["Produccion"].push_back(persona);
+
+    persona.nombre="Julia Dominguez";
+    persona.legajo=397;
+    contenedor["Capacitaciones"].push_back(persona);
+
+    persona.nombre="Rodolfo Quinteros";
+    persona.legajo=562;
+    contenedor["Produccion"].push_back(persona);
+
+    return contenedor; 
+
 }
 
 
