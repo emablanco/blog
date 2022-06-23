@@ -65,7 +65,7 @@ network (WAN) entre los sitios, pero al usuario le parece como si fuera un
 enlace privado: de allí la designación virtual private network."
 
 
-
+- [Wikipedia](https://es.wikipedia.org/wiki/Red_privada_virtual)
 
 ## WIREGUARD
 
