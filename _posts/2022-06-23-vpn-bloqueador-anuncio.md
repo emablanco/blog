@@ -1,8 +1,7 @@
 ---
 layout: single
 title: Linux - VPN con Bloqueador de anuncios
- excerpt: "**Una red privada virtual (VPN)**
-
+excerpt: "**Una red privada virtual (VPN)**
 es una tecnología de red de ordenadores que permite una 
 extensión segura de la red de área local (LAN) sobre una red pública o no 
 controlada como Internet. Permite que el ordenador en la red envíe y reciba 
