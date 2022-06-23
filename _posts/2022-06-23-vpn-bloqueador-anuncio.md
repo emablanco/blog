@@ -1,9 +1,9 @@
 ---
 layout: single
-title: Linux - Crea tu propio Servidor VPN 
-excerpt: "**VPN CON BLOQUEADOR DE ANUNCIOS**
+title: Linux - VPN con Bloqueador de anuncios
+ excerpt: "**Una red privada virtual (VPN)**
 
-Una red privada virtual (VPN) es una tecnología de red de ordenadores que permite una 
+es una tecnología de red de ordenadores que permite una 
 extensión segura de la red de área local (LAN) sobre una red pública o no 
 controlada como Internet. Permite que el ordenador en la red envíe y reciba 
 datos sobre redes compartidas o públicas como si fuera una red privada, con 
@@ -100,6 +100,11 @@ la aplicación se puede ejecutar, ya sea en las instalaciones físicas, la nube
 pública, nube privada, etc.»
 
 - [Wikipedia](HTTPS://ES.WIKIPEDIA.ORG/WIKI/DOCKER_(SOFTWARE))
+
+
+## DOCKER COMPOSE
+
+![](/assets/images/vpn/docker-wireguard-pihole.png)
 
 ```yaml
 
