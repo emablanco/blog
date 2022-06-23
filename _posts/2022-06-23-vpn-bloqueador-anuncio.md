@@ -27,13 +27,16 @@ header:
   teaser: /assets/images/vpn/logo-docker-wireguard-pihole.png
   teaser_home_page: true
   icon: /assets/images/logofairy.png
+
 categories:
-  - Servidor VPN con Bloqueador de Anuncios
+  - Servidor VPN
 tags:  
   - vpn
   - docker
   - pihole
   - linux
+  - wireguard
+  - docker-compose
 ---
 
 ## WIREGUARD
