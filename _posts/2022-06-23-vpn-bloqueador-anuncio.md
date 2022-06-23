@@ -39,6 +39,34 @@ tags:
   - docker-compose
 ---
 
+## VPN
+
+<p align="center">
+<img src="/assets/images/vpn/vpn-seguridad.jpg">
+</p>
+
+**Una red privada virtual (VPN)** es una tecnología de red de ordenadores que permite una 
+extensión segura de la red de área local (LAN) sobre una red pública o no 
+controlada como Internet. Permite que el ordenador en la red envíe y reciba 
+datos sobre redes compartidas o públicas como si fuera una red privada, con 
+toda la funcionalidad, seguridad y políticas de gestión de una red privada.
+Esto se realiza estableciendo una conexión virtual punto a punto mediante
+el uso de conexiones dedicadas, cifrado o la combinación de ambos métodos.
+
+Ejemplos comunes son la posibilidad de conectar dos o más sucursales de 
+una empresa utilizando como vínculo Internet, permitir a los miembros del
+equipo de soporte técnico la conexión desde su casa al centro de cómputo 
+o bien que un usuario pueda acceder a su equipo doméstico desde un sitio 
+remoto, como por ejemplo un hotel. Todo ello utilizando la infraestructura 
+de Internet.
+
+La conexión VPN a través de Internet es técnicamente una unión wide area 
+network (WAN) entre los sitios, pero al usuario le parece como si fuera un 
+enlace privado: de allí la designación virtual private network."
+
+
+
+
 ## WIREGUARD
 
 <p align="center">
