@@ -39,7 +39,9 @@ tags:
 
 ## WIREGUARD
 
-![](/assets/images/vpn/wireguard.jpg)
+<p align="center">
+<img src="/assets/images/vpn/wireguard.jpg">
+</p>
 
 WireGuard es una aplicación de software libre y que utiliza un protocolo de 
 comunicación que implementa técnicas de red privada virtual (VPN)
@@ -53,7 +55,10 @@ versión de la GNU General Public License (GPL).
 
 ## PIHOLE
 
-![](/assets/images/vpn/pi-hole_logo.png)
+<p align="center">
+<img src="/assets/images/vpn/pi-hole_logo.png">
+</p>
+
 
 Pi-hole es una aplicación para bloqueo de anuncios y rastreadores en Internet
 a nivel de red en Linux que actúa como un sumidero de DNS (y opcionalmente 
@@ -71,7 +76,11 @@ y sistemas operativos para dispositivos móviles.
 
 ## DOCKER
 
-![](/assets/images/vpn/docker_container_engine_logo.png)
+
+<p align="center">
+<img src="/assets/images/vpn/docker_container_engine_logo.png">
+</p>
+
 
 Docker es un proyecto de código abierto que automatiza el despliegue de 
 aplicaciones dentro de contenedores de software, proporcionando una capa 
@@ -104,7 +113,11 @@ pública, nube privada, etc.»
 
 ## DOCKER COMPOSE
 
-![](/assets/images/vpn/docker-wireguard-pihole.png)
+
+<p align="center">
+<img src="/assets/images/vpn/docker-wireguard-pihole.png">
+</p>
+
 
 ```yaml
 
