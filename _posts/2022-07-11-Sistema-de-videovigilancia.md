@@ -1,24 +1,24 @@
 ---
 layout: single
-title: Linux - Bomba fork 
+title: Linux - Sistema de Vigilancia 
 excerpt: "**¿Qué es un Sistema de Videovigilancia?**
 
 Los Sistemas de Vigilancia permiten comprobar desde otra ubicación, el funcionamiento o el estado de un lugar"
-date: 2022-05-29
+date: 2022-07-11
 classes: wide
 header:
   teaser: /assets/images/bomba/bomba.jpg
   teaser_home_page: true
   icon: /assets/images/logofairy.png
 categories:
-  - Denegacion de servicio
+  - Seguridad
+  - Sistemas de Videovigilancia
+  - Linux
+  - MotionEye
 tags:  
-  - c++
-  - bash
+  - Seguridad
+  - Videovigilancia
 ---
-
-
-
 
 ```yaml
 version: "3"
