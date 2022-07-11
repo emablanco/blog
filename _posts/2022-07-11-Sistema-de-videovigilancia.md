@@ -24,7 +24,8 @@ tags:
 version: "3"
 services:
   motioneye:
-    image: ccrisan/motioneye:dev-amd64
+    image: ccrisan/motioneye:master-amd64 #funciona para grabar
+    image: ccrisan/motioneye:dev-amd64 #me da problemas para grabar
     container_name: motioneye
     volumes:
       - /etc/localtime:/etc/localtime:ro #Timezone Config / Do Not Change
