@@ -201,5 +201,6 @@ services:
 ## Las credenciales predeterminadas son:
 
 Username: admin
+
 password:
 
