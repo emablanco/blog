@@ -7,7 +7,7 @@ Los Sistemas de Vigilancia permiten comprobar desde otra ubicación, el funciona
 date: 2022-07-11
 classes: wide
 header:
-  teaser: /assets/images/bomba/bomba.jpg
+  teaser: /assets/images/motioneye/logo.png
   teaser_home_page: true
   icon: /assets/images/logofairy.png
 categories:
@@ -19,6 +19,10 @@ tags:
   - Seguridad
   - Videovigilancia
 ---
+<p align="center">
+<img src="/assets/images/motioneye/1.png">
+</p>
+
 ## Motion 
 
 Motion es un programa que monitorear la señal de vı́deo de una o más cámaras y puede detectar si una
@@ -60,71 +64,71 @@ Como resultado, los contenedores ofrecen toda la funcionalidad y beneficios de l
 incluyendo aislamiento de aplicaciones, escalabilidad y capacidad de disposición. Sus ventajas son las
 siguientes:
 
-    Ligero: Los contenedores sólo incluyen los procesos y dependencias del sistema operativo necesarias
+*Ligero: Los contenedores sólo incluyen los procesos y dependencias del sistema operativo necesarias
     para ejecutar el código.
 
-    Mejor manejo de los recursos: Con contenedores se puede ejecutar varias veces las mismas
+* Mejor manejo de los recursos: Con contenedores se puede ejecutar varias veces las mismas
     copias de una aplicación en el mismo hardware.
     
-    Mayor productividad de los desarrolladores: En comparación con las VM, los contenedores
+* Mayor productividad de los desarrolladores: En comparación con las VM, los contenedores
     son más rápidos y fáciles de implementar, suministrar y reiniciar.
 
 ## Caracterı́sticas
     
-    Portabilidad: Los contenedores LXC suelen hacer referencia a configuraciones especificas de la
+* Portabilidad: Los contenedores LXC suelen hacer referencia a configuraciones especificas de la
     máquina, mientras que los contenedores Docker se ejecutan sin modificaciones en cualquier entorno
     3de escritorios, centro de datos y nube.
 
-    Ligeros: Con los contenedores Docker solo se puede ejecutar un proceso en cada contenedor.
+* Ligeros: Con los contenedores Docker solo se puede ejecutar un proceso en cada contenedor.
     Esto permite crear una aplicación que puede continuar ejecutándose mientras una de sus partes se
     desactiva.
     
-    Creación automática de contenedores: Docker puede crear automáticamente un contenedor
+* Creación automática de contenedores: Docker puede crear automáticamente un contenedor
     basado en el código de origen de la aplicación.
   
-    Control de versiones: Docker puede rastrear versiones de una imagen de contenedor, retroceder
+* Control de versiones: Docker puede rastrear versiones de una imagen de contenedor, retroceder
     a versiones anteriores y rastrear quién creó una versión.
     
-    Reutilizar contenedores: Los contenedores existentes se pueden utilizar como imágenes base,
+* Reutilizar contenedores: Los contenedores existentes se pueden utilizar como imágenes base,
     esencialmente como plantillas para crear nuevos contenedores.
     
-    Repositorio de contenedores: Los desarrolladores pueden acceder a un registro de código abierto
+* Repositorio de contenedores: Los desarrolladores pueden acceder a un registro de código abierto
     que contiene miles de contenedores aportados por los usuarios.
 
 ## Herramientas de Docker
 
-    DockerFile: Cada contenedor Docker se inicia con un archivo de texto simple que contiene ins-
+* DockerFile: Cada contenedor Docker se inicia con un archivo de texto simple que contiene ins-
     trucciones para crear la imagen del contenedor Docker. El DockerFile es una lista de instrucciones
     de interfaz de lı́nea de comandos que Docker Engine ejecutará para ensamblar la imagen.
     
-    Imágenes Docker: Las imágenes Docker contienen el código de origen de la aplicación, herra-
+* Imágenes Docker: Las imágenes Docker contienen el código de origen de la aplicación, herra-
     mientas, bibliotecas y dependencias que el código de la aplicación debe ejecutar como contenedor.
     Las imágenes Docker son archivos de sólo lectura.
     
-    Contenedores Docker: Los contenedores Docker son las instancias activas en ejecución de imáge-
+* Contenedores Docker: Los contenedores Docker son las instancias activas en ejecución de imáge-
     nes Docker.
     
-    Los contenedores son contenido en vivo, efı́mero y ejecutable. Se pueden interactuar con ellos
+* Los contenedores son contenido en vivo, efı́mero y ejecutable. Se pueden interactuar con ellos
     utilizando comandos Docker.
     
-    Docker Hub: Es el repositorio público de imágenes Docker. Las imágenes de contenedor provienen
+* Docker Hub: Es el repositorio público de imágenes Docker. Las imágenes de contenedor provienen
     de proveedores de software comercial, proyectos de código abierto y desarrolladores individuales.
     Ademas de las imágenes que han sido producidas por Docker, Inc.
     
-    Daemon Docker: El daemon Docker es un servicio que se ejecuta en el sistema operativo. Este
+* Daemon Docker: El daemon Docker es un servicio que se ejecuta en el sistema operativo. Este
     servicio crea y gestiona las imágenes Docker.
 
 ## Instalación Docker
 
 Antes de comenzar con la instalación es necesario que se instalen unas herramientas:
     
-    apt-transport-https: permite que el administrador de paquetes transfiera datos a través de https.
+* apt-transport-https: permite que el administrador de paquetes transfiera datos a través de https.
 
-    ca-certificates: permite que el navegador web y el sistema verifiquen los certificados de seguridad.
+* ca-certificates: permite que el navegador web y el sistema verifiquen los certificados de seguridad.
     
-    curl: transfiere datos.
+* curl: transfiere datos.
     
-    software-properties-common: agrega scripts para administrar el software.
+* software-properties-common: agrega scripts para administrar el software.
 
 ```bash
 # actualizar lista de paquetes
@@ -200,7 +204,7 @@ services:
 
 ## Las credenciales predeterminadas son:
 
-Username: admin
+* Username: admin
 
-password:
+* password:
 
