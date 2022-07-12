@@ -155,6 +155,7 @@ apt install docker - ce docker - ce - cli containerd . io docker - compose - plu
 #cual da una bienvenida.
 # descargar y ejecutar contenedor de bienvenida
 docker run hello - world
+
 ```
 
 ## ¿Que es Docker Compose?
@@ -166,7 +167,7 @@ YAML. De esta manera es mas sencillo crear contendores, conectarlos, habilitar p
 
 Hay varias versiones de Docker Compose, aunque siempre es preferible la versión estable.
 
-```bash
+```sh
 # descargar binario de docker - compose
 curl -L " https :// github . com / docker / compose / releases / download /1.26.0/ docker -
 compose - $ ( uname -s ) -$ ( uname -m ) " -o / usr / local / bin / docker - compose
@@ -174,6 +175,7 @@ compose - $ ( uname -s ) -$ ( uname -m ) " -o / usr / local / bin / docker - com
 chmod + x / usr / local / bin / docker - compose
 # controlar la version de docker - compose
 docker - compose -- version
+
 ```
 ## Contenedor MotionEye
 
@@ -184,15 +186,20 @@ mismo colocare el siguiente código, que me permitira crear y configurar el cont
 ```yaml
 version: "3"
 services:
-motioneye:
-image: ccrisan/motioneye:master-amd64 #funciona para grabar
-#
-image: ccrisan/motioneye:dev-amd64 #me deja grabar, solo toma fotografias
-container_name: motioneye
-volumes:
-- /etc/localtime:/etc/localtime:ro #configuracion de la zona horaria
-- ./configuracion:/etc/motioneye #Lugar de almacenamiento
-- ./archivos:/var/lib/motioneye #Archivos de configuración
-ports:
-- 8765:8765 #puerto de
+    motioneye:
+        image: ccrisan/motioneye:master-amd64 #funciona para grabar
+        #image: ccrisan/motioneye:dev-amd64 #me deja grabar, solo toma fotografias
+        container_name: motioneye
+        volumes:
+            - /etc/localtime:/etc/localtime:ro #configuracion de la zona horaria
+            - ./configuracion:/etc/motioneye #Lugar de almacenamiento
+            - ./archivos:/var/lib/motioneye #Archivos de configuración
+        ports:
+            - 8765:8765 #puerto de
 ```
+
+## Las credenciales predeterminadas son:
+
+Username: admin
+password:
+
