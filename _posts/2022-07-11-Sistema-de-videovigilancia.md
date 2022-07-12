@@ -64,7 +64,7 @@ Como resultado, los contenedores ofrecen toda la funcionalidad y beneficios de l
 incluyendo aislamiento de aplicaciones, escalabilidad y capacidad de disposición. Sus ventajas son las
 siguientes:
 
-*Ligero: Los contenedores sólo incluyen los procesos y dependencias del sistema operativo necesarias
+* Ligero: Los contenedores sólo incluyen los procesos y dependencias del sistema operativo necesarias
     para ejecutar el código.
 
 * Mejor manejo de los recursos: Con contenedores se puede ejecutar varias veces las mismas
