@@ -25,21 +25,21 @@ tags:
 
 ## Motion 
 
-Motion es un programa que monitorear la señal de vı́deo de una o más cámaras y puede detectar si una
-parte de la imagen ha cambiado; lo que se entiende como detectar movimiento.
-El programa está escrito en C y está hecho para correr en Linux. Motion es una herramienta basada en la
-lı́nea de comandos, y su salida puede ser secuencias de vı́deo jpeg, mpeg, etc. Motion está estrictamente
-dirigido por la lı́nea de comandos y puede ejecutarse como un daemon que no consume mucho recursos
-del sistema.
-El movimiento es la herramienta perfecta para vigilar cualquier propiedad, manteniendo solo aquellas
-imágenes que son interesantes.
+Motion es un programa que monitorear la señal de vı́deo de una o varias cámaras
+y puede detectar si una parte de la imagen ha cambiado; lo que se entiende como detectar movimiento.
+
+El programa está escrito en C y está hecho para ejecutarse en Linux, desde
+lı́nea de comandos, y su salida puede ser secuencias de vı́deo jpeg, mpeg, etc. Motios corre en segundo plano
+,como un daemon, sin consumir mucho recurso del sistema.
 
 ## MotionEye
 
-Para utilizar Motion de una manera mas amigable se encuentra disponible MotionEye es una interfaz
-web para Motion.
-MotionEyeOS es una distribución de Linux de Sistema de Vı́deo Vigilancia. El sistema operativo se
-basa en BuildRoot y utiliza Motion como backend y MotionEye para la interfaz.
+Para utilizar Motion de una manera mas amigable se encuentra disponible MotionEye, que  es u frontend para Motion.
+
+# MotionEyeOS
+
+MotionEyeOS es una distribución de Linux de Sistema de Vı́deo Vigilancia, y se
+basa en BuildRoot y utiliza Motion como backend y MotionEye como frontend.
 
 ## Preparando entorno de Trabajo
 
@@ -138,27 +138,24 @@ apt install curl apt - transport - https ca - certificates software - properties
 
 #Clave GPG
 # crear directorio
-mkdir -p / etc / apt / keyrings
+mkdir -p /etc/apt/keyrings
 # descargar key
-curl - fsSL https :// download . docker . com / linux / debian / gpg | gpg -- dearmor -o / etc /
-apt / keyrings / docker . gpg
+curl - fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
 #Agrega el repositorio:
 # agregar repositorio
-echo " deb [ arch = $ ( dpkg -- print - architecture ) signed - by =/ etc / apt / keyrings / docker .
-gpg ] https :// download . docker . com / linux / debian $ ( lsb_release - cs ) stable " | sudo tee
-/ etc / apt / sources . list . d / docker . list > / dev / null
+echo " deb [ arch = $ ( dpkg --print -architecture) signed-by=/etc/apt/keyrings/docker.gpg]https //download.docker.com/linux/debian$(lsb_release-cs)stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 #Instalar Docker Engine.
 # actualizar lista de paquetes
 apt update
 # instalar docker
-apt install docker - ce docker - ce - cli containerd . io docker - compose - plugins
+apt install docker-ce docker-ce-clicontainerd.io docker-compose-plugins
 
 #Para verificar que docker se esta ejecutando correctamente ejecutare el contenedor de Hello-World, el
 #cual da una bienvenida.
 # descargar y ejecutar contenedor de bienvenida
-docker run hello - world
+docker run hello-world
 
 ```
 
@@ -173,12 +170,11 @@ Hay varias versiones de Docker Compose, aunque siempre es preferible la versión
 
 ```sh
 # descargar binario de docker - compose
-curl -L " https :// github . com / docker / compose / releases / download /1.26.0/ docker -
-compose - $ ( uname -s ) -$ ( uname -m ) " -o / usr / local / bin / docker - compose
+curl -L " https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$( uname -s )-$( uname -m )" -o /usr/local/bin/docker-compose
 # cambiar permisos
-chmod + x / usr / local / bin / docker - compose
+chmod + x / usr / local/bin/docker-compose
 # controlar la version de docker - compose
-docker - compose -- version
+docker-compose --version
 
 ```
 ## Contenedor MotionEye
