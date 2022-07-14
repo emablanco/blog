@@ -36,7 +36,7 @@ lı́nea de comandos, y su salida puede ser secuencias de vı́deo jpeg, mpeg, e
 
 Para utilizar Motion de una manera mas amigable se encuentra disponible MotionEye, que  es u frontend para Motion.
 
-# MotionEyeOS
+## MotionEyeOS
 
 MotionEyeOS es una distribución de Linux de Sistema de Vı́deo Vigilancia, y se
 basa en BuildRoot y utiliza Motion como backend y MotionEye como frontend.
@@ -203,4 +203,7 @@ services:
 * Username: admin
 
 * password:
+
+## Configuración de Camaras IP
+
 
