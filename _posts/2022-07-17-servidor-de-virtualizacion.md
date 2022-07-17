@@ -1,7 +1,7 @@
 ---
 layout: single
 
-title: python - opencv 
+title: Servidor de Virtualización - QEMU/KVM 
 
 excerpt: "**Servidor de Virtualización**
 
