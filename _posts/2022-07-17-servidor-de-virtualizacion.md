@@ -150,13 +150,13 @@ Para la creación de maquinas virtuales utilizare \textbf{virt-manager}. El cual
 Mediante el protocolo **SSH** junto con el parámetro **-X** se proporciona la capacidad de tunelizar el tráfico X11 a través de la conexión \textbf{SSH} para permitir conexiones gráficas remotas.
 	
 ```bash
-		ssh root@192.168.1.222 -X
+ssh root@192.168.1.222 -X
 
 ```
 Una vez dentro del servidor se debe llamar al **virt-manager** para dentro de nuestro ordenador se visualice la interfaz gráfica de este programa:
 	
 ```bash
-		virt-manager
+virt-manager
 
 ```
 Listo, ahora se puede administrar el servidor de virtualización gráficamente de forma remota:
