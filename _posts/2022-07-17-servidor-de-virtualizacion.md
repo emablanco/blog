@@ -85,11 +85,11 @@ QEMU es capaz de emular varias plataformas de hardware diferentes. Además del h
 	
 En el hardware real, el sistema operativo traduce las instrucciones de los programas para que sean ejecutadas por el CPU físico. En una máquina virtual (el CPU está virtualizado por el hipervisor) el hipervisor tiene que traducir las instrucciones del CPU virtual y convertirlo en instrucciones para el CPU físico. Esta traducción tiene una gran sobrecarga de rendimiento.
 		
-Para minimizar esta sobrecarga, los procesadores admiten extensiones de virtualización. Intel soporta una tecnología llamada \textbf{VT-X} y el equivalente AMD es \textbf{AMD-V}. Con el uso de estos, una parte de CPU físico se puede asignar directamente al CPU virtual. Así que las instrucciones de la CPU virtual se pueden ejecutar directamente en la parte del CPU físico. Evitando así la traducción que tendría que hacer el hipervisor.
+Para minimizar esta sobrecarga, los procesadores admiten extensiones de virtualización. Intel soporta una tecnología llamada **VT-X** y el equivalente AMD es **AMD-V**. Con el uso de estos, una parte de CPU físico se puede asignar directamente al CPU virtual. Así que las instrucciones de la CPU virtual se pueden ejecutar directamente en la parte del CPU físico. Evitando así la traducción que tendría que hacer el hipervisor.
 		
 KVM es el módulo del kernel de Linux que permite esta asignación de CPU físico para CPU virtual. Esta asignación proporciona la aceleración de hardware para la máquina virtual y aumenta su rendimiento. QEMU utiliza esta aceleración cuando el tipo de virtualización es elegido como KVM.
 		
-Los desarrolladores de KVM aprovecharon la arquitectura QEMU, así las llamadas al sistema pasan por el módulo KVM, mientras que QEMU se utiliza para emular los dispositivos. Entonces al trabajar juntos, KVM accede directamente al CPU físico y a la memoria, a su vez QEMU emula los recursos de hardware, como el disco duro, video, USB, etc,
+Los desarrolladores de KVM aprovecharon la arquitectura QEMU, así las llamadas al sistema pasan por el módulo KVM, mientras que QEMU se utiliza para emular los dispositivos. Entonces al trabajar juntos, KVM accede directamente al CPU físico y a la memoria, a su vez QEMU emula los recursos de hardware, como el disco duro, video, USB, etc.
 			
 		
 **Conclusión**
@@ -132,22 +132,13 @@ Para la creación de una interfaz virtual se debe editar el archivo _/etc/networ
 The primary network interface                                                 
 
 allow-hotplug eth1                                                              
-
 iface eth1 inet static                                                          
-
-				
 auto br0                                                                        
-
 iface br0 inet static                                                           
-
 		address 192.168.1.222                                                   
-
 		netmask 255.255.255.0                                                   
-
 		gateway 192.168.1.1                                                     
-
 		bridge_ports eth1                                                       
-
 		up /usr/sbin/brctl std br0 on 
 
 ```
