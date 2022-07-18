@@ -3,9 +3,10 @@ layout: single
 
 title: Servidor de Virtualización - QEMU/KVM 
 
-excerpt: "**Servidor de Virtualización**
+excerpt: "**Un Servidor de Virtualización**
 
-Permite dividir un servidor físico en múltiples servidores virtuales y aislados por medio de una aplicación 
+es el proceso de dividir un servidor fíico en
+múltiples servidores virtuales y aislados por medio de una aplicación 
 de software. Cada servidor virtual puede ejecutar sus propios sistemas 
 operativos de manera independiente"
 
