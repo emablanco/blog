@@ -159,7 +159,7 @@ Una vez dentro del servidor se debe llamar al **virt-manager** para dentro de nu
 virt-manager
 
 ```
-Listo, ahora se puede administrar el servidor de virtualización gráficamente de forma remota:
+Listo, ahora se puede administrar el servidor de virtualización de forma grafica remotamente:
 
 ![](/assets/images/kvm/1.png)
 
