@@ -217,6 +217,8 @@ Para mi primer servidor que estara dentro de la DMZ le configurare la interfaz d
 de la misma manera que lo hice con el servidor QEMU/KVM.
 
 ```bash
+#! /bin/bash
+
 ip link add link enp1s0 name dmz type vlan id 100 #creo la vlan
 ip addr add 192.168.100.2/24 brd 192.168.100.255 dev dmz #configuro la ip
 ip link set dmz up #activo la interfaz
