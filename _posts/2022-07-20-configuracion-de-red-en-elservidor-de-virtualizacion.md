@@ -150,7 +150,7 @@ MAC_CEL=""
 /usr/sbin/iptables -A OUTPUT -o br0 -p udp --dport 53 -j ACCEPT #DNS UDP
 
 ##################################################################################################
-#PUERTOS POR LOS QUE LA DMZ PODRA SALIR
+#PUERTOS POR LOS QUE LA INTERFACES PODRAN SALIR DE LA RED
 #dmz
 /usr/sbin/iptables -A FORWARD -i dmz -o br0 -p tcp --dport 80 -j ACCEPT
 /usr/sbin/iptables -A FORWARD -i dmz -o br0 -p tcp --dport 443 -j ACCEPT
