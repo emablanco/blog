@@ -37,9 +37,10 @@ tags:
 
 ## Introducción
 
-Para la creacion de las interfaces virtuales usare la herramienta de red **ip**, con la cual 
-creare las tres interfaces y sus configuraciones. Estas interfaces estaran asociadas a la 
+Para la creacion de las interfaces virtuales usare la herramienta de red **IP** , con la cual 
+creare las tres interfaces y las configurare. Estas interfaces estaran asociadas a la 
 interfaz virtual **br0** que funciona como puente con la interfaz fisica.
+
 
 ```bash
 #! /bin/bash
@@ -59,11 +60,14 @@ ip link set lan2 up
 
 echo "Fin de las interfaces"
 ```
-Este script de bash lo guardare dentro de un directorio y con **crontab** lo ejecutare cada vez
-que inicie el sistema.
+Este script en bash lo guardare dentro de un directorio y con **crontab** lo ejecutare cada vez
+que se inicie el sistema operativo.
 
 ## Configuracón de iptables
 
+Una vez finalizadas las configuraciones de red definire una series de reglas en
+**IPTABLES**, las cuales me serviran para poder acceder a los servicios desde internet,
+proteger las distintas redes y darle salida a internet a los host de cada red.
 
 ```bash
 #! /bin/bash
@@ -181,8 +185,15 @@ MAC_CEL=""
 /usr/sbin/iptables -t nat -A POSTROUTING -s 192.168.102.0/24 -j MASQUERADE
 
 ```
-- [Wikipedir](https://en.wikipedia.org/wiki/Libvirt)
-- [KVM y QEMU](https://galvarado.com.mx/post/kvmqemu)
-- [VT-x-Intel AMD-V](https://github.com/JJ/IV/blob/master/documentos/temas/Intro_concepto_y_soporte_fisico.md)
+Este script en bash lo guardare dentro del mismo directorio donde guarde el script
+de las configuraciones de red y de la misma manera que el script anterior
+lo ejecutare en cada incio del sistema con **crontab**
+
+Para conocer mas sobre las configuraciones que se pueden realizar con **IPTABLES**
+dejo unos link del cuales hice uso.
+
+
+- [RedHat](https://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-rg-es-4/ch-iptables.html)
+- [Manual Practico](http://redesdecomputadores.umh.es/iptables.htm)
     
  
