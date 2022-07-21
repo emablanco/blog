@@ -35,11 +35,13 @@ tags:
 
 ![](/assets/images/red/red.png)
 
-## Introducción
+## Iproute2
 
-Para la creacion de las interfaces virtuales usare la herramienta de red **IP** , con la cual 
-creare las tres interfaces y las configurare. Estas interfaces estaran asociadas a la 
-interfaz virtual **br0** que funciona como puente con la interfaz fisica.
+La herramienta **ip** es la herramienta principal de **iproute2**, con ella
+se pueden ver y configurar direcciones ip, tablas de enrutamiento,túneles e interfaces.
+
+Creare tres interfaces y las configurare con la esta herramienta. Estas interfaces
+estaran asociadas a la interfaz virtual **br0** que funciona como puente entre la interfaz fisica.
 
 
 ```bash
@@ -62,6 +64,16 @@ echo "Fin de las interfaces"
 ```
 Este script en bash lo guardare dentro de un directorio y con **crontab** lo ejecutare cada vez
 que se inicie el sistema operativo.
+
+## IPTABLES
+
+Iptables es un módulo del núcleo de Linux que se encarga de filtrar los paquetes de red.
+Se encarga de determinar qué paquetes se aceptan y cuales no.
+
+Como cualquier firewall, iptables funciona a través de reglas. Estas reglas deben 
+especificar que hacer con cada paquete, en algunos casos se debe especificar que
+puerto debe recibir esos paquetes, el protocolo utilizado para el envío de datos y cualquier 
+otra información relacionada con el intercambio de datos entre redes.
 
 ## Configuracón de iptables
 
@@ -191,7 +203,6 @@ lo ejecutare en cada incio del sistema con **crontab**
 
 Para conocer mas sobre las configuraciones que se pueden realizar con **IPTABLES**
 dejo unos link del cuales hice uso.
-
 
 - [RedHat](https://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-rg-es-4/ch-iptables.html)
 - [Manual Practico](http://redesdecomputadores.umh.es/iptables.htm)
