@@ -37,10 +37,10 @@ tags:
 
 ## Iproute2
 
-La herramienta **ip** es la herramienta principal de **iproute2**, con ella
-se pueden ver y configurar direcciones ip, tablas de enrutamiento,túneles e interfaces.
+La herramienta **IP** es la herramienta principal de **iproute2**, con ella
+se pueden ver y configurar direcciones ip, tablas de enrutamiento, túneles e interfaces.
 
-Creare tres interfaces y las configurare con la esta herramienta. Estas interfaces
+Haciendo uso de **IP** Creare tres interfaces, junto con sus configuraciones. Estas interfaces
 estaran asociadas a la interfaz virtual **br0** que funciona como puente entre la interfaz fisica.
 
 
