@@ -1,7 +1,7 @@
 ---
 layout: single
 
-title: Configuración de red Servdior QEMU/KVM 
+title: Configuración de red - Servidor QEMU/KVM 
 
 excerpt: "**La configuración de red**
 
