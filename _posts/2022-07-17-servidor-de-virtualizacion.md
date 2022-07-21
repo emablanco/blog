@@ -111,13 +111,7 @@ apt install qemu qemu-kvm qemu-system qemu-utils libvirt-clients libvirt-daemon-
 ```
 ## Configuración de Red
 		
-Una vez que finaliza la instalación ya tendremos el servidor de virtualización 
-funcionando. Ahora solo queda realizar la configuración de red, donde se debe 
-crear una interfaz **br0**. Esta interfaz sera un **Bridge** con la interfaz 
-física. Con esta interfaz se logra que las máquinas virtuales obtengan IPs del
-mismo rango que las PC de la red lan, en lugar de obtener IP de una red 
-virtual.
-			
+Una vez que finaliza la instalación ya tendremos el servidor de virtualización funcionando. Ahora solo queda realizar la configuración de red, donde se debe crear una interfaz **br0** que sera un puente con la interfa fisica. Con esta interfaz se logra que las máquinas virtuales obtengan IPs del mismo rango que las PC de la red lan, en lugar de obtener IP de una red virtual.
 
 ```bash
 			
@@ -159,7 +153,7 @@ Una vez dentro del servidor se debe llamar al **virt-manager** para dentro de nu
 virt-manager
 
 ```
-Listo, ahora se puede administrar el servidor de virtualización gráficamente de forma remota:
+Listo, ahora se puede administrar el servidor de virtualización de forma grafica remotamente:
 
 ![](/assets/images/kvm/1.png)
 
