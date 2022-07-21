@@ -227,6 +227,6 @@ echo "nameserver 1.1.1.1" > /etc/resolv.conf # dns
 ip addr del 192.168.1.124/24 dev enp1s0 #elimino la ip estatica anterio
 ```
 Es necesario que este script se ejecute en cada inicio del sistema. Se puede ejecutar
-desde las configuraciones de red dentro del archivo _/etc/network/interfaces_ pero para 
+desde las configuraciones de red dentro del archivo _/etc/network/interfaces_, pero para 
 mi gusto lo ejecutare desde **crontab**.
 
