@@ -199,7 +199,7 @@ MAC_CEL=""
 ```
 Este script en bash lo guardare dentro del mismo directorio donde guarde el script
 de las configuraciones de red y de la misma manera que el script anterior
-lo ejecutare en cada incio del sistema con **crontab**
+lo ejecutare en cada incio del sistema con **crontab**.
 
 Para conocer mas sobre las configuraciones que se pueden realizar con **IPTABLES**
 dejo unos link del cuales hice uso.
