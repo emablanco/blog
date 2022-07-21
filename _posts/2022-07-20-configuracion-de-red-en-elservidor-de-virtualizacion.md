@@ -62,7 +62,9 @@ ip addr add 192.168.102.1/24 brd 192.168.102.255 dev lan2
 ip link set lan2 up
 
 echo "Fin de las interfaces"
+
 ```
+
 Este script en bash lo guardare dentro de un directorio y con **crontab** lo ejecutare cada vez
 que se inicie el sistema operativo.
 
@@ -204,8 +206,25 @@ lo ejecutare en cada incio del sistema con **crontab**.
 
 Para conocer mas sobre las configuraciones que se pueden realizar con **IPTABLES**
 dejo unos link del cuales hice uso.
-
+    
 - [RedHat](https://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-rg-es-4/ch-iptables.html)
 - [Manual Practico](http://redesdecomputadores.umh.es/iptables.htm)
-    
- 
+
+
+## DMZ
+
+Para mi primer servidor que estara dentro de la DMZ le configurare la interfaz de red 
+de la misma manera que lo hice con el servidor QEMU/KVM.
+
+```bash
+ip link add link enp1s0 name dmz type vlan id 100 #creo la vlan
+ip addr add 192.168.100.2/24 brd 192.168.100.255 dev dmz #configuro la ip
+ip link set dmz up #activo la interfaz
+ip route add default via 192.168.100.1 #nueva ruta de ruteo
+echo "nameserver 1.1.1.1" > /etc/resolv.conf # dns
+ip addr del 192.168.1.124/24 dev enp1s0 #elimino la ip estatica anterio
+```
+Es necesario que este script se ejecute en cada inicio del sistema. Se puede ejecutar
+desde las configuraciones de red dentro del archivo _/etc/network/interfaces_ pero para 
+mi gusto lo ejecutare desde **crontab**.
+
