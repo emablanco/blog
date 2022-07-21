@@ -68,12 +68,12 @@ que se inicie el sistema operativo.
 ## IPTABLES
 
 Iptables es un módulo del núcleo de Linux que se encarga de filtrar los paquetes de red.
-Se encarga de determinar qué paquetes se aceptan y cuales no.
+O sea, se encarga de determinar qué paquetes se aceptan y cuales no.
 
 Como cualquier firewall, iptables funciona a través de reglas. Estas reglas deben 
-especificar que hacer con cada paquete, en algunos casos se debe especificar que
-puerto debe recibir esos paquetes, el protocolo utilizado para el envío de datos y cualquier 
-otra información relacionada con el intercambio de datos entre redes.
+especificar que hacer con cada paquete, que puertos deben recibiresos paquetes, 
+el protocolo utilizado para el envío de datos y cualquier otra información 
+relacionada con el intercambio de datos entre redes.
 
 ## Configuracón de iptables
 
