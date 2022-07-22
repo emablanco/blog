@@ -121,7 +121,7 @@ chown -R www-data:www-data /opt/nextcloud/
 
 ### Crear HostVirtual
 
-creare un archivo _nextcloud.conf_ con el siguiente contenido:
+creare un archivo _/etc/apache2/sites-available/nextcloud.conf_ con el siguiente contenido:
 
 ```bash
 <VirtualHost *:80>
