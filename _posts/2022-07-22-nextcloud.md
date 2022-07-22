@@ -178,8 +178,6 @@ a2enmod mime
 
 Para generar el sertificado ssl utilizare **CertBot**
 
-[CertBot](https://certbot.eff.org/instructions?ws=apache&os=debianbuster)
-
 Instalacion:
 
 ```bash
@@ -190,3 +188,5 @@ apt install certbot python3-certbot-apache
 certbot --apache
 
 ```
+
+[CertBot](https://certbot.eff.org/instructions?ws=apache&os=debianbuster)
