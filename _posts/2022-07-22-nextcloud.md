@@ -52,7 +52,7 @@ las cuales se mencionan en la documentacion de **Nextclod**.
 apt install php php-mysql php-mbstring php-json php7.4-common php7.4-xml php-zip php-gd curl php-curl php-pear php7.4-opcache php-intl mariadb-server
 
 ```
-Luego que instalación de los programas haya terminado es necesario realizar unas 
+Luego que la instalación de los programas haya terminado es necesario realizar unas 
 modificaciones en los valores predeterminados de **php** porque no seran 
 utiles para **Nextcloud**.
 
@@ -191,3 +191,5 @@ Instalacion:
 apt install certbot python3-certbot-apache
 #configurar CertBot para apache
 certbot --apache
+
+```
