@@ -6,7 +6,7 @@ title: Nextcloud - Servidor QEMU/KVM
 excerpt: "**Nextcloud**
 es un software bajo Licencia: AGPLv3, lo que significa que es Software Libre.
 Este software permite crear un servicidor de alojamiento de archivos, para almacenar
-todos nuestros documentos, videos, etc. Y tenerlos disponibles desde cualquier lugar, y en todo momento
+todos nuestros documentos, videos, etc. De esta manera tenerlos disponibles desde cualquier lugar, y en todo momento
 
 Nextcloud cuanta con muchas funciones que lo hacen estar al mismo nivel que cualquier 
 otro servicio de alojamiento de archivos en la nube.
