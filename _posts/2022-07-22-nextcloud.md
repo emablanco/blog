@@ -119,7 +119,7 @@ mv nextcloud /opt
 chown -R www-data:www-data /opt/nextcloud/
 ```
 
-# Crear HostVirtual
+### Crear HostVirtual
 
 creare un archivo _nextcloud.conf_ con el siguiente contenido:
 
@@ -183,6 +183,7 @@ Para generar el sertificado ssl utilizare **CertBot**
 Instalacion:
 
 ```bash
+
 #Instalación
 apt install certbot python3-certbot-apache
 #configurar CertBot para apache
