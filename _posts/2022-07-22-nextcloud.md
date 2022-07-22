@@ -9,9 +9,6 @@ Este software permite crear un servicidor de alojamiento de archivos, para almac
 todos nuestros documentos, videos, etc. De esta manera tenerlos disponibles desde cualquier lugar, y en todo momento.
 Nextcloud cuanta con muchas funciones que lo hacen estar al mismo nivel que cualquier 
 otro servicio de alojamiento de archivos en la nube.
-
-- [nextcloud](https://nextcloud.com.es/)
-
 "
 
 date: 2022-07-22
