@@ -175,16 +175,11 @@ a2enmod mime
 
 ## Nextcloud
 
-Finalizada la configuracion de puede acceder a **Nextcloud** y comezar a utilizarla sin problemas.
-Como mi intención es poder usar este servicio desde internet tendre que crear el 
-certificado **ssl**
-
 ![](/assets/images/nextcloud/nextcloud1.png)
 
 ## SSL
 
-Para generar el sertificado ssl utilizare **CertBot**. Esta herramienta genera automaticamente los 
-certificados y los actualiza.
+Para generar el certificado ssl utilizare **CertBot**.
 
 Instalacion:
 
@@ -196,8 +191,7 @@ apt install certbot python3-certbot-apache
 certbot --apache
 
 ```
-Una vez generado el certificado para poder acceder desde internet al servidor **Nextcloud**
-es necesario realizar una ultima configuracion:
+Una vez generado el certificado **ssl** es necesario realizar una ultima configuracion:
 
 Dentro del archivo _config.php_ se debe agregar el dns:
 
@@ -214,6 +208,7 @@ systemctl restart apache2
 
 ```
 
+![](/assets/images/nextcloud/nextcloud2.png)
 
 
 [CertBot](https://certbot.eff.org/instructions?ws=apache&os=debianbuster)
