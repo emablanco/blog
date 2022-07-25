@@ -40,7 +40,18 @@ tags:
 ## Instalación
 
 Para comenzar con la instalacion de **Nextcloud** antes hay que resolver unas dependencias
-las cuales se mencionan en la documentacion de **Nextclod**.
+las cuales se mencionan en su documentacion y descargar **Nextcloud Server**.
+
+```bash
+#Nextcloud Server
+wget https://download.nextcloud.com/server/releases/latest.tar.bz2
+#descomprimir tar
+tar xjvf lates.tar.bz2
+#mover el directorio nextcloud a opt
+mv nextcloud /opt
+#cambiar el dueño del directorio y los archivos que se encuentren dentro
+chown -R www-data:www-data /opt/nextcloud/
+```
 
 - [Requisitos](https://docs.nextcloud.com/server/latest/admin_manual/installation/source_installation.html)
 
@@ -105,23 +116,10 @@ Bye
 
 ```
 
-##  apache2
+### HostVirtual
 
-Descargar **Nextcloud** de su sitio web:
-
-```bash
-wget https://download.nextcloud.com/server/releases/latest.tar.bz2
-#descomprimir tar
-tar xjvf lates.tar.bz2
-#mover el directorio nextcloud a opt
-mv nextcloud /opt
-#cambiar el dueño del directorio y los archivos que se encuentren dentro
-chown -R www-data:www-data /opt/nextcloud/
-```
-
-### Crear HostVirtual
-
-creare un archivo _/etc/apache2/sites-available/nextcloud.conf_ con el siguiente contenido:
+El archivo de HostVirtual se alojara dentro del directorio _/etc/apache2/sites-available/nextcloud.conf_
+y tendra el siguiente contenido:
 
 ```bash
 <VirtualHost *:80>
@@ -144,7 +142,7 @@ Se pueden realizar otras configuraciones en el php para mejorar en funcionamient
 de **Nextcloud**.
 
 ```bash
-nvim /etc/php/7.4/apache2/conf.d/10-opcache.ini~
+nvim /etc/php/7.4/apache2/conf.d/10-opcache.ini
 
 ```
 Dentro del ducumento se pueden agragar las siguientes opciones:
@@ -159,8 +157,8 @@ Dentro del ducumento se pueden agragar las siguientes opciones:
 * opcache.save_comments=1
 * opcache.huge_code_pages=1
 
-Una vez finalizadas las configuraciones anteriores activare unos modulos de **apache2**
-y reiniciare el servicio.
+Una vez finalizadas las configuraciones anteriores es necesario
+actvidar los modulos de **apache2** y reiniciar el servicio.
 
 ```bash
 
@@ -174,9 +172,19 @@ a2enmod dir
 a2enmod mime
 
 ```
+
+## Nextcloud
+
+Finalizada la configuracion de puede acceder a **Nextcloud** y comezar a utilizarla sin problemas.
+Como mi intención es poder usar este servicio desde internet tendre que crear el 
+certificado **ssl**
+
+![](/assets/images/nextcloud/nextcloud1.png)
+
 ## SSL
 
-Para generar el sertificado ssl utilizare **CertBot**
+Para generar el sertificado ssl utilizare **CertBot**. Esta herramienta genera automaticamente los 
+certificados y los actualiza.
 
 Instalacion:
 
@@ -188,5 +196,24 @@ apt install certbot python3-certbot-apache
 certbot --apache
 
 ```
+Una vez generado el certificado para poder acceder desde internet al servidor **Nextcloud**
+es necesario realizar una ultima configuracion:
+
+Dentro del archivo _config.php_ se debe agregar el dns:
+
+```bash
+
+'trusted_domains' =>
+  array (
+   0 => 'localhost',
+   1 => 'nextcloud.duckdns.org',
+   2 => '192.168.1.222',
+),
+
+systemctl restart apache2
+
+```
+
+
 
 [CertBot](https://certbot.eff.org/instructions?ws=apache&os=debianbuster)
