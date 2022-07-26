@@ -1,14 +1,14 @@
 ---
 layout: single
 
-title: Servidor de Virtualización - QEMU/KVM 
+title: Laboratorio - Servidor de Virtualización - QEMU/KVM 
 
 excerpt: "**Un Servidor de Virtualización**
 
-es el proceso de dividir un servidor fíico en
-múltiples servidores virtuales y aislados por medio de una aplicación 
+es el proceso de dividir un servidor fícico en múltiples servidores virtuales y aislados por medio de una aplicación 
 de software. Cada servidor virtual puede ejecutar sus propios sistemas 
 operativos de manera independiente"
+
 
 date: 2022-07-17
 
