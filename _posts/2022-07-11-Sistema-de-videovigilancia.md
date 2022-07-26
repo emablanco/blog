@@ -12,11 +12,11 @@ header:
   icon: /assets/images/logofairy.png
 categories:
   - Seguridad
-  - Sistemas de Videovigilancia
+  - Sistemas de Video Vigilancia
   - Linux
   - MotionEye
 tags:  
-  - Seguridad
+  - Camaras
   - Videovigilancia
 ---
 <p align="center">
