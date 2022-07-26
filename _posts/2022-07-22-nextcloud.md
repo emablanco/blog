@@ -93,10 +93,7 @@ Configuración de seguridad:
 ```bash
 mysql_secure_installation
 ```
-Finalizada la configuiración es hora de crear la base de datos y el usuario que la 
-administrara.
-
-Crear usuario y base de datos para **Nextcloudb**
+### Crear usuario y base de datos para Nextcloudb
 
 ```mariadb
 
