@@ -31,13 +31,15 @@ tags:
 
 - md5sum
 ---
-
-![](/assets/images/cambios-so/md5sum.png)
+<p style="text-align:center;">
+<img src="/assets/images/cambios-so/md5sum.png" alt="Logo">
+</p>
 
 ## Generar Firmas de archivos
 
 
 ```bash
+#! /bin/bash
 
 workdir=$PWD/seguridad
  
