@@ -1,7 +1,7 @@
 ---
 layout: single
 
-title: Nextcloud - Servidor QEMU/KVM 
+title: Nube Personal - Servidor QEMU/KVM 
 
 excerpt: "**Nextcloud**
 es Software Libre y permite crear un servidor de alojamiento de archivos.
