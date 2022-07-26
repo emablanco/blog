@@ -41,8 +41,7 @@ tags:
 
 ## Instalación
 
-Para comenzar con la instalacion de **Nextcloud** antes hay que resolver unas dependencias
-las cuales se mencionan en su documentacion y descargar **Nextcloud Server**.
+Descargar **Nextcloud**:
 
 ```bash
 #Nextcloud Server
@@ -54,6 +53,9 @@ mv nextcloud /opt
 #cambiar el dueño del directorio y los archivos que se encuentren dentro
 chown -R www-data:www-data /opt/nextcloud/
 ```
+Para comenzar con la instalacion de **Nextcloud** antes hay que resolver unas dependencias
+las cuales se mencionan en su documentacion.
+
 
 - [Requisitos](https://docs.nextcloud.com/server/latest/admin_manual/installation/source_installation.html)
 
@@ -61,9 +63,8 @@ chown -R www-data:www-data /opt/nextcloud/
 apt install php php-mysql php-mbstring php-json php7.4-common php7.4-xml php-zip php-gd curl php-curl php-pear php7.4-opcache php-intl mariadb-server
 
 ```
-Luego que la instalación de los programas haya terminado es necesario realizar unas 
-modificaciones en los valores predeterminados de **php** porque no seran 
-utiles para **Nextcloud**.
+Una vez que la instalación de los programas finalizo es necesario realizar unas 
+modificaciones en los valores predeterminados de **php**. 
 
 
 ```bash
@@ -72,13 +73,13 @@ cp /etc/php/7.4/cli/php.ini /etc/php/7.4/cli/php.ini.bk
 
 nvim /etc/php/7.4/cli/php.ini
 ```
-Dentro del documento es necesario que se cambien los siguientes valores:
-
+valores actualizados:
+ 
 * post_max_size = 511M
 * upload_max_filesize = 511M
 * memory_limit = 512M
 
-Una vez que los cambios se realizaron se debe reiniciar el servicio de **apache2**
+Reiniciar **apache2**
 
 ```bash
 systemctl restart apache2
@@ -86,11 +87,8 @@ systemctl restart apache2
 ```
 ## MariaDB
 
-Ahora se debe crear la base de datos que usara **Nextcloud** y realizar las 
-configuraciones de seguridad de **MariaDB**.
 
-Para configurar **MariaDB** se puede usar hacer uso de un script que viene junto
-con la instalacion.
+Configuración de seguridad:
 
 ```bash
 mysql_secure_installation
@@ -98,6 +96,7 @@ mysql_secure_installation
 Finalizada la configuiración es hora de crear la base de datos y el usuario que la 
 administrara.
 
+Crear usuario y base de datos para **Nextcloudb**
 
 ```mariadb
 
@@ -118,10 +117,9 @@ Bye
 
 ```
 
-### HostVirtual
+### VirtualHost
 
-El archivo de HostVirtual se alojara dentro del directorio _/etc/apache2/sites-available/nextcloud.conf_
-y tendra el siguiente contenido:
+Crar un archivo  **VirtualHost** para **Nextcloud** dentro del directorio _/etc/apache2/sites-available/nextcloud.conf_:
 
 ```bash
 <VirtualHost *:80>
@@ -140,15 +138,12 @@ y tendra el siguiente contenido:
 </VirtualHost>
 
 ```
-Se pueden realizar otras configuraciones en el php para mejorar en funcionamiento
-de **Nextcloud**.
+Configuración adicional:
 
 ```bash
 nvim /etc/php/7.4/apache2/conf.d/10-opcache.ini
 
 ```
-Dentro del ducumento se pueden agragar las siguientes opciones:
-
 * zend_extension=opcache
 * opcache.enable=1
 * opcache.enable_cli=1
@@ -159,8 +154,6 @@ Dentro del ducumento se pueden agragar las siguientes opciones:
 * opcache.save_comments=1
 * opcache.huge_code_pages=1
 
-Una vez finalizadas las configuraciones anteriores es necesario
-actvidar los modulos de **apache2** y reiniciar el servicio.
 
 ```bash
 
@@ -181,9 +174,7 @@ a2enmod mime
 
 ## SSL
 
-Para generar el certificado ssl utilizare **CertBot**.
-
-Instalacion:
+Generar  certificado **ssl** con **CertBot**.
 
 ```bash
 
@@ -193,9 +184,8 @@ apt install certbot python3-certbot-apache
 certbot --apache
 
 ```
-Una vez generado el certificado **ssl** es necesario realizar una ultima configuracion:
 
-Dentro del archivo _config.php_ se debe agregar el dns:
+Dentro del archivo _/opt/nextcloud/config/config.php_ se debe agregar el dns:
 
 ```bash
 
