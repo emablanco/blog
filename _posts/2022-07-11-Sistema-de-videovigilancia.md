@@ -145,8 +145,8 @@ que están configuradas de manera predeterminada. Una vez que se haya iniciado
 sesión, se puede agregar una cámara haciendo clic en el menú con forma de
 hamburguesas en la parte superior izquierda y luego haciendo clic en el menú 
 desplegable que aparece. Para agregar cámaras IP, se deberá conocer la 
-dirección IP de cada cámara. En esta demostración uso una la cámara de mi celular
-con un **DroidCam**. La dirección proporcionada por **DroidCam** es mi caso es:
+dirección IP de cada cámara. En esta demostración uso la cámara de mi celular
+con **DroidCam**. La dirección proporcionada por **DroidCam** es mi caso es:
 
 <p align="center">                                                
  <img src="/assets/images/motioneye/droidcam.jpg">                                      
