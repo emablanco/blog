@@ -193,6 +193,10 @@ Dentro del archivo _/opt/nextcloud/config/config.php_ se debe agregar el dns:
    2 => '192.168.1.222',
 ),
 
+```
+Reiniciar servidor web:
+
+```bash
 systemctl restart apache2
 
 ```
