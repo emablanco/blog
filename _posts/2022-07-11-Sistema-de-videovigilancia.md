@@ -158,8 +158,7 @@ con **DroidCam**. La dirección proporcionada por **DroidCam** es mi caso es:
 
 ## Cliente Android
 
-Motioneye tambien cuenta con un cliente para Android para que se puedan ver las 
-camaras desde cualquier parte.
+Motioneye tambien cuenta con un cliente para Android.
 
 <p align="center">
 <img src="/assets/images/motioneye/motioneye-android.jpg" width="300" height="300">
