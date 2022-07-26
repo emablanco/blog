@@ -116,8 +116,8 @@ Bye
 
 ### VirtualHost
 
-Crar un archivo  _nextcloud.conf_ dentro del directorio _/etc/apache2/sites-available/_
-dentro del mismo colocar lo siguiente:
+Crar un archivo _nextcloud.conf_ dentro del directorio _/etc/apache2/sites-available/_
+con el siguiente contenido:
 
 ```bash
 <VirtualHost *:80>
