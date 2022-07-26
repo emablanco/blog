@@ -149,10 +149,10 @@ dirección IP de cada cámara. En esta demostración uso la cámara de mi celula
 con **DroidCam**. La dirección proporcionada por **DroidCam** es mi caso es:
 
 <p align="center">                                                
- <img src="/assets/images/motioneye/droidcam.jpg" width="100" height="100">
+ <img src="/assets/images/motioneye/droidcam.jpg" width=300" height="300">
 </p>
 
- ## Agregar Camara IP
+## Agregar Camara IP
 
 ![](/assets/images/motioneye/agregar-camara.png)
 
@@ -161,4 +161,7 @@ con **DroidCam**. La dirección proporcionada por **DroidCam** es mi caso es:
 Motioneye tambien cuenta con un cliente para Android para que se puedan ver las 
 camaras desde cualquier parte.
 
+<p align="center">
+<img src="/assets/images/motioneye/motioneye-android.jpg" width="300" height="300">
+</p>
 
