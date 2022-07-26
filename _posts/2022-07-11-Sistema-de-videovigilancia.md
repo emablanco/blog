@@ -154,6 +154,7 @@ con un **DroidCam**. La dirección proporcionada por **DroidCam** es mi caso es:
 
 ![](/assets/images/motioneye/agregar-camara.png)
 
-## Configuración de Camaras IP
+Motionee tambien cuenta con un cliente para Android para que se puedan ver las 
+camaras desde cualquier parte.
 
 
