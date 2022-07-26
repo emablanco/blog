@@ -149,7 +149,7 @@ dirección IP de cada cámara. En esta demostración uso la cámara de mi celula
 con **DroidCam**. La dirección proporcionada por **DroidCam** es mi caso es:
 
 <p align="center">                                                
- <img src="/assets/images/motioneye/droidcam.jpg" width=300" height="300">
+ <img src="/assets/images/motioneye/droidcam.jpg" width="300" height="300">
 </p>
 
 ## Agregar Camara IP
