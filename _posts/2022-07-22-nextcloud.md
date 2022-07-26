@@ -37,7 +37,7 @@ tags:
 - Nextcloud
 ---
 
-![](/assets/images/nextcloud/nextcloud.webp)
+![](/assets/images/nextcloud/nextcloud3.png)
 
 ## Instalación
 
@@ -93,11 +93,11 @@ Configuración de seguridad:
 ```bash
 mysql_secure_installation
 ```
-### Crear usuario y base de datos para Nextcloudb
+### Crear usuario y base de datos para Nextcloud
 
 ```mariadb
 
-MariaDB [(none)]> create database nextcloudb;
+MariaDB [(none)]> create database nextclouddb;
 Query OK, 1 row affected (0.000 sec)
 
 MariaDB [(none)]> CREATE USER 'nextcloud'@localhost IDENTIFIED BY '123456';
@@ -116,7 +116,8 @@ Bye
 
 ### VirtualHost
 
-Crar un archivo  **VirtualHost** para **Nextcloud** dentro del directorio _/etc/apache2/sites-available/nextcloud.conf_:
+Crar un archivo  _nextcloud.conf_ dentro del directorio _/etc/apache2/sites-available/_
+dentro del mismo colocar lo siguiente:
 
 ```bash
 <VirtualHost *:80>
