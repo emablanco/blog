@@ -50,8 +50,10 @@ wget https://download.nextcloud.com/server/releases/latest.tar.bz2
 tar xjvf lates.tar.bz2
 #mover el directorio nextcloud a opt
 mv nextcloud /opt
-#cambiar el dueño del directorio y los archivos que se encuentren dentro
-chown -R www-data:www-data /opt/nextcloud/
+chmod o-rwx /opt/nextcloud
+chown -R root:root /opt
+#dar permisos al usuario  www-data
+setfacl -R -m u:www-data:rwx /opt/nextcloud
 ```
 Para comenzar con la instalacion de **Nextcloud** antes hay que resolver unas dependencias
 las cuales se mencionan en su documentacion.

@@ -71,9 +71,5 @@ ipfs daemon &
 
 ![](/assets/images/ipfs/daemon.png)
 
-para verificar que el servicio esta corriendo correctamente se puede usar **top**.
-
-![](/assets/image/ipfs/top.png)
-
 
 la url de los archivos estara formada por un hash, el hash del archivo.
