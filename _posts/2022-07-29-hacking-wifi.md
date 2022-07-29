@@ -175,7 +175,7 @@ Clave obtenida.
 
 ![](/assets/images/wifi/crack1.png)
 
-Para salir del modo monitor es necesario apagar el modo monitor de la tarjeta wifi.
+Salir del modo monitor:
  
 ```bash
 sudo airmon-ng stop wlp3s0mon
