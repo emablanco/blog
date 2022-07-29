@@ -94,12 +94,11 @@ sudo ifconfig wlp3s0mon down
 sudo macchanger -a wlp3s0mon
 sudo ifconfig wlp3s0mon up
 ```
-
-![](/assets/imagen/wifi/macchanger.png)
+![](/assets/images/wifi/macchanger.png)
 
 Ahora que todo esta configurado correctamente es hora de analizar el trafico que pasa por el aire.
 
-![](/assets/imagen/wifi/airodump-ng.png)
+![](/assets/images/wifi/airodump-ng.png)
 
 * **PWR** hace referencia al "power". Cuanto mas bajo sea el valor mejor es la señal que se recibe.
 
