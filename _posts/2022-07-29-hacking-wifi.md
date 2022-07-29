@@ -158,7 +158,7 @@ crunch 8 8 0123456789 -t 36@@@@@@ -o diccionario
 
 El diccionario generado cuenta con miles de contraseñas de 8 dígitos.
 
-![](/assets/images/wifi/diccionario2.png)
+![](/assets/images/wifi/diccionario1.png)
 
 ## Crackear
 
