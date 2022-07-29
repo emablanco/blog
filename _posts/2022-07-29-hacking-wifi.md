@@ -100,7 +100,7 @@ Ahora que todo esta configurado correctamente es hora de analizar el trafico que
 
 ![](/assets/images/wifi/airodump-ng.png)
 
-* **PWR** hace referencia al "power". Cuanto mas bajo sea el valor mejor es la señal que se recibe.
+* **PWR** hace referencia al "power". Cuanto mas bajo sea el valor, mejor es la señal que se recibe.
 
 Escoger una red:
 
@@ -114,11 +114,11 @@ Escoger una red:
 ```bash
 airodump-ng --channel 1 -w wifi-casa --bssid xx:xx:xx:xx wlp3s0mon
 ```
-![](/assets/imagen/wifi/airodump-wifi-casa.png)
+![](/assets/images/wifi/airodump-wifi-casa.png)
 
 Dentro del directorio donde se esta ejecutando el ataque se crearon varios archivos, entre los cuales solo sera útil el que finaliza con extención **.cap** cuando se logre obtener el **HANDSHAKE**.
 
-![](/assets/imagen/wifi/ls.png)
+![](/assets/images/wifi/ls.png)
 
 ## des-autenticación
 
@@ -134,7 +134,7 @@ La sintaxis del comando es:
 sudo aireplay-ng --deauth 4 -a ec:e4:b4:xx:xx:xx -c e4:g3:xx:xx:xx:xx wlp3s0mon
 ```
 
-![](/assets/imagen/wifi/deauth.png)
+![](/assets/images/wifi/deauth.png)
 
 Con esto se logra capturar el **HANDSHAKE** al caul por medio de un diccionario de furza bruta se podrá obtener la clave de la red WiFi.
 
@@ -154,11 +154,11 @@ Dado que se cual es el password de mi red WiFi creare un pequeño diccionario de
 crunch 8 8 0123456789 -t 36@@@@@@ -o diccionario
 ```
 
-![](/assets/imagen/wifi/diccionario.png)
+![](/assets/images/wifi/diccionario.png)
 
 El diccionario generado cuenta con miles de contraseñas de 8 dígitos.
 
-![](/assets/imagen/wifi/diccionario2.png)
+![](/assets/images/wifi/diccionario2.png)
 
 ## Crackear
 
@@ -169,8 +169,8 @@ Para crackear el **handshake** que se capturo, la sintaxis del comando es la sig
 ```bash
 sudo aircrack-ng wifi-casa-06.cap -w diccionario
 ```
-![](/assets/imagen/wifi/crack.png)
-![](/assets/imagen/wifi/crack1.png)
+![](/assets/images/wifi/crack.png)
+![](/assets/images/wifi/crack1.png)
 
 Para salir del modo monitor es necesario apagar el modo monitor de la tarjeta wifi.
  
