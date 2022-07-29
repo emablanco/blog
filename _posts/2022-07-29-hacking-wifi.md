@@ -170,6 +170,9 @@ Para crackear el **handshake** que se capturo, la sintaxis del comando es la sig
 sudo aircrack-ng wifi-casa-06.cap -w diccionario
 ```
 ![](/assets/images/wifi/crack.png)
+
+Clave obtenida.
+
 ![](/assets/images/wifi/crack1.png)
 
 Para salir del modo monitor es necesario apagar el modo monitor de la tarjeta wifi.
