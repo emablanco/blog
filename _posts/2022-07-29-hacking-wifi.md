@@ -10,13 +10,13 @@ la clave compartida de cifrado de la red Wi-Fi durante la fase de
 autenticación, y luego intentar romperlo off-line mediante un diccionario de 
 contraseñas.
 "
-date: 2022-07-22
+date: 2022-07-29
 
 classes: wide
 
 header:
 
-    teaser: /assets/images/wifi/logo1.png
+    teaser: /assets/images/wifi/logo.png
 
     teaser_home_page: true
     
