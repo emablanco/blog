@@ -36,7 +36,21 @@ tags:
 ---
 
 
+La idea de esta guia es para comprobar la seguridad de tu red wifi y no para
+robar el WIFI a tu vecino.  
+
+Para comenzar con esta practica se necesita una Distribución GNU/Linux, la suit
+de software de seguridad inalámbrica **Aircrak-ng** y **MACCHANGER**.
+
+* GNU/Linux: Recomiendo un live de Kali Linux o Wifi Slax.
+* AIRCRACK-NG: Suite de software de seguridad inalámbrica. 
+
+* MACCHANGER: Permite cambiar la Dirección **MAC**
+
+En caso de que se use alguna Distribución que no sea las orientadas a seguridad informatica
+se puede instalar las herramientas de la siguiente manera:
+
 ```bash
-apt install ema
+apt install aircrak-ng macchanger
 ```
 ![](/assets/images/wifi/logo.png)
