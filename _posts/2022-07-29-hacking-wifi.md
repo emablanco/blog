@@ -1,7 +1,7 @@
 ---
 layout: single
 
-title: Hacking Wifi - Pentesting Wifi
+title: Hacking WiFi - Pentesting WiFi
 
 excerpt: "**El ataque que presento**
 consiste en obtener el handshake WPA/WPA2 que se lleva a cabo entre las estaciones (clientes Wi-Fi) y el BSSID (punto de acceso) para intercambiar la clave compartida de cifrado de la red Wi-Fi durante la fase de autenticación, y luego intentar romperlo off-line mediante un diccionario de contraseñas."
