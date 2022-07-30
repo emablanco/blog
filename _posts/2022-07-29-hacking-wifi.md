@@ -135,7 +135,6 @@ sudo aireplay-ng --deauth 4 -a ec:e4:xx:xx:xx:xx -c e4:g3:xx:xx:xx:xx wlp3s0mon
 
 Con esto se logra capturar el **HANDSHAKE**, al caul por medio de un diccionario de furza bruta se podrá obtener la clave de la red WiFi.
 
-El tiempo que puede llevar crackear el **HANDSHAKE** dependerá de la potencia del **CPU**.
 
 ## DICCIONARIO
 
@@ -157,7 +156,8 @@ El diccionario generado cuenta con miles de contraseñas de 8 dígitos.
 
 ## CRACKERAR
 
-Para crackear el **HANDSHAKE** solo bastara con aircrack-ng.
+Para crackear el **HANDSHAKE** solo bastara con **aircrack-ng** y el tiempo que se demore dependerá de la potencia del **CPU**.
+
 
 
 ```bash
@@ -169,7 +169,9 @@ Clave obtenida.
 
 ![](/assets/images/wifi/crack1.png)
 
-Salir del modo monitor:
+Mi **CPU** probaba con 517 claves por segundos y le tomo 25 segundos en poder descifrar la clave de la red WiFi.
+
+**Salir del modo monitor:**
  
 ```bash
 sudo airmon-ng stop wlp3s0mon
