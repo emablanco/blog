@@ -32,6 +32,3 @@ tags:
 - Maquina Inexpugnable
 ---
 
-```bash
-apt install aircrak-ng macchanger
-```
