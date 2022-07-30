@@ -169,7 +169,7 @@ Clave obtenida.
 
 ![](/assets/images/wifi/crack1.png)
 
-Mi **CPU** probaba con 517 claves por segundos y le tomo 25 segundos en poder descifrar la clave de la red WiFi.
+La velocidad de mi **CPU** es 517 claves por segundos y le tomo 25 segundos en poder descifrar la clave de la red WiFi.
 
 **Salir del modo monitor:**
  
