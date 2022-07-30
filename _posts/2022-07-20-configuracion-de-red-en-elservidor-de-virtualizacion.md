@@ -229,3 +229,8 @@ Es necesario que este script se ejecute en cada inicio del sistema. Se puede eje
 desde las configuraciones de red dentro del archivo _/etc/network/interfaces_, pero para 
 mi gusto lo ejecutare desde **crontab**.
 
+## Diagrama de RED
+
+El servidor virtualizacion emulara tres deres virtuales y los equipos de cada red.
+
+![](/assets/images/red/diagrama-red.png)
