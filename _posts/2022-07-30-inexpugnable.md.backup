@@ -159,7 +159,7 @@ Configuración de los discos duros.
 
 ![](/assets/images/inexpugnable/25.png)
 
-Información de los sistemas de archivos en el servidor. 
+#df -h 
 
 ![](/assets/images/inexpugnable/26.png)
 
