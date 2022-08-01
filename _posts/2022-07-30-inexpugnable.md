@@ -161,8 +161,6 @@ Información de los sistemas de archivos en el servidor.
 
 ![](/assets/images/inexpugnable/26.png)
 
-Información del grupo y de los volúmenes.
-
 
 ## Conclusión
 
