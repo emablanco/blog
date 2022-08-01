@@ -38,12 +38,14 @@ tags:
 - Maquina Inexpugnable
 ---
 
+
+![](/assets/images/inexpugnable/wallpapers.png)
+
 Si la información que almacenas en tu servidor es importante y deseas que en caso de robo, secuestro, extravío, auditoría policial, etc. Les sea imposible de acceder y que solo tu puedas descifrar los discos duros para recuperar la información. Te presento esta guía de buenas practicas, para crear un servidor que no solo cifra los disco duros, sino que los cifra sobre arreglos. Cifrar sobre arreglos significa que se puede optar por conservar la información con tolerancia a fallo o destrucción al mas mínimo toque.
 
 - **RAID 0:** Garantiza que al mas mínimo cambio todo el disco quede inútil. Haciendo imposible poder recuperar la información de cualquier otro disco duro.
 
- Si alguien esta tratando de abrir el servidor y robar un disco 		duro, al momento que quite un disco la información se destruirá. 	Suponiendo que se logre llevar todos los discos, debe conseguir 		la contraseña de todo el RAID para poder ensamblar el sistema
-operativo.
+ 	Si alguien esta tratando de abrir el servidor y robar un disco 		duro, al momento que quite un disco la información se 				destruirá. Suponiendo que se logre llevar todos los discos, 			debe conseguir la contraseña de todo el RAID para poder 				ensamblar el sistema operativo.
 
 
 - **RAID 1,3,5,6:** Estos RAID o cualquier otra combinación están pensadas para proteger la información, con copias espejos o con paridad. 
