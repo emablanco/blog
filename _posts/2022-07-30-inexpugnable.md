@@ -168,7 +168,7 @@ Con tan solo un reboot, shutdown o desenchufar el servidor toda la información 
 
 De esta manera logramos mantener segura nuestra información ante cualquier incidente.
 
-## Memoria RAM.
+## POST Recomendado.
 
 cold boot attack (ataque de arranque en frío ), utilizada en informática forense, en procedimientos de recuperación de datos e inevitablemente en actividades de piratería ilegal.
 
