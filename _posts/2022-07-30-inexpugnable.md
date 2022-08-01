@@ -163,28 +163,25 @@ Información de los sistemas de archivos en el servidor.
 
 ![](/assets/images/inexpugnable/26.png)
 
-informacion de los discos
-
-![](/assets/images/inexpugnable/27.png)
-
-informacion del grupo de volumen y los volumenes logicos 
+Información del grupo y de los volúmenes.
 
 
 
+## Memoria RAM.
 
-Es una técnica conocida como cold boot attack (ataque de arranque en frío ), utilizada en informática forense, en procedimientos de recuperación de datos e inevitablemente en actividades de piratería ilegal.
+cold boot attack (ataque de arranque en frío ), utilizada en informática forense, en procedimientos de recuperación de datos e inevitablemente en actividades de piratería ilegal.
 
 Aprovecha una característica física de los bancos de RAM, en particular de las DRAM, que por su propia naturaleza no pierden datos de inmediato ante una fallo repentino en la alimentación, sino que siguen un tipo de descarga que es mucho más lenta cuanto más fríos estén los componentes electrónicos.
 
 En pocas palabras, la RAM pierde su contenido en un tiempo proporcional a la temperatura.
 
-
-[RAM](https://www.kicksecure.com/wiki/Cold_Boot_Attack_Defense)
-[Congelar RAM](https://es.quora.com/Es-cierto-que-puede-extraer-datos-de-la-RAM-de-una-computadora-congel%C3%A1ndola-C%C3%B3mo-se-hace)
 En condiciones normales y de estado estacionario, hablamos de unos pocos milisegundos, pero si se enfría por debajo de -50 ° C (por ejemplo, a través de un spray como los disponible en el mercado [1]), el tiempo de descarga puede incluso llegar a unas pocas decenas de segundos.
 
 Ese tiempo es suficiente para desconectarlo de la placa base, colocarlo en otra PC y leer su contenido a través de una herramienta adecuada que lo vuelca.
 
 Recordar que, excepto en casos excepcionales, a) la RAM nunca está encriptada a diferencia del sistema de archivos, b) que a menudo contiene temporalmente las claves utilizadas por los sistemas de seguridad y c) que todo lo que usted está haciendo se coloca momentáneamente allí (como lo que actualmente estoy escribiendo aquí en Quora antes de publicar el contenido), está claro que, como técnica, aunque requiere acceso físico a la computadora, es particularmente intrigante no solamente para actividades completamente legítimas.
 
+Gracias : Fabrizio Rovelli
 
+
+[POST](https://es.quora.com/Es-cierto-que-puede-extraer-datos-de-la-RAM-de-una-computadora-congel%C3%A1ndola-C%C3%B3mo-se-hace)
