@@ -137,9 +137,9 @@ Instalación del Sistema Base.
 
 ![](/assets/images/inexpugnable/20.png)
 
-Como es un servidor, no necesita entorno gráfico, por eso solo seleccionare que instale las utilerías del sistema y el servicio **SSH** para poder conectarme remotamente.
+Un servidor no necesita entorno grafico, por eso solo seleccionare que instale las utilerías del sistema y el servicio **SSH** para poder conectarme remotamente.
 
-![](/assets/images/inexpugnable/21.png)}
+![](/assets/images/inexpugnable/21.png)
 
 Continuar, para reiniciar el sistema.
 
