@@ -1,0 +1,100 @@
+---
+layout: single
+
+title: Servidor Inexpugnable - GNU/Linux
+
+excerpt: "**Un escritorio remoto** de trabajo es la tecnología que nos permite acceder de forma remota a un espacio de trabajo digital a través de un entorno gráfico. AnyDesk es un programa de software de escritorio remoto ideal para uso empresarial.
+"
+
+
+date: 2022-08-01
+
+classes: wide
+
+header:
+
+    teaser: /assets/images/anydesk/logo.png
+
+    teaser_home_page: true
+    
+    icon: /assets/images/logofairy.png
+
+categories:
+
+    - Escritorio remoto
+    - Linux
+    - Anydesk
+
+tags:  
+
+- Escritorio Remoto
+---
+
+
+![](/assets/images/inexpugnable/wallpapers.png)
+
+AnyDesk es una de las mejores aplicaciones de escritorio remoto. Este Software permiten controlar un ordenador desde otro dispositivo que también tenga instalado la aplicación.
+
+Anydesk tiene aplicaciones para Windows, macOS, GNU/Linux, FreeBDS, Raspberry Pi, Android e iOS. Esto quiere decir que se podrá utilizar desde cualquier dispositivo.
+
+## Instalación
+
+Para la instalación de este software es necesario estar como superusurio. 
+
+Clave GPG:
+
+```bash
+ 
+wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | apt-key add 
+```
+
+Agregar Repositorio:
+
+```bash
+echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk-stable.list
+
+```
+
+Actualizar repositorios:
+
+```bash
+apt update
+
+```
+
+Instalar Anydesk
+
+```bash
+apt install anydesk
+
+```
+
+[Instalación Anydesk](http://deb.anydesk.com/howto.html)
+
+## Iniciar Anydesk
+
+Cuando intentaba conectarme a otro equipo en mi red LAN **Anydesk** me arrojaba un error. Luego de indagar sobre como solucionar este problema me encontré con un blog donde una persona con el mismo problema recomendaba iniciar sesión **iniciando sesión en el equipo bajo X11**. [Post](http://deb.anydesk.com/howto.html). Así que seguí su recomendación y se soluciono el problema.
+
+![](/assets/images/anydesk/0.png)
+
+
+Para poder acceder al escritorio del otro equipo solo bastara colocar la dirección **IP** en el buscador de **Anydesk**
+
+![](/assets/images/anydesk/3.png)
+
+Una vez que se solicita la conexión el usuario del otro ordenador debe aceptar la conexión.
+
+Las configuraciones que se puden realizar a la conexión queda en cada quien. 
+
+![](/assets/images/anydesk/2.png)
+
+
+## Puertos & Lista blanca
+
+Los clientes de AnyDesk utilizan los puertos TCP   80 ,   443,   y   6568   para establecer conexiones. Sin embargo, es suficiente si solo se abre uno de estos.
+
+La función "Discovery" de AnyDesk utiliza un puerto libre en el rango de   50001 – 50003   y la IP   239.255.102.18   como valores predeterminados para la comunicación.
+
+Puede ser necesario incluir AnyDesk en la lista blanca para firewalls u otro software de monitoreo de tráfico de red, haciendo una excepción para: “ *.net.anydesk.com “
+
+[Anydesk Firewall](https://support.anydesk.com/es/knowledge/firewall)
