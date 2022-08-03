@@ -193,7 +193,7 @@ PersistentKeepAlive = 25
 
 Mi archivo de configuración.
 
-![](/assets/images/wireguard/wg0.png)
+![](/assets/images/wireguard/wg01.png)
 
 Una vez echo esto, solo queda reiniciar el servicio de **WIREGUARD** para que tome los cambios.
 
@@ -209,6 +209,8 @@ Para conectar al cliente al **VPN** se debe habilitar el servicio y luego activa
 systemctl enable wg-quick@wg0
 systemctl start wg-quick@wg0
 ```
+
+Mi archivo de configuración.
 
 ![](/assets/images/wireguard/cliente.png)
 
