@@ -113,6 +113,14 @@
         </li>
       {% endif %}
 
+     {% if author.portafolio %}                                                  
+        <li>                                                                    
+          <a href="https://emablanco.github.io/{{ author.portafolio }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-portafolio" aria-hidden="true"></i> Portafolio
+         </a>                                                                  
+       </li>                                                                   
+    {% endif %} 
+
       {% if author.xing %}
         <li>
           <a href="https://www.xing.com/profile/{{ author.xing }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
