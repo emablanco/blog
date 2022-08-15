@@ -35,6 +35,8 @@ tags:
 
 Para este ejemplo estaré utilizando **DEBIAN 11** en un servidor de virtualización QEMU/KVM.
 
+Los datos del servidor para la entrada son los siguientes y recuerde ajustarlos a su necesidad:
+
 * **Nombre del servidor:** servidor
 * **Dirección IP:** 192.168.1.3/24
 
@@ -42,7 +44,7 @@ Para este ejemplo estaré utilizando **DEBIAN 11** en un servidor de virtualizac
 
 El servidor DNS definido debe ser uno real que permita acceder a internet. Una vez finalizada la instalación se debe declarar como DNS principal el servidor samba: 127.0.0.1.
 
-## ACTULIZAR SISTEMA
+## AACTULIZAR SISTEMA
 
 Es necesario que el sistema se encuentre actualzado:
 
