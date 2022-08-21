@@ -1,7 +1,7 @@
 ---
 layout: single
 
-title: Laboratorio - Servidor de Virtualización - QEMU/KVM 
+title: Creando mi Servidor de Virtualización - QEMU/KVM 
 
 excerpt: "**Un Servidor de Virtualización**
 

@@ -1,25 +1,10 @@
 ---
 layout: single
-title: Linux - VPN con Bloqueador de anuncios
-excerpt: "**Una red privada virtual (VPN)**
-es una tecnología de red de ordenadores que permite una 
-extensión segura de la red de área local (LAN) sobre una red pública o no 
-controlada como Internet. Permite que el ordenador en la red envíe y reciba 
-datos sobre redes compartidas o públicas como si fuera una red privada, con 
-toda la funcionalidad, seguridad y políticas de gestión de una red privada.
-Esto se realiza estableciendo una conexión virtual punto a punto mediante
-el uso de conexiones dedicadas, cifrado o la combinación de ambos métodos.
-
-Ejemplos comunes son la posibilidad de conectar dos o más sucursales de 
-una empresa utilizando como vínculo Internet, permitir a los miembros del
-equipo de soporte técnico la conexión desde su casa al centro de cómputo 
-o bien que un usuario pueda acceder a su equipo doméstico desde un sitio 
-remoto, como por ejemplo un hotel. Todo ello utilizando la infraestructura 
-de Internet.
-
-La conexión VPN a través de Internet es técnicamente una unión wide area 
-network (WAN) entre los sitios, pero al usuario le parece como si fuera un 
-enlace privado: de allí la designación virtual private network."
+title: VPN con Bloqueador de anuncios
+excerpt: "**PIHOLE** 
+es un bloqueador de anuncios que cubre toda la red y la protege de los anuncios 
+y de rastreadores, evitando que se tenga que realizar configuraciones en cada
+dispositivos."
 
 date: 2022-06-23
 classes: wide
@@ -44,28 +29,6 @@ tags:
 <p align="center">
 <img src="/assets/images/vpn/vpn-seguridad.jpg">
 </p>
-
-**Una red privada virtual (VPN)** es una tecnología de red de ordenadores que permite una 
-extensión segura de la red de área local (LAN) sobre una red pública o no 
-controlada como Internet. Permite que el ordenador en la red envíe y reciba 
-datos sobre redes compartidas o públicas como si fuera una red privada, con 
-toda la funcionalidad, seguridad y políticas de gestión de una red privada.
-Esto se realiza estableciendo una conexión virtual punto a punto mediante
-el uso de conexiones dedicadas, cifrado o la combinación de ambos métodos.
-
-Ejemplos comunes son la posibilidad de conectar dos o más sucursales de 
-una empresa utilizando como vínculo Internet, permitir a los miembros del
-equipo de soporte técnico la conexión desde su casa al centro de cómputo 
-o bien que un usuario pueda acceder a su equipo doméstico desde un sitio 
-remoto, como por ejemplo un hotel. Todo ello utilizando la infraestructura 
-de Internet.
-
-La conexión VPN a través de Internet es técnicamente una unión wide area 
-network (WAN) entre los sitios, pero al usuario le parece como si fuera un 
-enlace privado: de allí la designación virtual private network."
-
-
-- [Wikipedia](https://es.wikipedia.org/wiki/Red_privada_virtual)
 
 ## WIREGUARD
 
@@ -115,34 +78,12 @@ y sistemas operativos para dispositivos móviles.
 Docker es un proyecto de código abierto que automatiza el despliegue de 
 aplicaciones dentro de contenedores de software, proporcionando una capa 
 adicional de abstracción y automatización de virtualización de aplicaciones 
-en múltiples sistemas operativos. Docker utiliza características de 
-aislamiento de recursos del kernel Linux, tales como cgroups y espacios de 
-nombres (namespaces) para permitir que «contenedores» independientes se 
-ejecuten dentro de una sola instancia de Linux, evitando la sobrecarga de 
-iniciar y mantener máquinas virtuales.
-
-El soporte del kernel Linux para los espacios de nombres aísla la vista que 
-tiene una aplicación de su entorno operativo, incluyendo árboles de proceso, 
-red, ID de usuario y sistemas de archivos montados, mientras que los cgroups 
-del kernel proporcionan aislamiento de recursos, incluyendo la CPU, la memoria, 
-el bloque de E/S y de la red. Desde la versión 0.9, Docker incluye la 
-biblioteca libcontainer como su propia manera de utilizar directamente las 
-facilidades de virtualización que ofrece el kernel Linux, además de utilizar 
-las interfaces abstraídas de virtualización mediante libvirt, LXC 
-(Linux Containers) y systemd-nspawn.
-
-De acuerdo con la firma analista de la industria 451 Research, 
-«Docker es una herramienta que puede empaquetar una aplicación y sus 
-dependencias en un contenedor virtual que se puede ejecutar en cualquier 
-servidor Linux. Esto ayuda a permitir la flexibilidad y portabilidad en donde 
-la aplicación se puede ejecutar, ya sea en las instalaciones físicas, la nube 
-pública, nube privada, etc.»
+en múltiples sistemas operativos. 
 
 - [Wikipedia](HTTPS://ES.WIKIPEDIA.ORG/WIKI/DOCKER_(SOFTWARE))
 
 
 ## DOCKER COMPOSE
-
 
 <p align="center">
 <img src="/assets/images/vpn/docker-wireguard-pihole.png">
@@ -211,5 +152,4 @@ networks:
         - subnet: 172.1.1.0/24 #red 
 
 #https://firebog.net/ para agregar listas de bloqueo en pihole
-
 ```
