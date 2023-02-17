@@ -1,4 +1,4 @@
----
+[---](---.md)
 layout: single
 title: Arduino - Rubber Ducky 
 excerpt: "**¿Qué es USB Rubber Ducky?**
