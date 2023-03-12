@@ -133,11 +133,12 @@ La concentración inmediatamente peligrosa para la vida y la salud (IDLH) que re
 * ![](../assets/images/esp32-sensor/3.png)
 
 #### CODIGO DE EJEMPLO
-https://github.com/shurillu/CTBot/blob/master/REFERENCE.md
+[Guia de referencia CTBot](https://github.com/shurillu/CTBot/blob/master/REFERENCE.md)
 
 * DATOS
 
 ```bash
+// por seguridad es mejor ponerlo en un archivo aparte. lo llamarame token.h
 const char * ssid = "RED WIFI";
 const char * password = "XXXXXXX";
 const String token = "XXXXXXXXXXXX";
@@ -147,42 +148,50 @@ const String token = "XXXXXXXXXXXX";
 * Este ejemplo reenvia el mensaje recibido en el ch1at del bot
 
 
-```BASH
+```c++
 template<class T> inline Print &operator <<(Print &obj, T arg) {
   obj.print(arg);
   return obj;
 }
 
-#include "CTBot.h"
-CTBot miBot;
-
 #include "token.h"
+#include "CTBot.h"
 
-void setup() {
+CTBot emaBot;
+
+void setup(){
+
   Serial.begin(115200);
-  Serial.println("Iniciando Bot de Telegram");
 
-  miBot.wifiConnect(ssid, password);
+  Serial.println("\nIniciando ESP");
 
-  miBot.setTelegramToken(token);
+  emaBot.wifiConnect(ssid,password);
 
-  if (miBot.testConnection()) {
-    Serial.println("\n Conectado");
+  emaBot.setTelegramToken(token);
+
+  if(emaBot.testConnection()){
+
+    Serial.println("\nConectado con el BOT");
   }
-  else {
-    Serial.println("\n Problemas Auxilio");
+
+  else{
+
+    Serial.println("No conectado");
   }
 }
 
-void loop() {
-  TBMessage msg;
+void loop(){
 
-  if (CTBotMessageText == miBot.getNewMessage(msg)) {
-    Serial << "Mensaje: " << msg.sender.firstName << " - " <<  msg.text << "\n";
-    miBot.sendMessage(msg.sender.id, msg.text);
+  TBMessage mensaje;
+
+  if(CTBotMessageText == emaBot.getNewMessage(mensaje)){
+
+    Serial.println("\nMensaje recibido: " + mensaje.text);
+
+    emaBot.sendMessage(mensaje.sender.id, "Hola, bienvenido");
   }
 
-  delay(500);
+  delay(250);
 }
 
 ```
