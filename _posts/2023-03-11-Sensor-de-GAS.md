@@ -439,9 +439,210 @@ void loop() {
 
 #### AGREGAR BOT A GRUPOS
 
+Para que el bot funcione en un grupo es necesario darle permisos de administrador para que pueda leer los mensajes.
+
+```c++
+template <class T> inline Print &operator<<(Print &obj, T arg){
+
+  obj.print(arg);
+
+  return obj;
+
+}
+
+#include "token.h"
+#include "CTBot.h"
+
+int led1 = 22;
 
 
+CTBot emaBot;
 
+void setup() {
+
+  pinMode(22, OUTPUT);
+  
+  Serial.begin(115200);
+
+  Serial.println("Iniciando ESP");
+  
+  emaBot.wifiConnect(ssid,password);
+  
+  emaBot.setTelegramToken(token);
+  
+  if(emaBot.testConnection()){
+
+    Serial.println("Bot Conectado");
+  }
+  
+  else{
+
+    Serial.println("No conectado");
+  }
+  
+}
+
+void loop() {
+  TBMessage msg;
+  
+  if (CTBotMessageText == emaBot.getNewMessage(msg)) {
+    
+    Serial << "Usuario: " << msg.sender.firstName << " - " << msg.sender.lastName<<"\n";
+    Serial <<"ID: "<<msg.sender.id<<"\n";
+    
+    if(msg.group.id < 0){
+    
+      Serial << "Grupo: " << msg.group.title<<"\nID: "<<msg.group.id<<"\n";
+      Serial <<"Mensaje: "<< msg.text << "\n";
+
+    }
+
+    else{
+    
+      Serial <<"Mensaje: "<< msg.text << "\n";
+    
+    }
+    
+    if (msg.text.equalsIgnoreCase("encender")) {
+      
+      Serial.println("Encender Led");
+      
+      digitalWrite(led1, HIGH);
+
+      if(msg.group.id < 0){
+        
+        emaBot.sendMessage(msg.group.id, "Led Encendido");
+      }
+
+      else{
+        
+        emaBot.sendMessage(msg.sender.id, "Led Encendido");
+        
+      }
+      
+    }
+    
+    else if (msg.text.equalsIgnoreCase("apagar")) {
+    
+      Serial.println("Apagar Led");
+      
+      digitalWrite(led1, LOW);
+      
+            if(msg.group.id < 0){
+        
+        emaBot.sendMessage(msg.group.id, "Led Apagado");
+      }
+
+      else{
+        
+        emaBot.sendMessage(msg.sender.id, "Led Apagado");
+        
+      }
+      
+    }
+    else {
+     emaBot.sendMessage(msg.sender.id, "Bienvenido " + msg.sender.firstName + ", intenta usar: encender o apagar");
+    }
+  }
+  delay(250);
+
+}
+```
+
+#### BOTONES
+
+```C++
+
+template <class T> inline Print &operator<<(Print &obj, T arg){
+
+  obj.print(arg);
+
+  return obj;
+
+}
+
+#include "token.h"
+#include "CTBot.h"
+
+int led1 = 22;
+CTBotInlineKeyboard boton;
+
+CTBot emaBot;
+
+void setup() {
+
+  pinMode(22, OUTPUT);
+  digitalWrite(led1, LOW);
+  
+  Serial.begin(115200);
+
+  Serial.println("Iniciando ESP");
+  
+  emaBot.wifiConnect(ssid,password);
+  
+  emaBot.setTelegramToken(token);
+  
+  if(emaBot.testConnection()){
+
+    Serial.println("Bot Conectado");
+  }
+  
+  else{
+
+    Serial.println("No conectado");
+  }
+boton.addButton("Encender Led","encender",CTBotKeyboardButtonQuery);
+boton.addButton("Apagar Led","apagar",CTBotKeyboardButtonQuery);
+boton.addRow();
+boton.addButton("mira documentación", "https://emablanco.github.io/", CTBotKeyboardButtonURL);
+
+}
+
+void loop() {
+  
+  TBMessage mensaje;
+
+  if (emaBot.getNewMessage(mensaje)) {
+    
+    if (mensaje.messageType == CTBotMessageText) {
+      
+      if (mensaje.text.equalsIgnoreCase("opciones")) {
+        
+        emaBot.sendMessage(mensaje.sender.id, "Cambiar Led", boton);
+      }
+      
+      else {
+        
+        emaBot.sendMessage(mensaje.sender.id, "prueba 'opciones'");
+      }
+      
+    } else if (mensaje.messageType == CTBotMessageQuery) {
+      
+      Serial << "Mensaje: " <<  mensaje.sender.firstName;
+      
+      if (mensaje.callbackQueryData.equals("encender")) {
+        
+        Serial.println(" Endender");
+        
+        digitalWrite(led1, HIGH);
+        
+        emaBot.endQuery(mensaje.callbackQueryID, "Led Encendido", true);
+        
+      } else if (mensaje.callbackQueryData.equals("apagar")) {
+        
+         Serial.println(" Apagar");
+
+        digitalWrite(led1, LOW);
+        
+        emaBot.endQuery(mensaje.callbackQueryID, "Led Apagado");
+      }
+    }
+  }
+
+  delay(250);
+}
+
+```
 
 ### ERROR AL COMPILAR
 
