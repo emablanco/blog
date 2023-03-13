@@ -40,12 +40,12 @@ Los GPIO 34 al 39 en realidad son GPI (General Purpose Input)
 
 Estos pines no tienen resistencias Pull-up o Pull down y no pueden ser usados como salida
 
-• GPIO 34
-• GPIO 35
-• GPIO 36
-• GPIO 37
-• GPIO 38
-• GPIO 39
+* GPIO 34
+* GPIO 35
+* GPIO 36
+* GPIO 37
+* GPIO 38
+* GPIO 39
 
 ### E/S
 La conversión analógico-digital (ADC) y la inversa, digital a analógico (DAC) se encuentran asignados a una serie de pines que veremos a continuación. Por el contrario, el uso de UART, I2C, SPI, PWM, se puede asignar a través del código.
@@ -55,49 +55,49 @@ Antes de continuar, la información que resumimos en este artículo se ha extra�
 Los GPIO 6 a 11 están expuestos en la mayoría de placas de desarrollo ESP32. Estos pines están conectados directamente al flash SPI integrado en el chip ESP-WROOM-32 y no es posible su uso para funciones más allá de las establecidas.
 
 
-• GPIO 6 (SCK/CLK)
-• GPIO 7 (SDO/SD0)
-• GPIO 8 (SDI/SD1)
-• GPIO 9 (SHD/SD2)
-• GPIO 10 (SWP/SD3)
-• GPIO 11 (CSC/CMD)
+* PIO 6 (SCK/CLK)
+* GPIO 7 (SDO/SD0)
+* GPIO 8 (SDI/SD1)
+* GPIO 9 (SHD/SD2)
+* GPIO 10 (SWP/SD3)
+* GPIO 11 (CSC/CMD)
 
 ### Touch Sensor
 El ESP32 dispone de 10 sensores que se pueden utilizar de forma táctil como sensor capacitativo. Estos pines tienen la capacidad de detectar variaciones en la carga eléctrica, como por ejemplo la piel humana. Para que puedan detectar variaciones inducidas al tocar los GPIO con un dedo. Estas entradas se pueden integrar fácilmente en las almohadillas capacitivas y reemplazan los botones mecánicos. Las clavijas táctiles capacitivas también se pueden usar para activar el ESP32 cuando entra en modo Deep-Sleep.
 Esos sensores táctiles internos están conectados a los siguientes GPIOs:
 
-• T0 (GPIO 4)
-• T1 (GPIO 0)
-• T2 (GPIO 2)
-• T3 (GPIO 15)
-• T4 (GPIO 13)
-• T5 (GPIO 12)
-• T6 (GPIO 14)
-• T7 (GPIO 27)
-• T8 (GPIO 33)
-• T9 (GPIO 32)
+* T0 (GPIO 4)
+* T1 (GPIO 0)
+* T2 (GPIO 2)
+* T3 (GPIO 15)
+* T4 (GPIO 13)
+* T5 (GPIO 12)
+* T6 (GPIO 14)
+* T7 (GPIO 27)
+* T8 (GPIO 33)
+* T9 (GPIO 32)
 
 ### Convertidor analógico a digital (ADC de Analog to Digital Converter)
 Este microcontrolador dispone de canales de entrada ADC de 18 x 12 bits. Los siguientes GPIO que se pueden usar como ADC:
 
-• ADC1_CH0 (GPIO 36)
-• ADC1_CH1 (GPIO 37)
-• ADC1_CH2 (GPIO 38)
-• ADC1_CH3 (GPIO 39)
-• ADC1_CH4 (GPIO 32)
-• ADC1_CH5 (GPIO 33)
-• ADC1_CH6 (GPIO 34)
-• ADC1_CH7 (GPIO 35)
-• ADC2_CH0 (GPIO 4)
-• ADC2_CH1 (GPIO 0)
-• ADC2_CH2 (GPIO 2)
-• ADC2_CH3 (GPIO 15)
-• ADC2_CH4 (GPIO 13)
-• ADC2_CH5 (GPIO 12)
-• ADC2_CH6 (GPIO 14)
-• ADC2_CH7 (GPIO 27)
-• ADC2_CH8 (GPIO 25)
-• ADC2_CH9 (GPIO 26)
+* ADC1_CH0 (GPIO 36)
+* ADC1_CH1 (GPIO 37)
+* ADC1_CH2 (GPIO 38)
+* ADC1_CH3 (GPIO 39)
+* ADC1_CH4 (GPIO 32)
+* ADC1_CH5 (GPIO 33)
+* ADC1_CH6 (GPIO 34)
+* ADC1_CH7 (GPIO 35)
+* ADC2_CH0 (GPIO 4)
+* ADC2_CH1 (GPIO 0)
+* ADC2_CH2 (GPIO 2)
+* ADC2_CH3 (GPIO 15)
+* ADC2_CH4 (GPIO 13)
+* ADC2_CH5 (GPIO 12)
+* ADC2_CH6 (GPIO 14)
+* ADC2_CH7 (GPIO 27)
+* ADC2_CH8 (GPIO 25)
+* ADC2_CH9 (GPIO 26)
 
 Estos pines tienen una resolución de 12 bits. Esto significa que puede obtener lecturas analógicas que van de 0 a 4095, en las que 0 corresponde a 0V y 4095 a 3.3V. También tiene la capacidad de establecer la resolución de sus canales en el código, así como el rango ADC.
 
@@ -106,45 +106,47 @@ Los pines ADC ESP32 no tienen un comportamiento lineal esto dificulta por ejempl
 ### Convertidor digital a analógico (DAC de Digital Analog Converter)
 El ESP32 dispone de 2 canales DAC de 8 bits, útiles para convertir señales digitales en salidas de señal de voltaje analógicas. Están disponibles a través d los siguientes GPIO:
 
-• DAC1 (GPIO25)
-• DAC2 (GPIO26)
+* DAC1 (GPIO25)
+* DAC2 (GPIO26)
 
 ### RTC GPIOs
 ESP32 ofrece soporte de RTC GPIO que se encuentran enrutados al subsistema de baja potencia RTC y se pueden usar cuando el ESP32 está en modo Deep-Sleep. Estos RTC GPIO se pueden usar también para reactivar el ESP32 cuando está en uso el el coprocesador Ultra Low Power (ULP). Los siguientes GPIO se pueden usar como una fuente de activación externa RTC:
 
-• RTC_GPIO0 (GPIO36)
-• RTC_GPIO3 (GPIO39)
-• RTC_GPIO4 (GPIO34)
-• RTC_GPIO5 (GPIO35)
-• RTC_GPIO6 (GPIO25)
-• RTC_GPIO7 (GPIO26)
-• RTC_GPIO8 (GPIO33)
-• RTC_GPIO9 (GPIO32)
-• RTC_GPIO10 (GPIO4)
-• RTC_GPIO11 (GPIO0)
-• RTC_GPIO12 (GPIO2)
-• RTC_GPIO13 (GPIO15)
-• RTC_GPIO14 (GPIO13)
-• RTC_GPIO15 (GPIO12)
-• RTC_GPIO16 (GPIO14)
-• RTC_GPIO17 (GPIO27)
+* RTC_GPIO0 (GPIO36)
+* RTC_GPIO3 (GPIO39)
+* RTC_GPIO4 (GPIO34)
+* RTC_GPIO5 (GPIO35)
+* RTC_GPIO6 (GPIO25)
+* RTC_GPIO7 (GPIO26)
+* RTC_GPIO8 (GPIO33)
+* RTC_GPIO9 (GPIO32)
+* RTC_GPIO10 (GPIO4)
+* RTC_GPIO11 (GPIO0)
+* RTC_GPIO12 (GPIO2)
+* RTC_GPIO13 (GPIO15)
+* RTC_GPIO14 (GPIO13)
+* RTC_GPIO15 (GPIO12)
+* RTC_GPIO16 (GPIO14)
+* RTC_GPIO17 (GPIO27)
 
 ### PWM
 El controlador ESP32 LED PWM cuenta con 16 canales independientes que pueden configurarse para generar señales PWM con diferentes propiedades. Todos los pines que pueden actuar como salidas se pueden usar como pines PWM (los GPIOs 34 a 39 no pueden generar PWM ya que como indicábamos al principio de este artículo no disponen de resistencia Pull-Up/Down.
 
 Para producir una señal PWM,es necesario definir a través del código lo siguiente:
-• frecuencia de la señal;
-• Ciclo de trabajo;
-• canal PWM;
-• GPIO que emite la señal.
+
+* frecuencia de la señal;
+* Ciclo de trabajo;
+* canal PWM;
+* GPIO que emite la señal.
 
 
 ![](../assets/images/esp32-sensor/esp.jpg)
 
 ### I2C
 El ESP32 también dispone de soporte I2C, para poder utilizar este protocolo de comunicación, habitual en algunos display, pantallas de tinta electrónico y algunos sensores, hay que utilizar los pines específicos del ESP32 I2C (soportados por la biblioteca de Wire):
-• GPIO 21 (SDA)
-• GPIO 22 (SCL)
+
+* GPIO 21 (SDA)
+* GPIO 22 (SCL)
 
 ### SPI
 El Bus SPI (del inglés Serial Peripheral Interface) es un estándar de comunicaciones, usado principalmente para la transferencia de información entre circuitos integrados en equipos electrónicos. El bus de interfaz de periféricos serie o bus SPI es un estándar para controlar casi cualquier dispositivo electrónico digital que acepte un flujo de bits serie regulado por un reloj (comunicación sincrónica).
@@ -162,12 +164,12 @@ Una mejora más con respecto a las versiones anteriores como el ESP8266 es la po
 ### Pines en estado HIGH durante el reinicio
 Algunos GPIO cambien de estado HIGH o salida PPWM durante el reinicio de la placa. Esto puede generar problemas y resultados inesperados durante el arranque o incluso impedir el reinicio de la placa. Los pines que modifican así su estado son los siguientes:
 
-GPIO 1
-GPIO 3
-GPIO 5
-GPIO 6 to GPIO 11
-GPIO 14
-GPIO 15
+* GPIO 1
+* GPIO 3
+* GPIO 5
+* GPIO 6 to GPIO 11
+* GPIO 14
+* GPIO 15
 
 ### Pin EN (Enable)
 Este pin es el de habilitación del regulador 3.3V. Para deshabilitar el regulador de 3.3V será suficiente conectar este pin a tierra. Esto implica que se puede usar este pin conectado a un botón para reiniciar el ESP32.
@@ -435,7 +437,7 @@ void loop() {
 
 ```
 
-
+#### AGREGAR BOT A GRUPOS
 
 
 
