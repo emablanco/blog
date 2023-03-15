@@ -1,4 +1,3 @@
-[---](---.md)
 layout: single
 
 title: ESP32 - SENSORES MQ
