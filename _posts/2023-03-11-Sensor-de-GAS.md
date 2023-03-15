@@ -551,95 +551,142 @@ void loop() {
 
 #### BOTONES
 
-```C++
 
-template <class T> inline Print &operator<<(Print &obj, T arg){
+```bash 
+
+template <class T> inline Print &operator <<(Print &obj, T arg){
 
   obj.print(arg);
-
   return obj;
-
 }
+
 
 #include "token.h"
 #include "CTBot.h"
 
-int led1 = 22;
 CTBotInlineKeyboard boton;
-
 CTBot emaBot;
+int led1 = 22;
 
 void setup() {
 
-  pinMode(22, OUTPUT);
+//------------CONFIGURAR LED -------------------
+  pinMode(led1, OUTPUT);
+  
   digitalWrite(led1, LOW);
   
+  Serial <<"ESP iniciado\n";
+
+  //velocidad de comunicacion con el puerto serial
   Serial.begin(115200);
 
-  Serial.println("Iniciando ESP");
+//--------- conexion wifi y telegram-------------
+  emaBot.setMaxConnectionRetries(10);
   
   emaBot.wifiConnect(ssid,password);
   
   emaBot.setTelegramToken(token);
-  
+
   if(emaBot.testConnection()){
 
-    Serial.println("Bot Conectado");
-  }
+    Serial << "Conexion con Telegram\n";
   
+  }
   else{
 
-    Serial.println("No conectado");
+    Serial << "Conexion con Telegram Fallida\n";
+  
   }
-boton.addButton("Encender Led","encender",CTBotKeyboardButtonQuery);
-boton.addButton("Apagar Led","apagar",CTBotKeyboardButtonQuery);
-boton.addRow();
-boton.addButton("mira documentación", "https://emablanco.github.io/", CTBotKeyboardButtonURL);
+
+//------------CREAR BOTONES -------------------------------------
+  boton.addButton("ON","encendido",CTBotKeyboardButtonQuery);
+  boton.addButton("OFF","apagado",CTBotKeyboardButtonQuery);
+  boton.addRow();
+  boton.addButton("BLOG","https://emablanco.github.io",CTBotKeyboardButtonURL);
 
 }
 
 void loop() {
-  
+
+//https://github.com/shurillu/CTBot/blob/master/REFERENCE.md#tbmessage
+// estobjeto esta compuesto por otros objetos y string
   TBMessage mensaje;
 
-  if (emaBot.getNewMessage(mensaje)) {
+  if(emaBot.getNewMessage(mensaje)){
+
+//si se recibe un mensaje de texto
+    if(mensaje.messageType == CTBotMessageText){
+
+      Serial <<"Mensaje: "<<mensaje.text<<"\n";
+
+
+      //grupos
+      if(mensaje.group.id < 0){
+
+        Serial <<"Grupo: "<<mensaje.group.title<<" - "<<mensaje.group.id<<"\n";
+        if(mensaje.text.equalsIgnoreCase("/menu")){
+        
+        emaBot.sendMessage(mensaje.group.id, "MENU",boton);
+      
+        }
+      
+        else{
+          
+          emaBot.sendMessage(mensaje.group.id,"Para ver las opciones enviar /menu");
     
-    if (mensaje.messageType == CTBotMessageText) {
-      
-      if (mensaje.text.equalsIgnoreCase("opciones")) {
+          }
         
-        emaBot.sendMessage(mensaje.sender.id, "Cambiar Led", boton);
       }
-      
-      else {
-        
-        emaBot.sendMessage(mensaje.sender.id, "prueba 'opciones'");
-      }
-      
-    } else if (mensaje.messageType == CTBotMessageQuery) {
-      
-      Serial << "Mensaje: " <<  mensaje.sender.firstName;
-      
-      if (mensaje.callbackQueryData.equals("encender")) {
-        
-        Serial.println(" Endender");
-        
-        digitalWrite(led1, HIGH);
-        
-        emaBot.endQuery(mensaje.callbackQueryID, "Led Encendido", true);
-        
-      } else if (mensaje.callbackQueryData.equals("apagar")) {
-        
-         Serial.println(" Apagar");
 
-        digitalWrite(led1, LOW);
+      //chat privado
+      else{
+
+        Serial << "Nombre: "<<mensaje.sender.firstName<<", "<<mensaje.sender.lastName<<"\n";
+        Serial <<"ID: "<< mensaje.sender.id<<"\n";
+                  
+        if(mensaje.text.equalsIgnoreCase("/menu")){
         
-        emaBot.endQuery(mensaje.callbackQueryID, "Led Apagado");
-      }
+          emaBot.sendMessage(mensaje.sender.id, "MENU",boton);
+      
+        }
+             
+        else{
+                  
+          emaBot.sendMessage(mensaje.sender.id,"Para ver las opciones enviar /menu");
+           
+          }
+       }
     }
-  }
 
+ //el mensaje recibido es Query. "BOTON"
+    if(mensaje.messageType == CTBotMessageQuery){
+
+//cuando se presiona un boton devuelve un mensaje.
+      if(mensaje.callbackQueryData.equals("encendido")){
+
+        Serial << "encendio el led\n";
+        
+        digitalWrite(led1,HIGH);
+        
+ //fializa una colsulta(Query) enviando lo que se especifique dentro de endQuery
+        emaBot.endQuery(mensaje.callbackQueryID,"LED ENCENDIDO",false);
+      }
+      
+      //callbackQueryData -> contiene el dato asociado al boton. -> 
+      if(mensaje.callbackQueryData.equals("apagado")){
+        
+        Serial <<"apago led\n";
+        
+        digitalWrite(led1,LOW);
+
+        emaBot.endQuery(mensaje.callbackQueryID,"LED APAGADO",false);
+      }
+  
+    }
+  
+  }
   delay(250);
+  
 }
 
 ```
