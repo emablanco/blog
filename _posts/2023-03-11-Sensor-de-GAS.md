@@ -1,4 +1,4 @@
----
+[---](---.md)
 layout: single
 
 title: ESP32 - SENSORES MQ
@@ -547,10 +547,10 @@ void loop() {
   delay(250);
 
 }
+
 ```
 
-#### BOTONES
-
+#### BOTONES EN GRUPOS Y CHAT PRIVADOS
 
 ```bash 
 
@@ -559,8 +559,6 @@ template <class T> inline Print &operator <<(Print &obj, T arg){
   obj.print(arg);
   return obj;
 }
-
-
 #include "token.h"
 #include "CTBot.h"
 
@@ -618,15 +616,14 @@ void loop() {
     if(mensaje.messageType == CTBotMessageText){
 
       Serial <<"Mensaje: "<<mensaje.text<<"\n";
-
-
+      
       //grupos
       if(mensaje.group.id < 0){
 
         Serial <<"Grupo: "<<mensaje.group.title<<" - "<<mensaje.group.id<<"\n";
         if(mensaje.text.equalsIgnoreCase("/menu")){
         
-        emaBot.sendMessage(mensaje.group.id, "MENU",boton);
+      	  emaBot.sendMessage(mensaje.group.id, "MENU",boton);
       
         }
       
@@ -690,6 +687,253 @@ void loop() {
 }
 
 ```
+- [ ] A tener en cuenta: Se pueden poner varios bot, pero solo se configura la conexion WiFi en un solo bot. Para agregar otros bot solo hay que definir el Token.
+
+
+#### SENSOR DE MOVIMIENTO CON BOTONES
+```bash
+template<class T> inline Print &operator <<(Print &obj, T arg) {
+  obj.print(arg);
+  return obj;
+}
+
+#define EEPROM_SIZE 12
+
+#include "CTBot.h"
+#include <EEPROM.h>
+
+CTBot miBot;
+CTBotInlineKeyboard miTeclado;
+
+#include "token.h"
+
+
+//------------------- CONFIGURAR PING PARA BUZZER
+int freq = 200; //frecuencia
+int channel = 0; //canal
+int resolution = 8;//bits
+//--------------------------------------------------------
+
+
+//----------------- DEFINIR PIN, BUZZER, SENSOR --------------
+int Led = 22;
+int buzzer = 21;
+int Sensor = 4;
+//---------------------------------------------------------
+
+
+//---------------- TIEMPO ----------------------------------
+float tiempo = 0;
+float espera = 10;
+
+
+
+const int DireccionSonido = 0;
+boolean Sonido = true;
+const int DireccionActivo = 1;
+boolean Activo = true;
+
+void setup() {
+  
+  Serial.begin(115200);
+  
+  Serial << "\nIniciando Bot de Telegram\n";
+
+
+//----------------- BUZZER -------------------
+  ledcSetup(channel, freq, resolution);
+  ledcAttachPin(buzzer, channel);
+
+
+//-------- CONFIGURAR EEPROM -------------------
+  EEPROM.begin(EEPROM_SIZE);
+  Serial << "EEPROM Configurada";
+  Activo = EEPROM.read(DireccionActivo);
+
+
+//------------- ESTADO DE ALARMA
+  Serial.print("Alarma: ");
+  Serial.println(Activo ? "Activo" : "Apagado");
+
+
+//------------- ESTADO DE BUZZER ------------------
+  Sonido = EEPROM.read(DireccionSonido);
+  Serial.print("Sonido: ");
+  Serial.println(Sonido ? "Activo" : "Apagado");
+
+
+//--------- CONFIGURAR LED Y SENSOR --------------
+  pinMode(Led, OUTPUT);
+  pinMode(Sensor, INPUT);
+
+
+//------------ CONFIGURAR WIFI Y BOT -----------------
+  miBot.wifiConnect(ssid, password);
+  miBot.setTelegramToken(token);
+  if (miBot.testConnection()) {
+    Serial << "\n Conectado";
+  }
+  else {
+    Serial << "\n Problemas Auxilio";
+  }
+
+//-------------------- BOTON -------------------------------------
+  miTeclado.addButton("Alarma", "alarma", CTBotKeyboardButtonQuery);
+  miTeclado.addButton("Sonido", "sonido", CTBotKeyboardButtonQuery);
+  miTeclado.addButton("Estado", "estado", CTBotKeyboardButtonQuery);
+  miTeclado.addRow();
+  miTeclado.addButton("mira documentación", "https://emablanco.github.io", CTBotKeyboardButtonURL);
+
+//--------------- AVISO DE ESTADO EN LINEA -----------------------
+  miBot.sendMessage(IDchat, "En Linea, Sistema Vigilancia:");
+  tiempo = -espera * 1000;
+}
+
+void loop() {
+  //Serial << millis() << " - " << tiempo << " = " << (millis() - tiempo) << " - " << (espera * 1000) << "\n";
+  usarAlarma();
+  menuBot();
+  digitalWrite(Led, Activo);
+}
+
+void menuBot() {
+  
+  TBMessage mensaje;
+
+  if (miBot.getNewMessage(mensaje)) {
+    
+    if (mensaje.sender.id == IDchat) {
+      
+      if (mensaje.messageType == CTBotMessageText) {
+       
+        if (mensaje.text.equalsIgnoreCase("menu")) {
+     
+          verEstado();
+        }
+      
+        else {
+      
+          Serial<< "Enviar 'menu' a "<< mensaje.sender.id;
+       
+          miBot.sendMessage(mensaje.sender.id, "prueba 'menu'");
+          
+        }
+        
+      } 
+      
+      else if (mensaje.messageType == CTBotMessageQuery) {
+        
+        Serial << "Mensaje: " <<  mensaje.sender.firstName << "\n";
+       
+        if (mensaje.callbackQueryData.equals("alarma")) {
+        
+          Activo = !Activo;
+         
+          String estado_alarma  = "Alarma: ";
+         
+          estado_alarma += (Activo ? "Activo" : "Apagado");
+         
+          Serial.println(estado_alarma);
+         
+          miBot.endQuery(mensaje.callbackQueryID, estado_alarma);
+         
+          EEPROM.put(DireccionActivo, Activo);
+         
+          EEPROM.commit();
+        } 
+        
+        else if (mensaje.callbackQueryData.equals("sonido")) {
+         
+          Sonido = !Sonido;
+         
+          String estado_alarma  = "Sonido: ";
+         
+          estado_alarma += (Activo ? "Activo" : "Apagado");
+        
+          Serial.println(estado_alarma);
+        
+          miBot.endQuery(mensaje.callbackQueryID, estado_alarma);
+        
+          EEPROM.put(DireccionSonido, Sonido);
+        
+          EEPROM.commit();
+        }
+        
+        else if (mensaje.callbackQueryData.equals("estado")) {
+         
+          verEstado();
+        }
+        
+      }
+      
+    } 
+    
+    else {
+      
+      Serial << "Intento de uso no autorizado: " << mensaje.sender.firstName << " - " <<  mensaje.sender.lastName << "\n";
+      
+      Serial << "Usuario: " << mensaje.sender.username << " ID: " << mensaje.sender.id << "\n";
+      
+      miBot.sendMessage(mensaje.sender.id, "No estas habilitado para usarme");
+      
+    }
+  }
+  
+}
+
+void verEstado() {
+  
+  Serial.println("Enviando 'opciones'");
+  
+  String estado_alarma  = "Estado Actual\n";
+ 
+  estado_alarma += "Alarma: ";
+ 
+  estado_alarma += (Activo ? "Activo" : "Apagado");
+ 
+  estado_alarma += " - Sonido: ";
+ 
+  estado_alarma += (Sonido ? "Activo" : "Apagado");
+  
+  Serial.println(estado_alarma);
+ 
+  miBot.sendMessage(IDchat, estado_alarma);
+ 
+  miBot.sendMessage(IDchat, "Cambiar", miTeclado);
+}
+
+void usarAlarma() {
+  
+  if (Activo) {
+  
+    int Valor = digitalRead(Sensor);
+  
+    if (Valor) {
+   
+        Serial.println("Enviando Alerta");
+     
+        digitalWrite(Led, LOW);
+    
+        if (Sonido) {
+    
+            ledcWrite(channel, freq);
+     
+            delay(1000);
+     
+            ledcWrite(channel, 0);
+        }
+      
+        miBot.sendMessage(IDchat, "Alerta Camara: ");
+     
+        delay(1000);
+      
+        digitalWrite(Led, HIGH);
+        
+    }
+  }
+}
+```
+
 
 ### ERROR AL COMPILAR
 
@@ -707,3 +951,139 @@ sudo apt install python-is-python3
 ```
 
 [Solucion](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/troubleshooting.html)
+
+
+## TONO ESP32
+
+[FUENTE ORIGINAL](https://techtutorialsx.com/2017/07/01/esp32-arduino-controlling-a-buzzer-with-pwm/)
+
+### ESP32 Arduino: control de un timbre con PWM
+
+El objetivo de esta publicación es explicar cómo controlar un timbre con el ESP32, utilizando sus funcionalidades PWM. En particular, vamos a utilizar las funciones LED PWM de ESP32 ’.
+
+### Introducción
+
+El objetivo de esta publicación es explicar cómo controlar un timbre con el ESP32, utilizando sus funcionalidades PWM. En particular, vamos a utilizar las funciones LED PWM de ESP32 ’, cubiertas en detalle en esto publicación anterior.
+
+Básicamente, utilizando el LED PWM del ESP32, podremos controlar tanto el ciclo de trabajo como la frecuencia de nuestra señal de salida. Sin embargo, tenga en cuenta que no necesitamos usar PWM para controlar un timbre, ya que solo necesitamos variar su frecuencia y podemos mantener un ciclo de trabajo constante.
+
+Sin embargo, desde el tono la función aún no se implementa en las bibliotecas Arduino para el ESP32, el uso de las funcionalidades de control de frecuencia PWM es un posible trabajo.
+
+Aunque, como se dijo anteriormente, no necesitamos cambiar el ciclo de trabajo para controlar un timbre y el mejor ciclo de trabajo es del 50% [ 1 ] [ 2 ], lo variaremos solo para verificar lo que sucede. El efecto esperado es que un cambio en el ciclo de trabajo afectará el volumen del timbre [ 1 ].
+
+También vamos a variar la frecuencia, lo que afectará el tipo de sonido producido.
+
+### Esquema electrónico
+
+Para este tutorial voy a usar un módulo de timbre barato que ya tiene todo el hardware necesario para controlarlo directamente desde un microcontrolador GPIO ( más precisamente, un controlador de transistores ). De esta manera, no estamos extrayendo la corriente del pin ESP32 GPIO.
+
+Verifique el resumen esquemático en la figura 1.
+
+![](../assets/images/esp32-sensor/esp32-buzzer-diragram.webp)
+
+### El código
+
+Comenzaremos declarando algunas variables globales necesarias para controlar la funcionalidad PWM del ESP32. Estableceremos la frecuencia inicial ( aunque la cambiaremos más adelante en el código ), el canal del PWM y la resolución de la especificación del ciclo de trabajo.
+
+Utilizaremos el canal 0 y una resolución de 8 bits para el ciclo de trabajo. Para la frecuencia vamos a poner 2000 Hz solo para hacer la configuración inicial.
+
+```bash
+int freq = 2000;
+int channel = 0;
+int resolution = 8;
+
+```
+Ahora, en la función de configuración, vamos a configurar el PWM con el ledcSetup función, que recibe como entrada el canal PWM, la frecuencia y la resolución del ciclo de trabajo.
+
+A continuación, adjuntaremos el canal PWM a un GPIO real del ESP32, llamando al ledcAttachPin función. Esto recibe como entrada el GPIO y el canal. Voy a usar GPIO 12 del ESP32. Tenga en cuenta que algunos pines ESP32 no se asignan directamente a los pines de las placas ESP32.
+
+También abriremos una comunicación en serie, para que podamos verificar la salida de información sobre la ejecución. Verifique la función de configuración completa a continuación.
+
+```bash
+void setup() {
+  
+  Serial.begin(115200);
+  ledcSetup(channel, freq, resolution);
+  ledcAttachPin(12, channel);
+  
+}
+```
+Ahora vamos a pasar a la función de bucle principal, donde experimentaremos con nuestro timbre cambiando las configuraciones de frecuencia y ciclo de trabajo.
+
+El primer valor que variaremos es el ciclo de trabajo. Entonces, al comienzo del ciclo, arreglaremos la frecuencia. Aunque lo configuramos en la función de configuración, queremos que se restablezca al valor original al comienzo de cada iteración del bucle principal.
+
+Entonces, para establecer la frecuencia nuevamente, llamamos al ledcWriteTone función, pasando como entradas el canal PWM y la frecuencia a establecer. Lo configuraremos en 2000 Hz, como la configuración inicial.
+
+```bash
+ledcWriteTone(channel, 2000);
+
+```
+A continuación, haremos un bucle for comenzando con un PWM de cero y aumentando en 10 en cada iteración. Podemos variar el ciclo de trabajo entre 0 y 255, ya que especificamos una resolución de 8 bits.
+
+Introduciremos un pequeño retraso de 1 segundo en cada iteración, para que podamos escuchar los efectos de cambiarlo. También imprimiremos el valor actual del ciclo de trabajo.
+
+Para establecer el ciclo de trabajo, solo necesitamos llamar al ledcWrite función, pasando como entrada tanto el canal como el valor del ciclo de trabajo para establecer. Verifique el bucle completo a continuación.
+
+```bash
+for (int dutyCycle = 0; dutyCycle <= 255; dutyCycle=dutyCycle+10){
+  
+    Serial.println(dutyCycle);
+  
+    ledcWrite(channel, dutyCycle);
+    delay(1000);
+}
+
+```
+
+A continuación vamos a variar la frecuencia. Por lo tanto, comenzaremos fijando el ciclo de trabajo en 125 ( aproximadamente 50% ). A continuación, haremos un ciclo similar al anterior, pero esta vez comenzando con una frecuencia de 0 Hz y aumentando en 250 hasta 10000 Hz. También imprimiremos el valor actual nuevamente en el puerto serie.
+
+Puede verificar a continuación el código fuente completo, que ya incluye este bucle mencionado anteriormente donde la frecuencia se incrementa llamando al ledcWriteTone función.
+
+
+```bash
+
+
+int freq = 2000;
+int channel = 0;
+int resolution = 8;
+  
+void setup() {
+  
+  Serial.begin(115200);
+  ledcSetup(channel, freq, resolution);
+  ledcAttachPin(12, channel);
+  
+}
+  
+void loop() {
+  
+  ledcWriteTone(channel, 2000);
+  
+  for (int dutyCycle = 0; dutyCycle <= 255; dutyCycle=dutyCycle+10){
+  
+    Serial.println(dutyCycle);
+  
+    ledcWrite(channel, dutyCycle);
+    delay(1000);
+  }
+  
+  ledcWrite(channel, 125);
+  
+  for (int freq = 255; freq < 10000; freq = freq + 250){
+  
+     Serial.println(freq);
+  
+     ledcWriteTone(channel, freq);
+     delay(1000);
+  }
+  
+}
+
+```
+
+### Probar el código
+Para probar el código, simplemente cárguelo en el ESP32 usando el IDE de Arduino. Luego abra el puerto serie para verificar los valores de frecuencia y el cambio del ciclo de trabajo.
+
+Con el ESP32 conectado al timbre, primero debe escuchar un cambio en el volumen producido por el timbre, causado por el cambio del ciclo de trabajo. Luego, al cambiar la frecuencia, notará que el sonido producido también cambiará.
+
+Puede consultar en el video a continuación el resultado de ejecutar este código en una placa ESP32.
