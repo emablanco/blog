@@ -306,7 +306,7 @@ ESP32:
 Error compiling for board ESP32 Dev Module"
 ```
 
-#### solucion
+### solucion
 
 Para solucionar este problema se debe realizar la siguiente instalacion:
 
@@ -317,7 +317,7 @@ sudo apt install python-is-python3
 [Solucion](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/troubleshooting.html)
 
 
-#### CODIGO DE EJEMPLO
+### CODIGO DE EJEMPLO
 
 
 [Guia de referencia CTBot](https://github.com/shurillu/CTBot/blob/master/REFERENCE.md)
@@ -384,7 +384,7 @@ void loop() {
 
 ```
 
-#### ENCENDER LED
+### ENCENDER LED
 
 ```c++
 template <class T> inline Print &operator<<(Print &obj, T arg){
@@ -458,7 +458,7 @@ void loop() {
 
 ```
 
-#### AGREGAR BOT A GRUPOS
+### AGREGAR BOT A GRUPOS
 
 Para que el bot funcione en un grupo es necesario darle permisos de administrador para que pueda leer los mensajes.
 
@@ -571,7 +571,7 @@ void loop() {
 
 ```
 
-#### BOTONES EN GRUPOS Y CHAT PRIVADOS
+### BOTONES EN GRUPOS Y CHAT PRIVADOS
 
 ```bash 
 
@@ -800,7 +800,6 @@ Puede verificar a continuación el código fuente completo, que ya incluye este 
 
 ```bash
 
-
 int freq = 2000;
 int channel = 0;
 int resolution = 8;
@@ -849,13 +848,16 @@ Puede consultar en el video a continuación el resultado de ejecutar este códig
 [FUENTE ORIGINAL](https://techtutorialsx.com/2017/07/01/esp32-arduino-controlling-a-buzzer-with-pwm/)
 
 
-#### SENSOR DE MOVIMIENTO CON BOTONES
+* * *
+
+### SENSOR DE MOVIMIENTO CON BOTONES
 ```bash
 template<class T> inline Print &operator <<(Print &obj, T arg) {
   obj.print(arg);
   return obj;
 }
 
+//TAMAÑO DE LA MEMORIA EEPROM -> MEMORIA INTERNA DEL ESP
 #define EEPROM_SIZE 12
 
 #include "CTBot.h"
@@ -868,14 +870,15 @@ CTBotInlineKeyboard miTeclado;
 
 
 //------------------- CONFIGURAR PING PARA BUZZER
-int freq = 200; //frecuencia
+int frecuencia = 200; //frecuencia
 int channel = 0; //canal
-int resolution = 8;//bits
+int resolucion = 8;//bits
 //--------------------------------------------------------
 
 
 //----------------- DEFINIR PIN, BUZZER, SENSOR --------------
-int Led = 22;
+int Led1 = 22;
+int Led2 = 2;
 int buzzer = 21;
 int Sensor = 4;
 //---------------------------------------------------------
@@ -886,9 +889,10 @@ float tiempo = 0;
 float espera = 10;
 
 
-
+//DIRECCION DE MEMORIA DONDE ESTARA EL VALOR
 const int DireccionSonido = 0;
 boolean Sonido = true;
+//DIRECCION DE MEMORIA DONDE ESTARA EL VALOR
 const int DireccionActivo = 1;
 boolean Activo = true;
 
@@ -900,11 +904,12 @@ void setup() {
 
 
 //----------------- BUZZER -------------------
-  ledcSetup(channel, freq, resolution);
+  ledcSetup(channel, frecuencia, resolucion);
   ledcAttachPin(buzzer, channel);
 
 
 //-------- CONFIGURAR EEPROM -------------------
+// INICIO LA MEMORIA EEPROM CON EL TAMAÑO
   EEPROM.begin(EEPROM_SIZE);
   Serial << "EEPROM Configurada";
   Activo = EEPROM.read(DireccionActivo);
@@ -921,9 +926,10 @@ void setup() {
   Serial.println(Sonido ? "Activo" : "Apagado");
 
 
-//--------- CONFIGURAR LED Y SENSOR --------------
-  pinMode(Led, OUTPUT);
+//--------- CONFIGURAR Led1 Y SENSOR --------------
+  pinMode(Led1, OUTPUT);
   pinMode(Sensor, INPUT);
+  pinMode(Led2, OUTPUT);
 
 
 //------------ CONFIGURAR WIFI Y BOT -----------------
@@ -952,7 +958,7 @@ void loop() {
   //Serial << millis() << " - " << tiempo << " = " << (millis() - tiempo) << " - " << (espera * 1000) << "\n";
   usarAlarma();
   menuBot();
-  digitalWrite(Led, Activo);
+  digitalWrite(Led1, Activo);
 }
 
 void menuBot() {
@@ -995,9 +1001,10 @@ void menuBot() {
           Serial.println(estado_alarma);
          
           miBot.endQuery(mensaje.callbackQueryID, estado_alarma);
-         
+
+         //GUARDAR EN ESTA DIRECCIO  EN VALOR DE ACTIVO
           EEPROM.put(DireccionActivo, Activo);
-         
+         //VALIDAR
           EEPROM.commit();
         } 
         
@@ -1071,11 +1078,13 @@ void usarAlarma() {
    
         Serial.println("Enviando Alerta");
      
-        digitalWrite(Led, LOW);
+        digitalWrite(Led1, LOW);
+        
+        digitalWrite(Led2, HIGH);
     
         if (Sonido) {
     
-            ledcWrite(channel, freq);
+            ledcWrite(channel, frecuencia);
      
             delay(1000);
      
@@ -1085,11 +1094,72 @@ void usarAlarma() {
         miBot.sendMessage(IDchat, "Alerta Camara: ");
      
         delay(1000);
-      
-        digitalWrite(Led, HIGH);
+        
+        digitalWrite(Led2, LOW);
+        
+        digitalWrite(Led1, HIGH);
         
     }
   }
 }
+
 ```
 
+
+### MEMORIA EEPROM
+
+![](../assets/images/esp32-sensor/eeprom.png)
+
+La EEPROM es una memoria interna del microcontrolador ESP32 que permite mantener los datos en la memoria después de reiniciar la placa. Cuando se trabaja con microcontroladores, es interesante mantener los datos en la memoria, especialmente cuando la placa se apaga, se quiera o no, como en el caso de una pérdida de energía eléctrica.
+
+El microcontrolador ESP32 tiene una zona de memoria Flash con la que se puede interactuar como la EEPROM de un Arduino para mantener los datos en la memoria incluso después de apagar la placa. Una cosa importante a tener en cuenta es que la EEPROM tiene un tamaño y una vida útil limitados. Las celdas de memoria pueden leerse tantas veces como sea necesario, pero el número de ciclos de escritura está limitado a 100.000. Es aconsejable prestar atención al tamaño de los datos almacenados y a la frecuencia con la que se desea actualizarlos. La memoria EEPROM puede almacenar 512 valores de 0 a 255 o 128 direcciones IP o etiquetas RFID.
+
+- [ ] Si quieres registrar los datos de una flota de sensores en tiempo real para trazarlos, lo mejor es optar por un módulo de tarjeta SD para almacenar los datos.
+
+### Código con la biblioteca EEPROM
+Para interactuar con la EEPROM del ESP32, podemos utilizar la librería EEPROM.h como para Arduino con dos diferencias. Antes de usar la función, debemos inicializar el tamaño de la memoria con begin() y la función update no existe pero la función write tiene la misma función que update. Es decir, un valor se modifica sólo si el valor es diferente al registrado.
+
+* begin() para inicializar el tamaño de la memoria
+* write(), que se adapta según el tipo de variable, para escribir
+* read() para leer
+* las funciones put() y get() pueden ser utilizadas de la misma manera
+
+Otras funciones de la biblioteca pueden ser utilizadas dependiendo de su uso de la EEPROM.
+
+```bash
+
+//Libraries
+#include <EEPROM.h>//https://github.com/espressif/arduino-esp32/tree/master/libraries/EEPROM
+//Constants
+#define EEPROM_SIZE 12
+void setup() {
+ 	//Init Serial USB
+ 	Serial.begin(115200);
+ 	Serial.println(F("Initialize System"));
+ 	//Init EEPROM
+ 	EEPROM.begin(EEPROM_SIZE);
+ 	//Write data into eeprom
+ 	int address = 0;
+ 	int boardId = 18;
+ 	EEPROM.write(address, boardId);//EEPROM.put(address, boardId);
+ 	address += sizeof(boardId); //update address value
+ 	float param = 26.5;
+ 	EEPROM.writeFloat(address, param);//EEPROM.put(address, param);
+ 	EEPROM.commit();
+ 	//Read data from eeprom
+ 	address = 0;
+ 	int readId;
+ 	readId = EEPROM.read(address); //EEPROM.get(address,readId);
+ 	Serial.print("Read Id = ");
+ 	Serial.println(readId);
+ 	address += sizeof(readId); //update address value
+ 	float readParam;
+ 	EEPROM.get(address, readParam); //readParam=EEPROM.readFloat(address);
+ 	Serial.print("Read param = ");
+ 	Serial.println(readParam);
+ 	EEPROM.end();
+}
+void loop() {}
+
+```
+[FUENTE](https://www.aranacorp.com/es/uso-de-la-eeprom-con-el-esp32/#:~:text=La%20memoria%20EEPROM%20puede%20almacenar,direcciones%20IP%20o%20etiquetas%20RFID.)
