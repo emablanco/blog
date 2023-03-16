@@ -211,6 +211,11 @@ _ _ _
 - Dimensiones: 4 x 2 cm (aproximadamente)
 - Tamaño agujeros de montaje: 2 mm (Aprox.)
 
+![](../assets/images/esp32-sensor/mq2.png)
+
+Se puede ver que este sensor es muy bueno para detectar Gas licuado del petróleo. 200 ppm como min.
+
+
 ### MQ-3: detecta la concentración de alcohol en el aire.
 - Sensible al Alcohol y etanol
 - Alimentación: 2,5 - 5 V
@@ -218,6 +223,9 @@ _ _ _
 - Humedad: ≤ 95 % RH
 - Aplicaciones: alcoholímetro
 - Tamaño agujeros de montaje: 2 mm (Aprox.)
+
+![](../assets/images/esp32-sensor/mq3.png)
+
 
 ### MQ-4: Detector de gas metano (gas natural)
 - Sensible al gas metano y al gas carbónico
@@ -227,12 +235,17 @@ _ _ _
 - Humedad: ≤ 95 % RH
 - Consumo de potencia: menos de 900 mW
 - Tamaño agujeros de montaje: 2 mm (Aprox.)
+![](../assets/images/esp32-sensor/mq4.png)
+
 
 ### MQ-5: Detector de fugas de gas
 - Sensible a GLP y gas natural
 - Consumo de potencia: 800 mW
 - Dimensiones: 3 x 2 x 2.1 cm (aprox)
 - Tamaño agujeros de montaje: 2 mm (Aprox.)
+
+![](../assets/images/esp32-sensor/mq5.png)
+
 
 ### MQ-6: Detector de gas licuado de petróleo
 - Sensible al gas LP (propano, butano y gas natural)
@@ -243,12 +256,15 @@ _ _ _
 - Consumo de potencia: menos de 950 mW
 - Tamaño agujeros de montaje: 2 mm (Aprox.)
 
+![](../assets/images/esp32-sensor/mq6.png)
+
 ### MQ-7: Detector de monóxido de carbono.
 - Sensible al monóxido de carbono (CO). Podemos detectar si el aire está limpio.
 - Alimentación: 5v
 - Concentración: 20 a 2000 ppm
 - Concentración de oxigeno: 21 %
 - Tamaño agujeros de montaje: 2 mm (aproximadamente)
+![](../assets/images/esp32-sensor/mq7.png)
 
 La concentración inmediatamente peligrosa para la vida y la salud (IDLH) que recomienda NIOSH para el CO es de 1,200 ppm. IDLH es la concentración que podría provocar la muerte o efectos irreversibles sobre la salud, o que podría impedir que una persona se salga del ambiente contaminado en 30 minutos.
 
@@ -270,6 +286,7 @@ La concentración inmediatamente peligrosa para la vida y la salud (IDLH) que re
 	- Gas combustible: 100 - 10000 ppm
 - Dimensiones: 4 x 2 mm (aproximadamente)
 - Tamaño de agujeros: 2 mm (aprox)
+![](../assets/images/esp32-sensor/mq9.png)
 
 ++Gases inflamables:++ se encienden fácilmente y se queman rápidamente. Es el caso del Cloruro de Metilo, Gas Licuado de Petróleo, Acetileno e Hidrógeno. 
 
