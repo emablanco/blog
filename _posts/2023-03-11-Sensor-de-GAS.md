@@ -205,7 +205,7 @@ La conversion se puede configurar mediante codigo segun la preferencia, entre lo
 
 ### PIN DIGITALES
 
-Contamos con 22 pines (GPIO) digitales que se pueden utilizar como pines de entrada y salida digital. 
+Contamos con 22 pines (GPIO) digitales que se pueden utilizar como pines de entrada y salida. 
 
 
 ![](../assets/images/esp32-sensor/pines.png)
@@ -222,8 +222,8 @@ Contamos con 22 pines (GPIO) digitales que se pueden utilizar como pines de entr
 
 * PIN 34,35,36 Y 39 -> solo se pueden usar como entradas, ya que no cuentan con ristencias pull-up y pull-down.
 
-- [ ] **pull-up** el estado del ping siempre es alto y cambia a un estado bajo cuando se produce una accion. 
-- [ ] **pull-down** el estado del ping siempre es bajo y cambia a un estado alto cuando se produce una accion. 
+- [ ]  **pull-up** el estado del ping siempre es alto y cambia a un estado bajo cuando se produce una accion. 
+- [ ]  **pull-down** el estado del ping siempre es bajo y cambia a un estado alto cuando se produce una accion. 
 
 Para poner un pin en pull-down se puede realizar de la siguiente manera:
 
@@ -1232,3 +1232,273 @@ void loop() {}
 [FUENTE](https://www.aranacorp.com/es/uso-de-la-eeprom-con-el-esp32/#:~:text=La%20memoria%20EEPROM%20puede%20almacenar,direcciones%20IP%20o%20etiquetas%20RFID.)
 
 ### SENSOR DE GAS
+
+Este codigo es similar al de la alarma, aun se puede mejorar un poco mas, talvez quitar varias lineas que puedne estar de mas. 
+
+- [ ] Estos codigos son solo de practica y son guias para mi mismo.
+
+#### ARCHIVO TOKEN.H
+
+```
+const char *ssid= "WiFi-Arnet-EMA_2,4";
+const char *password = "1111111111";
+const String token = "TOKEN TELEGRAM";
+const long long IDchat =1111111111;
+long long idGrupo = -111111111111111111;
+
+```
+
+
+#### ARCHIVO .INO
+```
+
+template<class T> inline Print &operator <<(Print &obj, T arg) {
+  obj.print(arg);
+  return obj;
+}
+
+//TAMAÑO DE LA MEMORIA EEPROM -> MEMORIA INTERNA DEL ESP
+#define EEPROM_SIZE 12
+
+#include "CTBot.h"
+#include <EEPROM.h>
+
+CTBot miBot;
+CTBotInlineKeyboard miTeclado;
+
+#include "token.h"
+
+
+//------------------- CONFIGURAR PING PARA BUZZER
+int frecuencia = 200; //frecuencia
+int channel = 0; //canal
+int resolucion = 8;//bits
+//--------------------------------------------------------
+
+//----------------- DEFINIR PIN, BUZZER, SENSOR --------------
+int Led1 = 22;
+int Led2 = 2;
+int buzzer = 21;
+int Sensor = 39;
+//---------------------------------------------------------
+//---------------- TIEMPO ----------------------------------
+float tiempo = 0;
+float espera = 10;
+
+
+//DIRECCION DE MEMORIA DONDE ESTARA EL VALOR
+const int DireccionSonido = 0;
+boolean Sonido = true;
+//DIRECCION DE MEMORIA DONDE ESTARA EL VALOR
+const int DireccionActivo = 1;
+boolean Activo = true;
+
+void setup() {
+  
+  Serial.begin(115200);
+  
+  Serial << "\nIniciando Bot de Telegram\n";
+
+
+//----------------- BUZZER -------------------
+  ledcSetup(channel, frecuencia, resolucion);
+  ledcAttachPin(buzzer, channel);
+
+
+//-------- CONFIGURAR EEPROM -------------------
+// INICIO LA MEMORIA EEPROM CON EL TAMAÑO
+  EEPROM.begin(EEPROM_SIZE);
+  Serial << "EEPROM Configurada";
+  Activo = EEPROM.read(DireccionActivo);
+
+
+//------------- ESTADO DE ALARMA
+  Serial.print("Alarma: ");
+  Serial.println(Activo ? "Activo" : "Apagado");
+
+
+//------------- ESTADO DE BUZZER ------------------
+  Sonido = EEPROM.read(DireccionSonido);
+  Serial.print("Sonido: ");
+  Serial.println(Sonido ? "Activo" : "Apagado");
+
+
+//--------- CONFIGURAR Led1 Y SENSOR --------------
+  pinMode(Led1, OUTPUT);
+  pinMode(Sensor, INPUT);
+  pinMode(Led2, OUTPUT);
+
+
+//------------ CONFIGURAR WIFI Y BOT -----------------
+  miBot.wifiConnect(ssid, password);
+  miBot.setTelegramToken(token);
+  if (miBot.testConnection()) {
+    Serial << "\n Conectado";
+  }
+  else {
+    Serial << "\n Problemas Auxilio";
+  }
+
+//-------------------- BOTON -------------------------------------
+  miTeclado.addButton("Alarma", "alarma", CTBotKeyboardButtonQuery);
+  miTeclado.addButton("Sonido", "sonido", CTBotKeyboardButtonQuery);
+  miTeclado.addButton("Estado", "estado", CTBotKeyboardButtonQuery);
+  miTeclado.addRow();
+  miTeclado.addButton("mira documentación", "https://emablanco.github.io", CTBotKeyboardButtonURL);
+
+//--------------- AVISO DE ESTADO EN LINEA -----------------------
+  miBot.sendMessage(IDchat, "En Linea, Sistema Vigilancia:");
+  tiempo = -espera * 1000;
+}
+
+void loop() {
+  //Serial << millis() << " - " << tiempo << " = " << (millis() - tiempo) << " - " << (espera * 1000) << "\n";
+  usarAlarma();
+  menuBot();
+  digitalWrite(Led1, Activo);
+}
+
+void menuBot() {
+  
+  TBMessage mensaje;
+
+  if (miBot.getNewMessage(mensaje)) {
+    
+    if (mensaje.sender.id == IDchat) {
+      
+      if (mensaje.messageType == CTBotMessageText) {
+       
+        if (mensaje.text.equalsIgnoreCase("menu")) {
+     
+          verEstado();
+        }
+      
+        else {
+      
+          Serial<< "Enviar 'menu' a "<< mensaje.sender.id;
+       
+          miBot.sendMessage(mensaje.sender.id, "prueba 'menu'");
+          
+        }
+        
+      } 
+      
+      else if (mensaje.messageType == CTBotMessageQuery) {
+        
+        Serial << "Mensaje: " <<  mensaje.sender.firstName << "\n";
+       
+        if (mensaje.callbackQueryData.equals("alarma")) {
+        
+          Activo = !Activo;
+         
+          String estado_alarma  = "Alarma: ";
+         
+          estado_alarma += (Activo ? "Activo" : "Apagado");
+         
+          Serial.println(estado_alarma);
+         
+          miBot.endQuery(mensaje.callbackQueryID, estado_alarma);
+
+         //GUARDAR EN ESTA DIRECCIO  EN VALOR DE ACTIVO
+          EEPROM.put(DireccionActivo, Activo);
+         //VALIDAR
+          EEPROM.commit();
+        } 
+        
+        else if (mensaje.callbackQueryData.equals("sonido")) {
+         
+          Sonido = !Sonido;
+         
+          String estado_alarma  = "Sonido: ";
+         
+          estado_alarma += (Activo ? "Activo" : "Apagado");
+        
+          Serial.println(estado_alarma);
+        
+          miBot.endQuery(mensaje.callbackQueryID, estado_alarma);
+        
+          EEPROM.put(DireccionSonido, Sonido);
+        
+          EEPROM.commit();
+        }
+        
+        else if (mensaje.callbackQueryData.equals("estado")) {
+         
+          verEstado();
+        }
+        
+      }
+      
+    } 
+    
+    else {
+      
+      Serial << "Intento de uso no autorizado: " << mensaje.sender.firstName << " - " <<  mensaje.sender.lastName << "\n";
+      
+      Serial << "Usuario: " << mensaje.sender.username << " ID: " << mensaje.sender.id << "\n";
+      
+      miBot.sendMessage(mensaje.sender.id, "No estas habilitado para usarme");
+      
+    }
+  }
+  
+}
+
+void verEstado() {
+  
+  Serial.println("Enviando 'opciones'");
+  
+  String estado_alarma  = "Estado Actual\n";
+ 
+  estado_alarma += "Alarma: ";
+ 
+  estado_alarma += (Activo ? "Activo" : "Apagado");
+ 
+  estado_alarma += " - Sonido: ";
+ 
+  estado_alarma += (Sonido ? "Activo" : "Apagado");
+  
+  Serial.println(estado_alarma);
+ 
+  miBot.sendMessage(IDchat, estado_alarma);
+ 
+  miBot.sendMessage(IDchat, "Cambiar", miTeclado);
+}
+
+void usarAlarma() {
+  
+  if (Activo) {
+    
+    //analogReadResolution(10);
+    int Valor = analogRead(Sensor);
+    //Serial <<Valor<<"\n";
+    if (Valor >= 2000) {
+   
+        Serial.println("Enviando Alerta ");
+        Serial.println(Valor);
+     
+        digitalWrite(Led1, LOW);
+        
+        digitalWrite(Led2, HIGH);
+    
+        if (Sonido) {
+    
+            ledcWrite(channel, frecuencia);
+     
+            delay(2000);
+     
+            ledcWrite(channel, 0);
+        }
+      
+        miBot.sendMessage(IDchat, "Alerta!!.. GAS DETECTADO!!: ");
+     
+        delay(1000);
+        
+        digitalWrite(Led2, LOW);
+        
+        digitalWrite(Led1, HIGH);
+        
+    }
+  }
+}
+```
