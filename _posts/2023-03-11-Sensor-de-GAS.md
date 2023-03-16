@@ -186,7 +186,51 @@ Para la lectura del valor de este sensor, se puede utilizar la función integrad
 Junto con el sensor de campos magnéticos, el ESP32 dispone de un sensor interno de temperatura. El valor de este sensor se puede obtener con la función temprature_sens_read();
 
 
-[Copy Paste](https://tecnotizate.es/esp32-mapeo-de-pines-y-sensores-internos/)
+[Copy Paste](https://tecnotizate.es/esp32-mapeo-de-pines-y-sensores-internos/) 
+
+ESP32 DEVKIT V1: dispone de 18 pines que se pueden usar como entradas analogicas y el rango de voltaje que se puede leer va entre los 0 y los 3,3 voltios.
+
+![](../assets/images/esp32-sensor/analog.jpg)
+
+Los pines de color naranja denominados **ADC** son los que se pueden usar como pines analogicos y estan divididos en dos puertos diferentes, **ADC1** y **ADC2**, del cual solo se puede hacer uso cuando el controlador WIFI no haya sido iniciado.
+
+La conversion por defecto que realiza **ADC** es de 12 bits, tomando valores que van del 0 al 4095. 
+
+La conversion se puede configurar mediante codigo segun la preferencia, entre los 9 y 12 bits
+
+* 12 bits -> 0, 4095
+* 11 bits -> 0, 2048
+* 10 bits -> 0 , 1024
+* 9 bits -> 0, 512
+
+### PIN DIGITALES
+
+Contamos con 22 pines (GPIO) digitales que se pueden utilizar como pines de entrada y salida digital. 
+
+
+![](../assets/images/esp32-sensor/pines.png)
+
+* PIN 1 -> durante el arranque o reinicio de la placa su estado de entrada (input) sera alto **HIGH**.
+
+* PIN 2 -> Este pin esta conectado al led integrado de la placa. Similar al led 13 de arduino.
+
+* PIN 3 -> Durante el arranque o reinicio de la placa el estado de su salida (output) sera **HIGH**.
+
+* PIN 12 -> No se debe poner en estado alto (HIGH) su entrada (input) desde el comienzo, porque durante el arranque o reinicio de la placa producira un error.
+
+* PIN 14 y 15 -> durante el inicio de la placa emitiran una señales PWM.
+
+* PIN 34,35,36 Y 39 -> solo se pueden usar como entradas, ya que no cuentan con ristencias pull-up y pull-down.
+
+- [ ] **pull-up** el estado del ping siempre es alto y cambia a un estado bajo cuando se produce una accion. 
+- [ ] **pull-down** el estado del ping siempre es bajo y cambia a un estado alto cuando se produce una accion. 
+
+Para poner un pin en pull-down se puede realizar de la siguiente manera:
+
+```bash
+	pinMode(boton, INPUT_PULLDOWN);
+```
+
 _ _ _
 
 
@@ -1186,3 +1230,5 @@ void loop() {}
 
 ```
 [FUENTE](https://www.aranacorp.com/es/uso-de-la-eeprom-con-el-esp32/#:~:text=La%20memoria%20EEPROM%20puede%20almacenar,direcciones%20IP%20o%20etiquetas%20RFID.)
+
+### SENSOR DE GAS
