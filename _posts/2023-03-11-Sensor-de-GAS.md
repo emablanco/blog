@@ -290,6 +290,8 @@ La concentración inmediatamente peligrosa para la vida y la salud (IDLH) que re
 
 ++Gases inflamables:++ se encienden fácilmente y se queman rápidamente. Es el caso del Cloruro de Metilo, Gas Licuado de Petróleo, Acetileno e Hidrógeno. 
 
+[LEER BUTANO](http://www.ilo.org/dyn/icsc/showcard.display?p_card_id=0232&p_version=2&p_lang=es)
+[LEER PPM](https://www.tgs.com.ar/files//files/tgs_16c247e4a94.pdf)
 ## PROYECTO ESP32
 
 ### INSTALAR LIBRERIAS DE ARDUINOS
@@ -313,7 +315,6 @@ Placa ESP32:
 ESP32:
 
 ![](../assets/images/esp32-sensor/esp32.png)
-
 
 
 ### ERROR AL COMPILAR
@@ -868,6 +869,7 @@ Puede consultar en el video a continuación el resultado de ejecutar este códig
 * * *
 
 ### SENSOR DE MOVIMIENTO CON BOTONES
+
 ```bash
 template<class T> inline Print &operator <<(Print &obj, T arg) {
   obj.print(arg);
@@ -1121,6 +1123,10 @@ void usarAlarma() {
 }
 
 ```
+![](../assets/images/esp32-sensor/1.jpg)
+![](../assets/images/esp32-sensor/2.jpg)
+![](../assets/images/esp32-sensor/1.mp4)
+
 
 
 ### MEMORIA EEPROM
