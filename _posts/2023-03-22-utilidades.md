@@ -1,4 +1,4 @@
-[---](---.md)
+---
 layout: single
 title:  RANDOM
 excerpt: "Herramientas y pag utiles"
