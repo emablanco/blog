@@ -22,7 +22,6 @@ tags:
 
 Escriba una línea de comando para ver el texto de ayuda que coincide con cada argumento. 
 
-Esta pagina es para entender que es lo que hacen algunos scripts que se pueden encontrar en la red para resolver algunos problemas.
 
 [Explain Shell](https://explainshell.com/)
 
