@@ -1,4 +1,4 @@
----
+[---](---.md)
 layout: single
 title:  RANDOM
 excerpt: "Herramientas y pag utiles"
@@ -52,3 +52,45 @@ curl cht.sh/c++/while
 ```
 ![](../assets/images/comandos/cht.png)
 
+### VER VERSION DE COMPILADOR 
+
+```c++
+#include<iostream>
+using namespace std;
+int main() {
+    if (__cplusplus == 201703L)
+        std::cout << "C++17" << endl;
+    else if (__cplusplus == 201402L)
+        std::cout << "C++14" << endl;
+    else if (__cplusplus == 201103L)
+        std::cout << "C++11" << endl;
+    else if (__cplusplus == 199711L)
+        std::cout << "C++98" << endl;
+    else
+        std::cout << "pre-standard C++" << endl;
+
+    return 0;
+}
+```
+
+### ENVIAR MENSAJES BOT DE TELEGRAM
+```bash
+#!/bin/bash
+
+TOKEN="XXXXXXXXXXXXTOKENXXXXXXXXXXXXXXXXXXX"
+ID="----ID-----"
+MESSAGE=$1
+URL="https://api.telegram.org/bot$TOKEN/sendMessage"
+
+curl -s -X POST $URL -d chat_id=$ID -d text="$MESSAGE"
+
+
+```
+
+* Ejecutando el script junto con un mensaje, eso se enviara a telegram.
+
+```bash
+
+./bash.sh "Esto es una prueba";
+
+```
