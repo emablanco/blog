@@ -9,9 +9,9 @@ dispositivos."
 date: 2022-06-23
 classes: wide
 header:
-  teaser: /assets/images/vpn/logo-docker-wireguard-pihole.png
+  teaser: ../assets/images/vpn/logo-docker-wireguard-pihole.png
   teaser_home_page: true
-  icon: /assets/images/logofairy.png
+  icon: ../assets/images/logofairy.png
 
 categories:
   - Servidor VPN

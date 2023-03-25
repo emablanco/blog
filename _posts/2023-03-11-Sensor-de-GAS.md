@@ -11,11 +11,11 @@ classes: wide
 
 header:
 
-    teaser: /assets/images/esp32-sensor/esp32.jpg
+    teaser: ../assets/images/esp32-sensor/esp32.jpg
 
     teaser_home_page: true
     
-    icon: /assets/images/logofairy.png
+    icon: ../assets/images/logofairy.png
 
 categories:
 

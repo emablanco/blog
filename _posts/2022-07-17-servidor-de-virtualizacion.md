@@ -16,11 +16,11 @@ classes: wide
 
 header:
 
-    teaser: /assets/images/debian.png
+    teaser: ../assets/images/debian.png
 
     teaser_home_page: true
     
-    icon: /assets/images/logofairy.png
+    icon: ../assets/images/logofairy.png
 
 categories:
 

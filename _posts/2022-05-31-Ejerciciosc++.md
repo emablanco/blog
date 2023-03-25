@@ -21,9 +21,9 @@ un mensaje alusivo."
 date: 2022-05-29
 classes: wide
 header:
-  teaser: /assets/images/EjerciciosC++/c++.png
+  teaser: ../assets/images/EjerciciosC++/c++.png
   teaser_home_page: true
-  icon: /assets/images/logofairy.png
+  icon: ../assets/images/logofairy.png
 categories:
   - Fundamentos de programacion
 tags:  

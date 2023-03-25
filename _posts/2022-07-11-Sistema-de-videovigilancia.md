@@ -7,9 +7,9 @@ Los Sistemas de Vigilancia permiten comprobar desde otra ubicación, el funciona
 date: 2022-07-11
 classes: wide
 header:
-  teaser: /assets/images/motioneye/logo.png
+  teaser: ../assets/images/motioneye/logo.png
   teaser_home_page: true
-  icon: /assets/images/logofairy.png
+  icon: ../assets/images/logofairy.png
 categories:
   - Seguridad
   - Sistemas de Video Vigilancia

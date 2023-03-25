@@ -6,9 +6,9 @@ Casi todos los sistemas operativos de PC de Escritorios, portátiles, tablets y 
 date: 2022-05-19
 classes: wide
 header:
-  teaser: /assets/images/rubber/ducky.webp
+  teaser: ../assets/images/rubber/ducky.webp
   teaser_home_page: true
-  icon: /assets/images/logofairy.png
+  icon: ../assets/images/logofairy.png
 categories:
   - Arduino
 tags:  

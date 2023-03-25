@@ -6,9 +6,9 @@ excerpt: "Herramientas y pag utiles"
 date: 2023-03-22
 classes: wide
 header:
-    teaser: /assets/images/comandos/logo.jpg
+    teaser: ../assets/images/comandos/logo.jpg
     teaser_home_page: true
-    icon: /assets/images/logofairy.png
+    icon: ../assets/images/logofairy.png
 categories:
     - Debian
 tags:  

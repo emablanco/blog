@@ -15,11 +15,11 @@ classes: wide
 
 header:
 
-    teaser: /assets/images/scanHost/bash-python.jpg
+    teaser: ../assets/images/scanHost/bash-python.jpg
 
     teaser_home_page: true
     
-    icon: /assets/images/logofairy.png
+    icon: ../assets/images/logofairy.png
 
 categories:
 

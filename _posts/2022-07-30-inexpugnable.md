@@ -19,11 +19,11 @@ classes: wide
 
 header:
 
-    teaser: /assets/images/seguro/logo.png
+    teaser: ../assets/images/seguro/logo.png
 
     teaser_home_page: true
     
-    icon: /assets/images/logofairy.png
+    icon: ../assets/images/logofairy.png
 
 categories:
 

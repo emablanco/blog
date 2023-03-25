@@ -18,9 +18,9 @@ cómo buscar un elemento en una lista."
 date: 2022-06-12
 classes: wide
 header:
-  teaser: /assets/images/EjerciciosC++/c++.jpg
+  teaser: ../assets/images/EjerciciosC++/c++.jpg
   teaser_home_page: true
-  icon: /assets/images/logofairy.png
+  icon: ../assets/images/logofairy.png
 categories:
   - Punteros C++
 tags:  

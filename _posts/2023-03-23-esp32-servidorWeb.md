@@ -6,9 +6,9 @@ excerpt: "En ocasiones es muy práctico publicar el resultado de unos sensores e
 date: 2023-03-23
 classes: wide
 header:
-    teaser: /assets/images/esp32-web/logo.jpg
+    teaser: ../assets/images/esp32-web/logo.jpg
     teaser_home_page: true
-    icon: /assets/images/logofairy.png
+    icon: ../assets/images/logofairy.png
 categories:
     - Debian
 tags:  

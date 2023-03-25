@@ -11,9 +11,9 @@ forma que los gusanos o los virus."
 date: 2022-05-29
 classes: wide
 header:
-  teaser: /assets/images/bomba/bomba.jpg
+  teaser: ../assets/images/bomba/bomba.jpg
   teaser_home_page: true
-  icon: /assets/images/logofairy.png
+  icon: ../assets/images/logofairy.png
 categories:
   - Denegacion de servicio
 tags:  

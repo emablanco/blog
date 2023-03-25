@@ -7,9 +7,9 @@ Dado que el servidor WEB sera accesible desde internet por cualquier persona, se
 date: 2022-05-19
 classes: wide
 header:
-  teaser: /assets/images/servidorWeb/logo.png
+  teaser: ../assets/images/servidorWeb/logo.png
   teaser_home_page: true
-  icon: /assets/images/logofairy.png
+  icon: ../assets/images/logofairy.png
 categories:
   - web
 tags:  
