@@ -35,7 +35,7 @@ tags:
 - Servidor de Virtualización
 ---
 
-![](/assets/images/kvm/kvm.png)
+![](../assets/images/kvm/kvm.png)
 
 ## Introducción
 
@@ -155,7 +155,7 @@ virt-manager
 ```
 Listo, ahora se puede administrar el servidor de virtualización de forma grafica:
 
-![](/assets/images/kvm/1.png)
+![](../assets/images/kvm/1.png)
 
 - [Wikipedir](https://en.wikipedia.org/wiki/Libvirt)
 - [KVM y QEMU](https://galvarado.com.mx/post/kvmqemu)

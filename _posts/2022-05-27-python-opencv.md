@@ -36,7 +36,7 @@ tags:
 - opencv
 ---
 
-![](/assets/images/opencv/Kursus-Python-OpenCV.jpg)
+![](../assets/images/opencv/Kursus-Python-OpenCV.jpg)
 
 **¿Qué es opencv?**
 

@@ -27,7 +27,7 @@ tags:
   - c++
 ---
 
-![](/assets/images/EjerciciosC++/ListasSimplementeEnlazadas.jpg)
+![](../assets/images/EjerciciosC++/ListasSimplementeEnlazadas.jpg)
 
 
 

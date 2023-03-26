@@ -37,7 +37,7 @@ tags:
 - Nextcloud
 ---
 
-![](/assets/images/nextcloud/nextcloud3.png)
+![](../assets/images/nextcloud/nextcloud3.png)
 
 ## Instalación
 
@@ -170,7 +170,7 @@ a2enmod mime
 
 ## Nextcloud
 
-![](/assets/images/nextcloud/nextcloud1.png)
+![](../assets/images/nextcloud/nextcloud1.png)
 
 ## SSL
 
@@ -204,7 +204,7 @@ systemctl restart apache2
 
 ```
 
-![](/assets/images/nextcloud/nextcloud2.png)
+![](../assets/images/nextcloud/nextcloud2.png)
 
 
 [CertBot](https://certbot.eff.org/instructions?ws=apache&os=debianbuster)

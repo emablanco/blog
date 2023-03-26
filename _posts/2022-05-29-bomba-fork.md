@@ -21,7 +21,7 @@ tags:
   - bash
 ---
 
-![](/assets/images/bomba/fork.jpg)
+![](../assets/images/bomba/fork.jpg)
 
 
 Una bomba fork funciona creando una gran cantidad de procesos muy rápidamente 
@@ -44,7 +44,7 @@ el procesador.
 Para utilizar la funcion fork en C o C++ se debe incluir la libreria <unistd.h>
 
 
-![](/assets/images/bomba/c++.png)
+![](../assets/images/bomba/c++.png)
 
 ```c++
 
@@ -73,7 +73,7 @@ bomba_fork() { bomba_fork|bomba_fork & }; bomba_fork
 
 ```
 
-![](/assets/images/bomba/bash.png)
+![](../assets/images/bomba/bash.png)
 
 
 ## Forma mas simplificada
@@ -97,4 +97,4 @@ Para realizar esta configuración solo se debe editar el archivo
 «/etc/security/limits.conf». Donde se debe definir la cantidad de procesos que 
 se le permitirá ejecutar a cada usuario del sistema.
 
-![](/assets/images/bomba/security.png)
+![](../assets/images/bomba/security.png)

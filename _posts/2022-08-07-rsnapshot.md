@@ -35,7 +35,7 @@ tags:
 ---
 
 
-![](/assets/images/rsnapshot//wallpapers.png)
+![](../assets/images/rsnapshot//wallpapers.png)
 
 Rsnapshot crea Backup de manera automática a través de rsync, tanto en máquinas locales como remotas, a través de ssh. Rsnapshot utiliza enlaces duros para la realización de las copia, siempre que sea posible, ahorrando espacio en el disco.
 

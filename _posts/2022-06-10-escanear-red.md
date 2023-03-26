@@ -31,7 +31,7 @@ tags:
 - ScanHost
 ---
 
-![](/assets/images/scanHost/python.jpg)
+![](../assets/images/scanHost/python.jpg)
 
 **¿Qué es el TTL?**
 

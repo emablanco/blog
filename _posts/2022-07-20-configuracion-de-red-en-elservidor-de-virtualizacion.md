@@ -34,7 +34,7 @@ tags:
 - Configuracón de Red
 ---
 
-![](/assets/images/red/red.png)
+![](../assets/images/red/red.png)
 
 ## Iproute2
 
@@ -233,4 +233,4 @@ mi gusto lo ejecutare desde **crontab**.
 
 El servidor virtualizacion emulara tres deres virtuales y los equipos de cada red.
 
-![](/assets/images/red/diagrama-red.png)
+![](../assets/images/red/diagrama-red.png)

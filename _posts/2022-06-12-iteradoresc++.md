@@ -19,7 +19,7 @@ tags:
   - c++
 ---
 
-![](/assets/images/EjerciciosC++/iterador.png)
+![](../assets/images/EjerciciosC++/iterador.png)
 
 Una forma de recorrerlos los vectores, mapas y conjuntos sin preocuparnos por
 los índices o los elementos que contengan, es mediante el uso de iteradores.

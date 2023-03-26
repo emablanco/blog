@@ -30,7 +30,7 @@ tags:
   - c++
 ---
 
-![](/assets/images/EjerciciosC++/Ejercicio1.png )
+![](../assets/images/EjerciciosC++/Ejercicio1.png )
 
 ## Ejercicio 1  
 

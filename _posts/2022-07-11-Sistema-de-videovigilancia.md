@@ -130,7 +130,7 @@ services:
 Una vez que se haya implementado, para acceder a **Motioneye** 
 http://your-server-address:8765. Las credenciales predeterminadas son:
 
-![](/assets/images/motioneye/motioneye.png)
+![](../assets/images/motioneye/motioneye.png)
 
 * Username: admin
 

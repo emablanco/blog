@@ -39,7 +39,7 @@ tags:
 ---
 
 
-![](/assets/images/inexpugnable/wallpapers.png)
+![](../assets/images/inexpugnable/wallpapers.png)
 
 Si la información que almacenas en tu servidor es importante y deseas que en caso de robo, secuestro, extravío, auditoría policial, etc. Les sea imposible de acceder a tu información , sigue esta guía de buenas practicas para crear un servidor que no solo cifra los disco duros, sino que los cifra sobre arreglos.
 Cifrar sobre arreglos significa que se puede optar por conservar la información con tolerancia a fallo o destrucción al mas mínimo toque.
@@ -70,97 +70,97 @@ Es necesario que se creen dos particiones, una para el directorio **BOOT**, dond
 
 Luego, los demás discos se deben particionar y en la opción de "Sistema de Archivo" se debe seleccionar **RAID**.
    
-![](/assets/images/inexpugnable/3.png)
+![](../assets/images/inexpugnable/3.png)
 
 En esta parte se debe elegir que tipo de **RAID** se usara. Como asumo que la información que se almacenara sera información legal, el **RAID** que usare sera uno con tolerancia a fallos.
 
-![](/assets/images/inexpugnable/4.png)
+![](../assets/images/inexpugnable/4.png)
 
 Seleccionar **RAID 5**.
 
-![](/assets/images/inexpugnable/5.png)
+![](../assets/images/inexpugnable/5.png)
 
 Marcar los discos que conformaran el **RAID**.
 
-![](/assets/images/inexpugnable/6.png)
+![](../assets/images/inexpugnable/6.png)
 
 Terminar Proceso.
 
-![](/assets/images/inexpugnable/7.png)
+![](../assets/images/inexpugnable/7.png)
 
 Volumen **RAID** creado.
 
-![](/assets/images/inexpugnable/8.png)
+![](../assets/images/inexpugnable/8.png)
 
 Preparando el Volumen para el Cifrado.
 
-![](/assets/images/inexpugnable/9.png)
+![](../assets/images/inexpugnable/9.png)
 
 Finalizar.
 
-![](/assets/images/inexpugnable/10.png)
+![](../assets/images/inexpugnable/10.png)
 
 Configurar el Cifrado.
 
-![](/assets/images/inexpugnable/11.png)
+![](../assets/images/inexpugnable/11.png)
 
 Crear volumen cifrado.
  
-![](/assets/images/inexpugnable/12.png)
+![](../assets/images/inexpugnable/12.png)
 
 Seleccionar volumen **RAID**.
 
-![](/assets/images/inexpugnable/13.png)
+![](../assets/images/inexpugnable/13.png)
 
 Eliminando toda la información del Volumen **RAID**.
 
-![](/assets/images/inexpugnable/14.png)
+![](../assets/images/inexpugnable/14.png)
 
 Ingresar pasword.
 
-![](/assets/images/inexpugnable/15.png)
+![](../assets/images/inexpugnable/15.png)
 
 Ahora, al volumen cifrado hay que decirle que sera un **LVM**.
 
-![](/assets/images/inexpugnable/16.png)
+![](../assets/images/inexpugnable/16.png)
 
 Configurar **LVM**.
 
-![](/assets/images/inexpugnable/17.png)
+![](../assets/images/inexpugnable/17.png)
 
 Crear Volúmenes. 
 
 Como de costumbre solo creo el volumen de **RAIZ**, luego que finaliza la instalación me dedico a crear los volúmenes para los directorios que creo que deben estar separados y con sus configuraciones correspondientes.
 
-![](/assets/images/inexpugnable/19.png)
+![](../assets/images/inexpugnable/19.png)
 
 Instalación del Sistema Base.
 
-![](/assets/images/inexpugnable/20.png)
+![](../assets/images/inexpugnable/20.png)
 
 Un servidor no necesita entorno grafico, por eso solo seleccionare que instale las utilerías del sistema y el servicio **SSH** para poder conectarme remotamente.
 
-![](/assets/images/inexpugnable/21.png)
+![](../assets/images/inexpugnable/21.png)
 
 Continuar, para reiniciar el sistema.
 
-![](/assets/images/inexpugnable/22.png)
+![](../assets/images/inexpugnable/22.png)
 
 Como se observa, luego que finaliza la carga del **GRUB** el sistema solicita un password para poder continuar. Este password es el ingresado en la configuración del cifrado del volumen **RAID**, si no se coloca el password los discos duros quedan inutilizados. 
 
-![](/assets/images/inexpugnable/23.png)
+![](../assets/images/inexpugnable/23.png)
 
 Una vez que coloco el password correcto se inicia el sistema operativo y se sincronizan los discos duros del **RAID**.
  
-![](/assets/images/inexpugnable/24.png)
+![](../assets/images/inexpugnable/24.png)
 
 Configuración de los discos duros.
 
-![](/assets/images/inexpugnable/25.png)
+![](../assets/images/inexpugnable/25.png)
 
 Información de los sistemas de archivos en el servidor. 
 
-![](/assets/images/inexpugnable/26.png)
+![](../assets/images/inexpugnable/26.png)
 
 
 ## Conclusión
