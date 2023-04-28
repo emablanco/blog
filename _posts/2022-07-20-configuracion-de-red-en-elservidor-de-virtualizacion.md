@@ -36,6 +36,20 @@ tags:
 
 ![](../assets/images/red/red.png)
 
+## HABILITAR IP-FORWARDING
+
+Para permitir que los paquetes pasen por medio de las interfaces virtuales.
+
+- _/etc/sysctl.conf_
+
+
+```bash
+
+# Uncomment the next line to enable packet forwarding for IPv4
+net.ipv4.ip_forward=1
+
+```
+
 ## Iproute2
 
 La herramienta **IP** es la herramienta principal de **iproute2**, con ella
