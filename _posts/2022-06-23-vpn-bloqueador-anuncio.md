@@ -1,10 +1,7 @@
 ---
 layout: single
 title: VPN con Bloqueador de anuncios
-excerpt: "**PIHOLE** 
-es un bloqueador de anuncios que cubre toda la red y la protege de los anuncios 
-y de rastreadores, evitando que se tenga que realizar configuraciones en cada
-dispositivos."
+excerpt: "**PIHOLE** es un bloqueador de anuncios que cubre toda la red y la protege de los anuncios y de rastreadores, evitando que se tenga que realizar configuraciones en cada dispositivos."
 
 date: 2022-06-23
 classes: wide

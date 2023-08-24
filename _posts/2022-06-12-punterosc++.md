@@ -3,17 +3,12 @@ layout: single
 title: Punteros C++
 excerpt: "**Listas Enlazadas ->**
 
-Las listas enlazadas mediante punteros permiten un manejo de memoria a bajo nivel.
-Al trabajar con punteros, es fundamental conocer las diferencias entre memoria stack
-y memoria heap.
-Las listas enlazadas son las más sencillas para comenzar con el tema. De ellas 
-se derivan luego otras estructuras con punteros, como las listas doblemente enlazadas, 
+Las listas enlazadas mediante punteros permiten un manejo de memoria a bajo nivel. Al trabajar con punteros, es fundamental conocer las diferencias entre memoria stack y memoria heap.
+Las listas enlazadas son las más sencillas para comenzar con el tema. De ellas se derivan luego otras estructuras con punteros, como las listas doblemente enlazadas, 
 listas circulares, los grafos, y los árboles.
 
-Mediante este ejemplo se puede entender como funciona la memoria a bajo nivel,
-qué son los nodos, cómo se crean y cómo se accede a los datos de un nodo, 
-cómo almacenar datos en una lista, cómo definir una lista , cómo recorrer una lista,
-cómo buscar un elemento en una lista."
+Mediante este ejemplo se puede entender como funciona la memoria a bajo nivel, qué son los nodos, cómo se crean y cómo se accede a los datos de un nodo, 
+cómo almacenar datos en una lista, cómo definir una lista , cómo recorrer una lista, cómo buscar un elemento en una lista."
 
 date: 2022-06-12
 classes: wide

@@ -8,9 +8,7 @@ empresa, sean secretos industriales, información de clientes, etc. Cualquier me
 
 En este caso explicare como crear un Servidor con RAID, LVM y Cifrado AES. Esto permitirá que toda la información secreta que se almacene, a la cual nadie debe tener acceso, se mantenga segura con tan solo un reboot. 
 
-
-Acá no hace falta destruir los discos duros o borrar la información con todo el tiempo que eso conlleva, solo basta con apagar el equipo y nadie que no tenga la contraseña del RAID podrá acceder al sistema.
-"
+Acá no hace falta destruir los discos duros o borrar la información con todo el tiempo que eso conlleva, solo basta con apagar el equipo y nadie que no tenga la contraseña del RAID podrá acceder al sistema."
 
 
 date: 2022-07-30

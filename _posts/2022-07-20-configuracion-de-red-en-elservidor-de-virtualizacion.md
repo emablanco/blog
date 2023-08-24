@@ -5,8 +5,7 @@ title: Configuración de red - Servidor QEMU/KVM
 
 excerpt: "**La configuración de red**
 
-consistira en crear tres interfaces virtuales (dmz,lan1,lan2) para gentionar los diferentes servicios.
-y las redes de mi laboratorio."
+consistira en crear tres interfaces virtuales (dmz,lan1,lan2) para gentionar los diferentes servicios."
 
 date: 2022-07-20
 
