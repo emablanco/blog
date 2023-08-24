@@ -2,7 +2,6 @@
 layout: single
 title: Sistema de Vigilancia Casero.
 excerpt: "**¿Qué es un Sistema de Videovigilancia?**
-
 Los Sistemas de Vigilancia permiten comprobar desde otra ubicación, el funcionamiento o el estado de un lugar"
 date: 2022-07-11
 classes: wide

@@ -3,6 +3,7 @@ layout: single
 title: Arduino - Rubber Ducky 
 excerpt: "**¿Qué es USB Rubber Ducky?**
 Casi todos los sistemas operativos de PC de Escritorios, portátiles, tablets y smartphones permiten la comunicación con el usuario a través de teclados USB. Es por eso que hay una especificación en el estándar USB conocida como HID (Human Interface Device). Esto permite que cualquier sistema operativo al se conecte el USB Rubber Ducky lo detectara y acepte automáticamente como si se hubiera conectado un teclado USB."
+
 date: 2022-05-19
 classes: wide
 header:
