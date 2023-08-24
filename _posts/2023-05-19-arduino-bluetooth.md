@@ -1,7 +1,9 @@
 ---
 layout: single
-title: Arduino 
-excerpt: "**Arduino utilizará un módulo Bluetooth para establecer una conexión inalámbrica con otro dispositivo, como un teléfono inteligente o una computadora. La conexión Bluetooth permitirá la comunicación bidireccional entre el Arduino y el dispositivo conectado.**"
+
+title: ARDUINO - BLUETOOTH
+
+excerpt: "**Arduino** utilizará un módulo Bluetooth para establecer una conexión inalámbrica con otro dispositivo, como un teléfono inteligente o una computadora. La conexión Bluetooth permitirá la comunicación bidireccional entre el Arduino y el dispositivo conectado."
 
 date: 2023-05-19
 classes: wide
@@ -11,12 +13,11 @@ header:
   icon: ../assets/images/logofairy.png
 categories:
   - Arduino
-  -bluetooth
+  - bluetooth
 tags:  
   - c++
   - ino
 ---
-
 ![](/assets/images/arduino/wallpapers.webp)
 
 Para no usar el el pin 0 y 1 (Rx, TX) utilizare la libreria **SoftwareSerial**.
