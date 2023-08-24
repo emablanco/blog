@@ -7,30 +7,20 @@ excerpt: "**Nextcloud**
 es Software Libre y permite crear un servidor de alojamiento de archivos. Esto ofrece la posibilidad de tener todos nuestros archivos centralizados y disponibles
 en cualquier lugar, y en todo momento. Además, es multiplataforma y cuenta con aplicaciones clientes para todos los dispositivos. Esto permite el trabajo desde
 un pc, celulares o tablets.
-
 Nextcloud cuanta con muchas funciones que lo hacen estar al mismo nivel que cualquier otro servicio de alojamiento de archivos en la nube."
+
 date: 2022-07-22
-
 classes: wide
-
 header:
-
     teaser: ../assets/images/nextcloud/logo1.png
-
     teaser_home_page: true
-    
     icon: ../assets/images/logofairy.png
-
 categories:
-
     - Debian
     - Nextcloud
     - dmz
-
-
 tags:  
-
-- Nextcloud
+    - Nextcloud
 ---
 
 ![](../assets/images/nextcloud/nextcloud3.png)

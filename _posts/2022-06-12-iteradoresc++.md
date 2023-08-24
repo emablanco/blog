@@ -2,8 +2,7 @@
 layout: single
 title: Iteradores C++
 excerpt: "**Recorrer Vectores, mapas o conjuntos**
-Una forma de recorrerlos los vectores, mapas y conjuntos sin preocuparnos por los índices o los elementos que contengan, es mediante el uso de iteradores.
-"
+Una forma de recorrerlos los vectores, mapas y conjuntos sin preocuparnos por los índices o los elementos que contengan, es mediante el uso de iteradores."
 
 date: 2022-06-19
 classes: wide

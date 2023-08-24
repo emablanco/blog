@@ -3,8 +3,7 @@ layout: single
 title: Linux - Bomba fork 
 excerpt: "**¿Qué es una bomba fork?**
 Una bomba fork es un tipo de ataque del tipo denegación de servicio sobre un computador implementando una operación fork o alguna otra funcionalidad 
-equivalente mediante la cual un proceso es capaz de autorreplicarse.
-La bomba fork es considerado un wabbit, ya que no se autorreplica de la misma forma que los gusanos o los virus."
+equivalente mediante la cual un proceso es capaz de autorreplicarse. La bomba fork es considerado un wabbit, ya que no se autorreplica de la misma forma que los gusanos o los virus."
 
 date: 2022-05-29
 classes: wide

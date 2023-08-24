@@ -5,35 +5,24 @@ title: Servidor Inexpugnable - GNU/Linux
 
 excerpt: "**Debido a la información sensible que maneja una** 
 empresa, sean secretos industriales, información de clientes, etc. Cualquier medida de seguridad que surja en torno a los mismos, es necesaria para poder garantizar la integridad y el buen funcionamiento. En este caso, cifrar los discos duros es una de las formas más adecuadas para protegerlos y que se encuentren seguros de cara a que terceros puedan acceder a ellos sin nuestro permiso y obtener información privilegiada.
-
 En este caso explicare como crear un Servidor con RAID, LVM y Cifrado AES. Esto permitirá que toda la información secreta que se almacene, a la cual nadie debe tener acceso, se mantenga segura con tan solo un reboot. 
-
 Acá no hace falta destruir los discos duros o borrar la información con todo el tiempo que eso conlleva, solo basta con apagar el equipo y nadie que no tenga la contraseña del RAID podrá acceder al sistema."
 
 
 date: 2022-07-30
-
 classes: wide
-
 header:
-
     teaser: ../assets/images/seguro/logo.png
-
     teaser_home_page: true
-    
     icon: ../assets/images/logofairy.png
-
 categories:
-
     - Inexpugnable
     - Linux
     - Raid
     - lvm
     - AES
-
 tags:  
-
-- Maquina Inexpugnable
+    - Maquina Inexpugnable
 ---
 
 

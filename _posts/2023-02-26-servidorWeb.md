@@ -1,9 +1,7 @@
 ---
 layout: single
 title: Servidor Web 
-excerpt: "**SERVIDOR SEGURO**
-Como esta practica esta orientada a colocar un servidor WEB (con acceso desde internet) en una red hogareña, es necesario proteger la red lan de cualquier intruso.
-Dado que el servidor WEB sera accesible desde internet por cualquier persona, se puede dar el caso de que se lo logre comprometer, permitiendo al atacante tener acceso total a los demás HOST  de la RED LOCAL. Para proteger la red es necesario colocar el servidor detrás de una DMZ (zona desmilitarizada)."
+excerpt: "**SERVIDOR SEGURO** Como esta practica esta orientada a colocar un servidor WEB (con acceso desde internet) en una red hogareña, es necesario proteger la red lan de cualquier intruso. Dado que el servidor WEB sera accesible desde internet por cualquier persona, se puede dar el caso de que se lo logre comprometer, permitiendo al atacante tener acceso total a los demás HOST  de la RED LOCAL. Para proteger la red es necesario colocar el servidor detrás de una DMZ (zona desmilitarizada)."
 
 date: 2022-05-19
 classes: wide

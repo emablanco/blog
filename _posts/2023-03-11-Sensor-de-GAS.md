@@ -6,26 +6,17 @@ title: ESP32 - SENSORES MQ
 excerpt: "**ESP32** es una familia de microcontroladores de la empresa Espressif Systems. Su analogía más clara es la de un ESP8266 con esteroides, que incluye Wifi, Bluetooth y otras potentes características extra. ESP32 es muy superior, en capacidades, a un Arduino UNO y a un ESP8266, pero eso no quiere decir que sea ideal para cualquier proyecto."
 
 date: 2023-03-12
-
 classes: wide
-
 header:
-
     teaser: ../assets/images/esp32-sensor/esp32.jpg
-
     teaser_home_page: true
-    
     icon: ../assets/images/logofairy.png
-
 categories:
-
     - Arduino
-
 tags:  
-
-- esp32 
-- Telegram
-- CTBot
+    - esp32 
+    - Telegram
+    - CTBot
 ---
 
 ![](../assets/images/esp32-sensor/wallpapers.jpg)

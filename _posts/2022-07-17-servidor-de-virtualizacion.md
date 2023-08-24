@@ -3,34 +3,21 @@ layout: single
 
 title: Creando mi Servidor de Virtualización - QEMU/KVM 
 
-excerpt: "**Un Servidor de Virtualización**
-
-es el proceso de dividir un servidor fícico en múltiples servidores virtuales y aislados por medio de una aplicación de software. Cada servidor virtual puede ejecutar sus propios sistemas operativos de manera independiente"
-
+excerpt: "**Un Servidor de Virtualización** es el proceso de dividir un servidor fícico en múltiples servidores virtuales y aislados por medio de una aplicación de software. Cada servidor virtual puede ejecutar sus propios sistemas operativos de manera independiente"
 
 date: 2022-07-17
-
 classes: wide
-
 header:
-
     teaser: ../assets/images/debian.png
-
     teaser_home_page: true
-    
     icon: ../assets/images/logofairy.png
-
 categories:
-
     - Debian
     - QEMU
     - KVM
     - libvirt
-
-
 tags:  
-
-- Servidor de Virtualización
+    - Servidor de Virtualización
 ---
 
 ![](../assets/images/kvm/kvm.png)
