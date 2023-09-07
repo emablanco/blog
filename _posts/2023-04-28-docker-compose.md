@@ -3,8 +3,7 @@ layout: single
 
 title: DOCKER - Servidor 
 
-excerpt: "**DOCKER** es una plataforma de virtualización a nivel de sistema operativo que permite crear, ejecutar y distribuir aplicaciones en contenedores, lo que facilita el desarrollo, la implementación y la ejecución de aplicaciones en cualquier entorno.
-"
+excerpt: "**DOCKER** es una plataforma de virtualización a nivel de sistema operativo que permite crear, ejecutar y distribuir aplicaciones en contenedores, lo que facilita el desarrollo, la implementación y la ejecución de aplicaciones en cualquier entorno."
 date: 2023-04-28
 
 classes: wide
