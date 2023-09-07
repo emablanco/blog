@@ -1,30 +1,27 @@
 ---
 layout: single
 title: Repositorio - Debian12 
+<<<<<<< HEAD
 excerpt: "**¿Qué es un repositorio?**
 un repositorio es un servicio en línea o un servidor que contiene un conjunto organizado de paquetes de software listos para ser instalados y utilizados en sistemas GNU/Linux. Estos repositorios contienen software, bibliotecas, controladores y otros componentes esenciales para el funcionamiento y la ampliación de un sistema operativo GNU/Linux."
+=======
+
+excerpt: "**¿Qué es un repositorio?** un repositorio es un servicio en línea o un servidor que contiene un conjunto organizado de paquetes de software listos para ser instalados y utilizados en sistemas GNU/Linux. Estos repositorios contienen software, bibliotecas, controladores y otros componentes esenciales para el funcionamiento y la ampliación de un sistema operativo GNU/Linux."
+>>>>>>> f0bba3d734b7f3a97c936a5a06a5bf3783f5c830
 
 date: 2023-08-5
 classes: wide
 header:
-
     teaser: ../assets/images/debian.png
-
     teaser_home_page: true
-    
     icon: ../assets/images/logofairy.png
-
 categories:
-
     - repositorio
     - debian12
     - GNU/Linux
-
 tags:  
-
-- repositorio
+    - repositorio
 ---
-
 ![](../assets/images/debian/debian-12f.jpg)
 
 **¿Qué es un repositorio?**

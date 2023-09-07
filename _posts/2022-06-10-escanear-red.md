@@ -4,31 +4,19 @@ layout: single
 title: Escanear Red Local  
 
 excerpt: "**ScanHost**
-
-Herramientas detectar todos los host en la red local. A diferencia de nmap 
-estas herramientas no hacen mucho ruido en la red, lo que evitaria que un IDS/IPS 
-aplicara de restriccion sobre nuestro host."
+Herramientas detectar todos los host en la red local. A diferencia de nmap estas herramientas no hacen mucho ruido en la red, lo que evitaria que un IDS/IPS aplicara de restriccion sobre nuestro host."
 
 date: 2022-06-10
-
 classes: wide
-
 header:
-
     teaser: ../assets/images/scanHost/bash-python.jpg
-
     teaser_home_page: true
-    
     icon: ../assets/images/logofairy.png
-
 categories:
-
     - python3
     - bash
-
 tags:  
-
-- ScanHost
+    - ScanHost
 ---
 
 ![](../assets/images/scanHost/python.jpg)

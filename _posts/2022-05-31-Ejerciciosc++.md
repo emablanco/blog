@@ -3,20 +3,14 @@ layout: single
 title: Fundamentos de Programacion C++
 excerpt: "**Ejercicios**
 
-Considere el struct atleta { string nombre; int numero, país; hh,mm,ss; } entre
-cuyos miembros se define el tiempo empleado en una prueba de ciclismo en la que competían 10
-países. En la prueba participaron 2 ciclistas por cada país.
-a) Escriba un programa C++ que lea los datos (nombre, número, código país (1..10), hh, mm, ss) de
-los 20 participantes de la prueba, y los organice en un vector. En el caso de que un competidor no
-haya finalizado la prueba, se ingresará el tiempo 0:0:0.
+Considere el struct atleta { string nombre; int numero, país; hh,mm,ss; } entre cuyos miembros se define el tiempo empleado en una prueba de ciclismo en la que competían 10 países. En la prueba participaron 2 ciclistas por cada país.
+
+a) Escriba un programa C++ que lea los datos (nombre, número, código país (1..10), hh, mm, ss) de los 20 participantes de la prueba, y los organice en un vector. En el caso de que un competidor no haya finalizado la prueba, se ingresará el tiempo 0:0:0.
+
 b) Escriba una función extraer_mejor que reciba el vector con los datos de todos los ciclistas,
 encuentre el de mejor tiempo entre ellos, lo elimine del vector, y lo retorne a la función main.
-c) Determine el país ganador, que será aquel que haya obtenido el mayor puntaje sumando los
-puntajes que lograron sus 2 participantes. La prueba otorga 20 puntos al ganador, 15 puntos al
-segundo, 11 puntos al tercero, 8 puntos al cuarto y 5 puntos al quinto. Utilice la función extraer_mejor
-5 veces para obtener los 5 primeros. Para el resto, se otorga 1 punto si el competidor finalizó la
-prueba y 0 si debió abandonar. En caso de empate entre dos o más países, solo debe informarlo con
-un mensaje alusivo."
+
+c) Determine el país ganador, que será aquel que haya obtenido el mayor puntaje sumando los puntajes que lograron sus 2 participantes. La prueba otorga 20 puntos al ganador, 15 puntos al segundo, 11 puntos al tercero, 8 puntos al cuarto y 5 puntos al quinto. Utilice la función extraer_mejor 5 veces para obtener los 5 primeros. Para el resto, se otorga 1 punto si el competidor finalizó la prueba y 0 si debió abandonar. En caso de empate entre dos o más países, solo debe informarlo con un mensaje alusivo."
 
 date: 2022-05-29
 classes: wide

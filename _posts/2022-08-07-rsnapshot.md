@@ -3,35 +3,22 @@ layout: single
 
 title: Servidor Backup - GNU/Linux
 
-excerpt: "**Rsnapshot**
-crea Backup de manera automática a través de rsync, tanto en máquinas locales como remotas, a través de ssh. Rsnapshot utiliza enlaces duros para la realización de las copia, siempre que sea posible, ahorrando espacio en el disco.
-
-La primera vez que se realiza una copia, se copian todos los datos, la segunda vez solo se copiaran aquellos ficheros nuevos, o los que hayan sido modificados.
-"
-
+excerpt: "**Rsnapshot** crea Backup de manera automática a través de rsync, tanto en máquinas locales como remotas, a través de ssh. Rsnapshot utiliza enlaces duros para la realización de las copia, siempre que sea posible, ahorrando espacio en el disco.
+La primera vez que se realiza una copia, se copian todos los datos, la segunda vez solo se copiaran aquellos ficheros nuevos, o los que hayan sido modificados."
 
 date: 2022-08-07
-
 classes: wide
-
 header:
-
     teaser: ../assets/images/rsnapshot/logo.png
-
     teaser_home_page: true
-    
     icon: ../assets/images/logofairy.png
-
 categories:
-
     - Backup
     - Linux
     - ssh
     - rsync
-
 tags:  
-
-- Servidor Backup
+    - Servidor Backup
 ---
 
 

@@ -3,35 +3,22 @@ layout: single
 
 title: Configuración de red - Servidor QEMU/KVM 
 
-excerpt: "**La configuración de red**
-
-consistira en crear tres interfaces virtuales (dmz,lan1,lan2) para gentionar los diferentes servicios.
-y las redes de mi laboratorio."
+excerpt: "**La configuración de red** consistira en crear tres interfaces virtuales (dmz,lan1,lan2) para gentionar los diferentes servicios."
 
 date: 2022-07-20
-
 classes: wide
-
 header:
-
     teaser: ../assets/images/debian.png
-
     teaser_home_page: true
-    
     icon: ../assets/images/logofairy.png
-
 categories:
-
     - Debian
     - ip
     - iptables
     - vlan
     - dmz
-
-
 tags:  
-
-- Configuracón de Red
+    - Configuracón de Red
 ---
 
 ![](../assets/images/red/red.png)
