@@ -1,9 +1,7 @@
 ---
 layout: single
-
 title: ARDUINO - BLUETOOTH
 excerpt: "**Arduino** utilizará un módulo Bluetooth para establecer una conexión inalámbrica con otro dispositivo, como un teléfono inteligente o una computadora. La conexión Bluetooth permitirá la comunicación bidireccional entre el Arduino y el dispositivo conectado."
-
 date: 2023-05-19
 classes: wide
 header:
