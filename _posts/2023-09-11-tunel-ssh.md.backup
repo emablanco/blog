@@ -1,0 +1,137 @@
+---
+layout: single
+
+title: TUNEL - SSH
+
+excerpt: "Hoy me he propuesto establecer un túnel SSH entre el firewall de mi hogar y un servidor VPS con el objetivo de configurar una conexión que funcione como una VPN. Planeo crear interfaces 'tun' y utilizar el cifrado AES para garantizar la seguridad de la comunicación. Las interfaces 'tun' funcionan como canales secretos que permiten la comunicación sin que terceros puedan interceptarla, y el cifrado AES añade una capa de seguridad robusta a la comunicación, asegurando que nadie pueda espiarla"
+
+date: 2023-09-11
+classes: wide
+header:
+    teaser: ../assets/images/ssh/tunel.png
+    teaser_home_page: true
+    icon: ../assets/images/logofairy.png
+categories:
+    - SSH
+    - VPN
+    - GNU/Linux
+tags:  
+    - TUNEL
+---
+<p align="center">
+  <img src="../assets/images/ssh/wallpapers.png">
+</p>
+
+## ¿Que es un Tunel SSH?
+
+Un túnel SSH (Secure Shell) es una tecnología de seguridad que permite crear una conexión segura entre dos puntos en una red, a través de la cual se pueden enviar datos de manera cifrada. Estos túneles se utilizan comúnmente para proteger la transmisión de datos confidenciales a través de redes no confiables, como Internet.
+
+El túnel SSH funciona utilizando el protocolo SSH para establecer una conexión segura entre un cliente y un servidor SSH. Esta conexión segura actúa como un canal seguro a través del cual se pueden enviar datos de manera cifrada. 
+
+Los túneles SSH se pueden utilizar para varios propósitos, incluyendo:
+
+1. **Acceso seguro a sistemas remotos:** Los túneles SSH permiten a los usuarios acceder de forma segura a sistemas remotos, como servidores, a través de una conexión cifrada. Esto es especialmente importante cuando se necesita administrar sistemas en entornos no confiables.
+
+1. **Transferencia de archivos segura:** Los túneles SSH se pueden utilizar para transferir archivos de manera segura entre dos sistemas, utilizando el protocolo SCP (Secure Copy) o SFTP (SSH File Transfer Protocol). Esto garantiza que los archivos transmitidos estén protegidos contra posibles ataques o interceptación.
+
+1. **Redirección de puertos:** Mediante la redirección de puertos SSH, es posible enviar el tráfico de un puerto local a un puerto remoto a través de un túnel SSH. Esto se utiliza para acceder a servicios en una red remota de manera segura, como el acceso a una base de datos en un servidor remoto.
+
+1. **Sorteo de restricciones de firewall:** Los túneles SSH pueden sortear restricciones de firewall al enrutar el tráfico a través de una conexión SSH segura. Esto puede ser útil para acceder a servicios bloqueados o restringidos en una red.
+
+
+## ¿Que planeo hacer?
+
+Hoy me he propuesto establecer un túnel SSH entre el firewall de mi hogar y un servidor VPS con el objetivo de configurar una conexión que funcione como una VPN. Planeo crear interfaces "tun" y utilizar el cifrado AES para garantizar la seguridad de la comunicación. Las interfaces "tun" funcionan como canales secretos que permiten la comunicación sin que terceros puedan interceptarla, y el cifrado AES añade una capa de seguridad robusta a la comunicación, asegurando que nadie pueda espiarla.
+
+## SSHD\_CONFIG
+
+antes de comenzar con la configuracion de red es necesario configurar ssh, el cual se encuentra en la ruta _**/etc/ssh/sshd_config**_
+
+Abrir el archivo de configuracion de ssh  y agregar la linea:  **PermitTunnel yes**
+![](../assets/images/ssh/sshd_config.png)
+
+Luego de la configuración es necesario reiniciar el servicio.
+
+```bash
+systemctl restart sshd
+
+```
+
+
+## TUNEL SSH
+
+
+### INTERFAZ VIRTUAL 
+
+
+Cuando se deseas unir dos redes remotas a través de Internet utilizando SSH, crear una interfaz virtual (como una interfaz TUN/TAP) se convierte en una parte integral de la configuración para establecer una conexión segura y privada entre las dos redes. Esta configuración se realiza generalmente para crear una VPN (Red Privada Virtual) utilizando SSH como método de acceso seguro.
+
+Por qué es común utilizar una interfaz virtual en esta situación:
+
+- **Cifrado y Privacidad:** Una interfaz virtual TUN/TAP se utiliza para encapsular el tráfico de red y cifrarlo antes de enviarlo a través de Internet. Esto asegura que los datos transmitidos entre las dos redes estén protegidos de miradas indiscretas y de posibles interceptaciones.
+
+- **Túnel VPN:** La interfaz virtual TUN/TAP actúa como un túnel VPN seguro a través del cual se enruta el tráfico entre las dos redes remotas. SSH se utiliza para establecer y gestionar este túnel VPN, lo que garantiza que la comunicación sea confidencial y segura.
+
+- **Enrutamiento de Red:** Una vez que se crea el túnel VPN a través de la interfaz virtual, puedes configurar el enrutamiento para permitir que las redes remotas se comuniquen entre sí como si estuvieran en la misma red local. Esto permite que los dispositivos de una red remota se comuniquen con los dispositivos de la otra red de manera segura y eficiente.
+
+- **Aislamiento y Control:** La interfaz virtual proporciona un nivel de aislamiento entre las dos redes, lo que significa que puedes controlar y gestionar la comunicación entre ellas de manera más precisa. Puedes aplicar políticas de seguridad específicas y segmentar el tráfico según sea necesario.
+
+- **Flexibilidad y Escalabilidad:** Utilizar una interfaz virtual para crear una VPN SSH ofrece flexibilidad para conectar redes remotas y escalar la solución según sea necesario. Puedes agregar más sitios remotos a la red VPN sin necesidad de modificar la infraestructura física.
+
+Una interfaz virtual TUN/TAP en combinación con SSH para unir dos redes remotas a través de Internet se utiliza para proporcionar un canal seguro de comunicación (VPN) que cifra y protege el tráfico entre las redes y permite un enrutamiento eficiente y controlado. Esto garantiza la confidencialidad y la seguridad de la comunicación entre las redes remotas a través de una red pública o no confiable, como Internet.
+
+
+### TUN/TAP (Tunnel Network Devices):
+
+Estos dispositivos virtuales se utilizan para crear túneles de red y permitir la comunicación segura a través de redes inseguras. TUN se utiliza para el enrutamiento de nivel de red, mientras que TAP se utiliza para el enrutamiento de nivel de interfaz Ethernet.
+
+Servidor:
+ip tuntap add mode tun tun0
+ip addr add 200.10.10.2/24 brd 200.10.10.255 dev tun0
+ip link set dev tun0 up
+
+Cliente:
+ip tuntap add mode tun tun0
+ip addr add 200.10.10.1/24 brd 200.10.10.255 dev tun0
+ip link set dev tun0 up
+
+
+
+### VPN Y TUNEL SSH 
+
+Una forma de ver la diferencia clave entre una VPN y un túnel SSH, es que una VPN es adecuada para proteger y conectar dos o más redes completas, mientras que un túnel SSH es más apropiado cuando deseas proteger la comunicación entre dos puntos finales específicos o servicios individuales.
+
+- VPN (Red Privada Virtual): Una VPN se utiliza para proteger y conectar dos o más redes completas, permitiendo la comunicación segura entre todos los dispositivos en esas redes. En esencia, crea una red privada virtual que abarca todas las redes conectadas a través de ella. Cada dispositivo en cualquiera de las redes puede comunicarse de manera segura con cualquier otro dispositivo en cualquiera de las redes. Esto es útil cuando deseas conectar redes completas y compartir recursos de manera segura entre ubicaciones geográficas separadas.
+
+- Túnel SSH: Un túnel SSH, por otro lado, se utiliza para proteger y conectar dos puntos finales (generalmente dispositivos individuales o servicios específicos) de manera segura a través de una red no confiable, como Internet. Establece una conexión segura entre estos dos puntos finales, lo que permite la comunicación segura solo entre esos dos puntos finales específicos. La protección se limita a las aplicaciones o servicios que se ejecutan a través del túnel SSH. Esto es útil cuando deseas proteger aplicaciones específicas o servicios sin necesidad de proteger toda una red.
+
+
+ssh -Nf -c aes256-ctr -w 0:0 root@emablanco.net
+
+
+### VPS GATEWAY
+
+Sí, cuando configuras un túnel SSH y defines el servidor remoto como la puerta de enlace predeterminada (default gateway), estás redirigiendo todo el tráfico de una red a través del túnel SSH y hacia el servidor remoto. En este escenario, todo el tráfico de la red se enruta por el túnel SSH y sale a Internet a través de la otra red (el servidor remoto).
+
+Esto se logra redirigiendo el tráfico de la red local a través del túnel SSH, lo que efectivamente cambia la ruta de red predeterminada de los dispositivos en la red local. Como resultado, todo el tráfico de Internet generado por los dispositivos de la red local se envía a través del servidor remoto y, desde allí, se dirige a Internet.
+
+Es importante tener en cuenta que esta configuración puede afectar significativamente el rendimiento de la conexión a Internet, especialmente si el servidor remoto no tiene un ancho de banda o una latencia adecuados. Además, asegúrate de que el servidor remoto esté configurado para enrutar adecuadamente el tráfico y tenga la capacidad de actuar como un enrutador para la red local.
+
+En resumen, al configurar un túnel SSH y definir el servidor remoto como la puerta de enlace predeterminada, puedes enrutar todo el tráfico de una red local a través del túnel SSH y hacia Internet a través de la otra red (el servidor remoto). Esto redirige todo el tráfico de la red local a través del túnel SSH.
+
+### TUNEL SSH A VPN
+
+Sí, cuando configuras un túnel SSH para enrutar todo el tráfico de una red local a través del servidor remoto, esencialmente estás creando una especie de VPN (Red Privada Virtual). La principal diferencia es que este enfoque utiliza SSH como el método para enrutar y cifrar el tráfico, en lugar de un protocolo de VPN dedicado.
+
+En resumen, al configurar un túnel SSH para enrutar todo el tráfico de red a través de un servidor remoto, estás logrando una funcionalidad similar a una VPN, ya que proporciona una conexión segura y cifrada entre la red local y el servidor remoto, y todo el tráfico se enruta a través de esta conexión segura. Sin embargo, se sigue utilizando SSH como el protocolo subyacente en lugar de un protocolo de VPN específico. Este enfoque es útil cuando deseas establecer una conexión segura y privada para todo el tráfico de red de la red local sin necesidad de configurar una VPN dedicada.
+
+
+1.  hacer 
+	- /usr/sbin/iptables -A INPUT -i tun0  -p tcp --dport 2222 -j ACCEPT
+    - /usr/sbin/iptables -A FORWARD -i tun0 -o br0 -p tcp --dport 80 -j ACCEPT
+	- /usr/sbin/iptables -A FORWARD -i tun0 -o br0 -p tcp --dport 443 -j ACCEPT
+	- /usr/sbin/iptables -A FORWARD -i tun0 -o br0 -p tcp --dport 53 -j ACCEPT
+	- /usr/sbin/iptables -A FORWARD -i tun0 -o br0 -p udp --dport 53 -j ACCEPT
+	
+funciona perfecto. listo!!!!
+
