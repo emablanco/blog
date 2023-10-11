@@ -86,7 +86,7 @@ curl -s -X POST $URL -d chat_id=$ID -d text="$MESSAGE"
 
 ```
 
-* Ejecutando el script junto con un mensaje, eso se enviara a telegram.
+* Ejecutando el script junto con un mensaje.
 
 ```bash
 
@@ -96,7 +96,7 @@ curl -s -X POST $URL -d chat_id=$ID -d text="$MESSAGE"
 
 ### DRIVER LINUX
 
-Instalé Linux Mint en una netbook y me encontré con el problema de que el Wi-Fi no funcionaba. Para solucionar el problema, primero verifiqué que el hardware se detectara con:
+Instalé Linux Mint en una netbook y me encontré con el problema de que el Wi-Fi no funcionaba. Para solucionar el problema primero verifiqué que el hardware se detectara con:
 
 ```bash 
 lspci
@@ -105,15 +105,11 @@ lspci
 
 ![](../assets/images/comandos/lspci-hugo.png)
 
-Como se puede ver en la imagen, la tarjeta inalámbrica es una Broadcom BCM4312. Para instalar el controlador correspondiente, se deben seguir los siguientes pasos.
+Como se puede ver en la imagen, la tarjeta inalámbrica es una Broadcom BCM4312. Para instalar el controlador correspondiente se deben seguir los siguientes pasos.
 
 - Paso 1: Conectar a una red cableada (Ethernet)
 
-Antes de comenzar, es útil tener acceso a una conexión a Internet con cable (Ethernet) para descargar los controladores y las actualizaciones necesarias.
-
 - Paso 2: Actualizar el sistema
-
-Abre una terminal en Linux Mint y ejecuta los siguientes comandos uno por uno para actualizar el sistema y asegurarte de tener la última información sobre paquetes disponibles:
 
 ```bash
 sudo apt update
@@ -121,29 +117,18 @@ sudo apt upgrade
 ```
 - Paso 3: Instalar el controlador
 
-Para instalar el controlador para el chip Broadcom BCM4312, puedes usar el paquete bcmwl-kernel-source, que es compatible con este tipo de hardware. Ejecuta el siguiente comando:
-
-
 ```bash
 sudo apt install bcmwl-kernel-source
 
 ```
-Cuando se te solicite, confirma la instalación. Este comando descargará e instalará el controlador necesario.
-
 Paso 4: Cargar el controlador
 
-Después de instalar el controlador, debes asegurarte de que esté cargado correctamente. Ejecuta el siguiente comando:
 
 ```bash
 sudo modprobe wl
 
 ```
-Este comando debe cargar el controlador en el kernel.
-
 Paso 5: Reiniciar
-
-Es posible que necesites reiniciar tu computadora para que los cambios surtan efecto. Después del reinicio, deberías poder conectarte a redes Wi-Fi utilizando el chip BCM4312.
-
 
 
 ### BUENA PRACTICA
