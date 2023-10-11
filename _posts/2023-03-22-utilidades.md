@@ -148,8 +148,7 @@ Es posible que necesites reiniciar tu computadora para que los cambios surtan ef
 
 ### BUENA PRACTICA
 
-Creo un servicio que ejecutara un script en todos los arranques del sistema.
-Dentro del script se pueden colocar todas las configuraciones que se desan hacer.
+Creo un servicio que va a ejecutar un script en todos los arranques del sistema.
 ```bash 
 
 cat > /etc/systemd/system/servicio_ema.service << EOF
