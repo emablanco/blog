@@ -144,3 +144,51 @@ Paso 5: Reiniciar
 
 Es posible que necesites reiniciar tu computadora para que los cambios surtan efecto. Después del reinicio, deberías poder conectarte a redes Wi-Fi utilizando el chip BCM4312.
 
+
+
+### BUENA PRACTICA
+
+Creo un servicio que ejecutara un script en todos los arranques del sistema.
+Dentro del script se pueden colocar todas las configuraciones que se desan hacer.
+```bash 
+
+cat > /etc/systemd/system/servicio_ema.service << EOF
+
+[Unit]
+
+Description=Servicio de Ema 
+
+[Service]
+Type=oneshot
+ExecStart=/bin/script.sh
+RemainAfterExit=yes
+[Install]
+WantedBy=multi-user.target
+
+EOF
+
+systemctl enable servicio_ema 
+
+cat > /bin/script.sh << EOF 
+
+#! /bin/bash 
+
+sed -i 's/^#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
+
+EOF
+
+chmod +x /bin/script.sh
+
+```
+
+
+- **Type=oneshot:** El servicio solo se ejecuta una vez. 
+- **ExecStart=/bin/script.sh:** Ejecuta un script .
+- **RemainAfterExit=yes:** El servicio sigue activo aun cuando el script ya finalizo.
+- **WantedBy=multi-user.target:** Se ejecuta cuando el sistema esta listo para ofrecer servicios
+
+
+- sed -i 's/^#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf : edito el archivo **_/etc/sysctl.conf_** y busco la linea _#net.ipv4.ip_forward=1_, cuando la encuentro la reeplazo por net.ipv4.ip_forward=1 . 
+- - ^: Se usa para buscar la linea que comience con _#net.ipv4.ip_forward=1_
+
+
