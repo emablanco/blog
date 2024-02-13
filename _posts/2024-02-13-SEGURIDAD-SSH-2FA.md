@@ -24,13 +24,6 @@ tags:
 
 </p>
 
-## GOOGLE AUTHENTICATOR 
-
-
-
-
-
-
 ## ACTIVIDAD
 
 En este caso, lo que pretendo es configurar SSH con un segundo factor de autenticación. Para lograr esto, es necesario configurar PAM, que se utiliza para la autenticación de usuarios durante el inicio del sistema, así como para gestionar la sesión de diversas aplicaciones una vez que el usuario ha iniciado sesión.
