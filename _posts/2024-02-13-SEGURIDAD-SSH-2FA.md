@@ -13,16 +13,12 @@ categories:
     - Debian
     - SSH 
     - Google
-tags:  
+tags:
  - seguridad
  - 2fa
 ---
 
-<p style="text-align:center;">
-  
-  <img src="/assets/images/2fa/wallpaper.jpg" alt="Logo">
-
-</p>
+![](../assets/images/2fa/wallpapers.jpg)
 
 ## ACTIVIDAD
 
@@ -94,8 +90,8 @@ Una vez que se ingrese el código generado por Google Authenticator, se proporci
 - Se podran usar token anteriores para compenzar problemas de sincronizacion de hora.
 - 3 intentos maximos de sesion cada 30 segundos.
 
-### PRIMER LOGIN 
+## PRIMER LOGIN 
 
-Se solicita el password ssh y luego el codigo de autenticacion generado por **Google Authenticator**
+Se solicita el password ssh y luego el codigo de autenticacion generado por **Google Authenticator**.
 
 ![](../assets/images/2fa/login.png)
