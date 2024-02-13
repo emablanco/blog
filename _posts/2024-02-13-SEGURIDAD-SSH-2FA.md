@@ -29,7 +29,7 @@ Dado que PAM es modular, instalaré **libpam-google-authenticator**, que es un m
 
 ### CONFIGURACION
 
-1- Instalación de __libpam-google-authenticator__ 
+1. Instalación de __libpam-google-authenticator__ 
 
 ```bash
 sudo apt install libpam-google-authenticator
@@ -43,7 +43,7 @@ Finalizada la instalacion es necesario saber donde se encuentra el modulo:
 
 ![](../assets/images/2fa/locate.png)
 
-1- Confguración __/etc/pam.d/sshd__
+1. Confguración __/etc/pam.d/sshd__
 
 ```bash
 
@@ -54,7 +54,7 @@ auth required /usr/lib/x86_64-linux-gnu/security/pam_google_authenticator.so
 
 ![](../assets/images/2fa/pam-ssh.png)
 
-1- configuración __/etc/ssh/sshd_config__ 
+1. configuración __/etc/ssh/sshd_config__ 
 
 
 ```bash
@@ -69,7 +69,7 @@ systemctl restart sshd
 
 ```
 
-1- Configuración **google-authenticator**
+1. Configuración **google-authenticator**
 
 ```bash
 google-authenticator
