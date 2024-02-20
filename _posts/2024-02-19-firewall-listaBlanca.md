@@ -66,7 +66,7 @@ int main() {
   }
 
   if (!archivoIP || !archivoSegmento) {
-    std::cout << "No se pudieron crear los archivos de de IP y Segmento." << std::endl;
+    std::cout << "No se pudieron crear los archivos de de IP y Segmento.\n";
     return 1;
   }
 
