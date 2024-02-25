@@ -6,7 +6,7 @@ excerpt: "  "
 date: 2024-02-25
 classes: wide
 header:
-    teaser: ../assets/images/dhcp/logo.jpg
+    teaser: ../assets/images/dhcp/logo.png
     teaser_home_page: true
     icon: ../assets/images/logofairy.png
 categories:
@@ -17,7 +17,7 @@ tags:
  - administrar red
 ---
 
-![] (../assets/images/2fa/wallpapers.jpg)
+![](../assets/images/dhcp/wallpapers.jpg)
 
 ## SERVIDOR DHCP - CONFIGURACIÓN 
 
@@ -122,7 +122,7 @@ allow-hotplug enp1s0
 iface enp1s0 inet dhcp
 
 ```
-[] (../assets/images/dhcp/clientes-red.png)
+[](../assets/images/dhcp/clientes-red.png)
 
 
 
