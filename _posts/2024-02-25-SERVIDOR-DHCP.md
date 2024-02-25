@@ -146,6 +146,7 @@ Con esto se logra tener un servidor DHCP funcional.
 ### SERVIDOR DE VIRTUALIZACION
 
 - Crear interfaces virtuales
+
 ```bash
 
 #! /bin/bash
