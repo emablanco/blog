@@ -48,20 +48,20 @@ log-facility local1; # con rsyslog guardo los logo dentro de un archivo diferent
 #tiene mayor importancia los que se definan en local
 subnet 192.168.103.0 netmask 255.255.255.0 { #red1
     range 192.168.103.100 192.168.103.200;
-    option subnet-mask 255.255.255.0;     # Máscara de subred
+    option subnet-mask 255.255.255.0; 
     option routers 192.168.103.1;
     option domain-name-servers 8.8.8.8, 8.8.4.4, 1.1.1.1, 1.0.0.1;
     option domain-name "lan1.local";
-    default-lease-time 600;               # Tiempo de arrendamiento predeterminado
-    max-lease-time 7200;                  # Tiempo máximo de arrendamiento
+    default-lease-time 600;   
+    max-lease-time 7200;     
 }
 subnet 192.168.104.0 netmask 255.255.255.0 { #red 2
     range 192.168.104.100 192.168.104.200;
     option routers 192.168.104.1;
     option domain-name-servers 8.8.8.8, 8.8.4.4, 1.1.1.1, 1.0.0.1;
     option domain-name "lan2.local";
-    default-lease-time 600;               # Tiempo de arrendamiento predeterminado
-    max-lease-time 7200;                  # Tiempo máximo de arrendamiento
+    default-lease-time 600;    
+    max-lease-time 7200;        
 }
 # este equipo cuando se conecte a la red lan recibira una ip statica
 host pc1{
