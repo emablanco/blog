@@ -98,6 +98,8 @@ host pc1{
 [](../assets/images/dhcp/rsyslog.png)
 
 - Reiniciar los servicios:
+
+
 ```bash 
 systemctl restart isc-dhcp-server.service 
 systemctl restart rsyslog.service
