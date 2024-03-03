@@ -215,6 +215,14 @@ echo "Creacion de la interfaz DHCP finalizada"
 /usr/sbin/iptables -t nat -A POSTROUTING -s 192.168.104.0/24 -j MASQUERADE 
 
 ```
+- RESPUESTA A LAS COMUNICACIONES YA ESTABLECIDAS
+
+```bash
+/usr/sbin/iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+/usr/sbin/iptables -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+/usr/sbin/iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+```
 
 
 ### CLIENTES
@@ -263,4 +271,8 @@ ip link set dhcp2 up
 echo "Configuración Finalizada"
 
 ```
+
+## LECTURA
+
+[dhcp](https://www.fpgenred.es/DHCP/varlogsyslog.html)
 [](../assets/images/dhcp/server-dhcp.png)
