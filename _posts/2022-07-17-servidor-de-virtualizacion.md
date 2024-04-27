@@ -120,6 +120,19 @@ iface br0 inet static
 		bridge_ports eth1                                                       
 		up /usr/sbin/brctl std br0 on 
 
+
+```
+Script en bash
+
+
+```bash
+#! /bin/bash
+/usr/sbin/ip link add name br0 type bridge 
+/usr/sbin/ip addr del 192.168.1.15/24 dev eth1
+/usr/sbin/ip link set dev eth1 master br0 
+/usr/sbin/ip addr add 192.168.1.222 dev br0
+/usr/sbin/ip link set dev br0 up 
+
 ```
 
 ## Virt Manager
