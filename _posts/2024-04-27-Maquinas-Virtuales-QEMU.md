@@ -5,7 +5,7 @@ title: Maquinas Virtuales - Script - QEMU/KVM
 
 excerpt: "**Un Servidor de Virtualización** es el proceso de dividir un servidor fícico en múltiples servidores virtuales y aislados por medio de una aplicación de software. Cada servidor virtual puede ejecutar sus propios sistemas operativos de manera independiente"
 
-date: 2022-07-17
+date: 2024-04-28
 classes: wide
 header:
     teaser: ../assets/images/debian.png
